@@ -1,5 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="request_status.aspx.cs" Inherits="export.request_status" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <style>
+        .gd-border
+        { 
+
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
  <section class="page-section legal_service">
@@ -76,15 +83,7 @@
     <div id="collapse4" class="panel-collapse collapse in">
       <div class="panel-body">
             <div class="table-responsive">
-                 <asp:GridView ID="GridView1" runat="server" EnableModelValidation="True" CellPadding="4" ForeColor="#333333" GridLines="None">
-                     <AlternatingRowStyle BackColor="White" />
-                     <EditRowStyle BackColor="#7C6F57" />
-                     <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                     <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                     <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                     <RowStyle BackColor="#E3EAEB" />
-                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-                 </asp:GridView>
+                 
     
 
                 <asp:SqlDataSource ID="SqlDataSourceCredit" runat="server" ConnectionString="<%$ ConnectionStrings:gt_ConStr %>" SelectCommand="SELECT [CreditId], [Name], [ValueofConsignment], [Status], [TermsofDelivery] FROM [tblCredit]"></asp:SqlDataSource>
@@ -195,30 +194,32 @@
 </tr>
 </tbody>
 </table>
-            <span>
+           <asp:GridView ID="GridView1" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" 
+                     GridLines="None" 
+                      AutoGenerateColumns="False" DataSourceID="SqlDataSourceCredit" CssClass="talkid">
+                     <AlternatingRowStyle BackColor="White" />
+                     <Columns>
+                         <asp:BoundField DataField="CreditId" HeaderText="CreditId" SortExpression="CreditId" />
+                         <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                         <asp:BoundField DataField="ValueofConsignment" HeaderText="ValueofConsignment" SortExpression="ValueofConsignment" />                         
+                         <asp:BoundField DataField="TermsofDelivery" HeaderText="TermsofDelivery" SortExpression="TermsofDelivery" />
+                         <asp:TemplateField HeaderText="Status" SortExpression="Status">                           
+                             <ItemTemplate>
+                                 <asp:Label ID="Label1" runat="server" CssClass="btn btn-xs btn-info" Text='<%# Bind("Status") %>'></asp:Label>
+                             </ItemTemplate>
+                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText="View" >
+                          <ItemTemplate>
+                        <asp:Button ID="BtnSelect" CommandName="Select" runat="server" Text="View" CssClass="btn btn-primary btn-xs" />
+                    </ItemTemplate></asp:TemplateField>
+                     </Columns>
+                     
+                     <HeaderStyle CssClass="industryid" />
+                    
+                     <RowStyle HorizontalAlign="Center" CssClass="gd-border"  />
+                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                 </asp:GridView>
 
-
-
-    
-
-            <%--<asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False">
-        <AlternatingRowStyle BackColor="White" />
-        <Columns>
-            <asp:BoundField DataField="CreditId" HeaderText="CreditId" SortExpression="CreditId" />
-            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-            <asp:BoundField DataField="ValueofConsignment" HeaderText="ValueofConsignment" SortExpression="ValueofConsignment" />
-            <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
-            <asp:BoundField DataField="TermsofDelivery" HeaderText="TermsofDelivery" SortExpression="TermsofDelivery" />
-        </Columns>
-        <EditRowStyle BackColor="#7C6F57" />
-        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle CssClass="industryid" />
-        <PagerStyle  BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#E3EAEB" />
-        <SelectedRowStyle BackColor="#C5BBAF"  Font-Bold="True" ForeColor="#333333" />
-                </asp:GridView>--%>
-
-                </span>
           </div>
         
         </div>
