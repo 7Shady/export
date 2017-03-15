@@ -46,7 +46,7 @@ namespace export
             param1c.SqlDbType = SqlDbType.VarChar;
 
             int a;
-            a = int.Parse(gt_dal_obj.FunExecuteScalarSP("ust_login1", param1b, param1c).ToString());
+            a = int.Parse(gt_dal_obj.FunExecuteScalarSP("ust_login2", param1b, param1c).ToString());
 
             if (a > 0)
             {

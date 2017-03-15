@@ -2,8 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-   
-<section class="page-section legal_service">
+ <section class="page-section legal_service">
  <div class="registration">
 <div class="container">
  <div class="row">
@@ -24,12 +23,12 @@
 <p><b>Client ID:</b></p>
 </div>
 <div  class="col-lg-2 col-md-2 col-sm-3 col-xs-3 client_legal">
-<p>CL/001</p>
+<p><asp:Label ID="LabelClientId" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 full_name">
 <p>Client Name:</p></div>
 <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 client_legal">
-<p>Pankaj Rana</p>
+<p><asp:Label ID="LabelName" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 </div>
     </div>
@@ -77,36 +76,11 @@
     <div id="collapse4" class="panel-collapse collapse in">
       <div class="panel-body">
             <div class="table-responsive">
-        <table cellspacing="0" cellpadding="4" rules="rows" class="talkid">
-<tbody>
-    <tr align="center" class="industryid">
-<th align="center" scope="col">#</th>
-<th align="center" scope="col">TalkID</th>
-<th align="center" scope="col">Industry</th>
-<th align="center" scope="col">Function Area</th>
-<th align="center" scope="col">Timeframe of query resolution</th>
-<th align="center" scope="col">Status</th>
-<th align="center" scope="col">View</th>
-</tr>
-<tr>
-<td align="center">1.</td>
-<td align="center">TAL/CL/14/997</td>
-<td align="center">Construction </td>
-<td align="center">Actuarial/Statistics</td>
-<td align="center">
-20 &nbsp; (Days)
-</td>
-<td align="center">
-<a class="btn btn-xs btn-info" href="#">Pending</a>
-</td>
-<td align="center" style="height:40px;">
-<a href="buyer_financial_view.aspx" class="btn btn-primary btn-xs">View</a>
 
-</td>
-</tr>
+    
 
-</tbody>
-</table>
+                <%--<asp:SqlDataSource ID="SqlDataSourceCredit" runat="server" ConnectionString="<%$ ConnectionStrings:gt_ConStr %>" SelectCommand="SELECT [CreditId], [Name], [ValueofConsignment], [Status], [TermsofDelivery] FROM [tblCredit]"></asp:SqlDataSource>--%>
+
           </div>
         
         </div>
@@ -215,6 +189,26 @@
 </tr>
 </tbody>
 </table>
+            <span>
+
+            <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False">
+        <AlternatingRowStyle BackColor="White" />
+        <Columns>
+            <asp:BoundField DataField="CreditId" HeaderText="CreditId" SortExpression="CreditId" />
+            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+            <asp:BoundField DataField="ValueofConsignment" HeaderText="ValueofConsignment" SortExpression="ValueofConsignment" />
+            <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+            <asp:BoundField DataField="TermsofDelivery" HeaderText="TermsofDelivery" SortExpression="TermsofDelivery" />
+        </Columns>
+        <EditRowStyle BackColor="#7C6F57" />
+        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle CssClass="industryid" />
+        <PagerStyle  BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#E3EAEB" />
+        <SelectedRowStyle BackColor="#C5BBAF"  Font-Bold="True" ForeColor="#333333" />
+                </asp:GridView>
+
+                </span>
           </div>
         
         </div>
@@ -238,6 +232,9 @@
 </tr>
 </tbody>
 </table>
+
+
+
 </div>
         </div>
     </div>
@@ -512,7 +509,5 @@
 </div>
 
 </section>
-
-
 </asp:Content>
 
