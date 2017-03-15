@@ -69,12 +69,9 @@ namespace export
             param1.ParameterName = "@Email";
             param1.Value = TextBox1.Text;
             param1.SqlDbType = SqlDbType.VarChar;
-            object a;
-            a = gt_dal_obj.FunExecuteScalarSP("ust_inserprofile", param1);
-            //if (a == 1) { TextBox1.Text = ""; TextBox1.Attributes.Add("placeholder", Email + " already exist"); }
-           // else { TextBox1.Attributes.Add("placeholder", "Email"); }
-
-            if (!a.Equals(DBNull.Value)) { TextBox1.Text = ""; TextBox1.Attributes.Add("placeholder", Email + " already exist"); }
+            int a;
+            a = int.Parse(gt_dal_obj.FunExecuteScalarSP("ust_emailcheck", param1).ToString());
+            if (a > 0) { TextBox1.Text = ""; TextBox1.Attributes.Add("placeholder", Email + " already exist"); }
             else { TextBox1.Attributes.Add("placeholder", "Email"); }
 
         }

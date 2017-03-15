@@ -27,10 +27,14 @@ namespace export
             TextBoxEmail.Attributes.Add("placeholder", "Email");
             if (TextBoxEmail.Text != String.Empty)
             {
-                object a = null;
                 string Email = "'" + TextBoxEmail.Text + "'";
-                a = obj_gt_dal.FunExecuteScalar("SELECT 1 FROM tblClientRegistration WHERE Email=" + Email + "");
-                if (a != null) { TextBoxEmail.Text = ""; TextBoxEmail.Attributes.Add("placeholder", Email +" already exist"); }
+                SqlParameter param1 = new SqlParameter();
+                param1.ParameterName = "@Email";
+                param1.Value = TextBoxEmail.Text;
+                param1.SqlDbType = SqlDbType.VarChar;
+
+                int a = int.Parse(obj_gt_dal.FunExecuteScalarSP("ust_emailcheck", param1).ToString());
+                if (a > 0) { TextBoxEmail.Text = ""; TextBoxEmail.Attributes.Add("placeholder", Email +" already exist"); }
             }
             else { TextBoxEmail.Attributes.Add("placeholder", "Email"); }
         }
