@@ -5,7 +5,7 @@
   
 </asp:Content>
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder2">
-   <section class="page-section legal_service">
+ <section class="page-section legal_service">
 <div class="registration"> 
 <div class="container">
 <div class="row">
@@ -26,12 +26,12 @@
 <p><b>Client ID :</b></p>
 </div>
 <div  class="col-lg-2 col-md-2 col-sm-3 col-xs-3 client_legal">
-<p>CL/001</p>
+<p><asp:Label ID="LabelClientId" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 full_name">
 <p>Client Name :</p></div>
 <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 client_legal">
-<p>Pankaj Rana</p>
+<p><asp:Label ID="LabelName" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 </div>
     </div>
@@ -65,7 +65,7 @@
 <div class="col-md-6">
      <div class="form-group">
 <label>Person to be contacted for Audit</label>
- <asp:TextBox ID="TextBoxPer" class="form-control register-input" required="required" value="" runat="server"></asp:TextBox>
+ <asp:TextBox ID="TextBoxAname" class="form-control register-input" required="required" value="" runat="server"></asp:TextBox>
 
          <div id='myform_Person_errorloc' class="error_strings"></div>
     </div>
@@ -150,7 +150,7 @@
         <div class="col-md-6">
      <div class="form-group">
 <label>Address <span class="collecting">(for collecting information)</span></label>
- <asp:TextBox ID="TextBoxAdd" class="form-control register-input" required="required" runat="server"></asp:TextBox>   
+ <asp:TextBox ID="TextBoxAddress" class="form-control register-input" required="required" runat="server"></asp:TextBox>   
          <div id='myform_Address_errorloc' class="error_strings"></div>
     </div>
 
@@ -170,7 +170,7 @@
 <div class="fileUpload btn btn-primary">
     <span>Choose File</span>
     <asp:FileUpload ID="uploadpanlegal_second" name="Attached" type="file" class="upload" runat="server" />
-    
+    <%--accept="application/ms-word"--%>
 </div>
 </div>
         </div> 
@@ -185,7 +185,7 @@
 <div class="row">
  <div class="form-group">
 <div class="col-md-6 back_buttom">
-<asp:Button ID="auditsubmit" runat="server" Text="Submit" value="Submit" class="btn btn-primary" />
+<asp:Button ID="auditsubmit" runat="server" Text="Submit" value="Submit" class="btn btn-primary" OnClick="auditsubmit_Click" />
 
 <a href="Default.aspx" class="btn btn-info">Back</a>
 </div>
@@ -215,9 +215,6 @@
 </div>
 </div>
 </section>
-
-
-
 
 </asp:Content>
 

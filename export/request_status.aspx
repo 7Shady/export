@@ -76,10 +76,18 @@
     <div id="collapse4" class="panel-collapse collapse in">
       <div class="panel-body">
             <div class="table-responsive">
-
+                 <asp:GridView ID="GridView1" runat="server" EnableModelValidation="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+                     <AlternatingRowStyle BackColor="White" />
+                     <EditRowStyle BackColor="#7C6F57" />
+                     <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                     <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                     <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                     <RowStyle BackColor="#E3EAEB" />
+                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                 </asp:GridView>
     
 
-                <%--<asp:SqlDataSource ID="SqlDataSourceCredit" runat="server" ConnectionString="<%$ ConnectionStrings:gt_ConStr %>" SelectCommand="SELECT [CreditId], [Name], [ValueofConsignment], [Status], [TermsofDelivery] FROM [tblCredit]"></asp:SqlDataSource>--%>
+                <asp:SqlDataSource ID="SqlDataSourceCredit" runat="server" ConnectionString="<%$ ConnectionStrings:gt_ConStr %>" SelectCommand="SELECT [CreditId], [Name], [ValueofConsignment], [Status], [TermsofDelivery] FROM [tblCredit]"></asp:SqlDataSource>
 
           </div>
         
@@ -89,9 +97,7 @@
   <div class="panel panel-default assignment">
     <div class="panel-heading assignments">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion1" href="#collapse5">2. Completed Assignments</a>
-      </h4>
-    </div>
+        <a data-toggle="collapse" data-parent="#accordion1" href="#collapse5">2. Completed Assignments    </div>
     <div id="collapse5" class="panel-collapse collapse">
       <div class="panel-body">
             <div class="table-responsive">
@@ -191,7 +197,11 @@
 </table>
             <span>
 
-            <asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False">
+
+
+    
+
+            <%--<asp:GridView ID="GridView1" runat="server" Width="100%" AutoGenerateColumns="False">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="CreditId" HeaderText="CreditId" SortExpression="CreditId" />
@@ -206,7 +216,7 @@
         <PagerStyle  BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#E3EAEB" />
         <SelectedRowStyle BackColor="#C5BBAF"  Font-Bold="True" ForeColor="#333333" />
-                </asp:GridView>
+                </asp:GridView>--%>
 
                 </span>
           </div>

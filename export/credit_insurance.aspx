@@ -24,12 +24,12 @@
 <p><b>Client ID :</b></p>
 </div>
 <div  class="col-lg-2 col-md-2 col-sm-3 col-xs-3 client_legal">
-<p>CL/001</p>
+<p><asp:Label ID="LabelClientId" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 full_name">
 <p>Client Name :</p></div>
 <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 client_legal">
-<p>Pankaj Rana</p>
+<p><asp:Label ID="LabelName" runat="server" Text="Label" Font-Bold="True"></asp:Label></p></p>
 </div>
 </div>
     </div>
@@ -110,7 +110,7 @@
     <div class="col-md-6">
      <div class="form-group">
 <label>City</label>
-<asp:TextBox ID="City" name="City"  class="form-control register-input" required="required" value="" runat="server"></asp:TextBox>
+<asp:TextBox ID="TextBoxCity" name="City"  class="form-control register-input" required="required" value="" runat="server"></asp:TextBox>
                   <div id='myform_City_errorloc' class="error_strings"></div>
     </div>
 
@@ -131,7 +131,7 @@
     <div class="col-md-6">
      <div class="form-group">
 <label>Description </label>
- <asp:TextBox ID="TextBoxPro" rows="2" cols="20" name="Description" required="required" class="form-control register-input" value="" runat="server" style="height:28px;"></asp:TextBox>
+ <asp:TextBox ID="TextBoxDec" rows="2" cols="20" name="Description" required="required" class="form-control register-input" value="" runat="server" style="height:28px;"></asp:TextBox>
          <div id='myform_Description_errorloc' class="error_strings"></div>
     </div>
 </div>
@@ -183,7 +183,7 @@
     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
 <div class="fileUpload btn btn-primary">
     <span>Choose File</span>
-    <asp:FileUpload ID="uploadpanlegal_second" name="Attached" type="file" class="upload" runat="server" />
+    <asp:FileUpload ID="uploadpanlegal_second" class="upload" runat="server" />
 </div>
 </div>
         </div> 
@@ -200,7 +200,7 @@
 <div class="row">
  <div class="form-group">
 <div class="col-md-6 back_buttom">
-    <asp:Button ID="creditsubmit" runat="server" Text="Submit" value="Submit" class="btn btn-primary" />
+    <asp:Button ID="creditsubmit" runat="server" Text="Submit" value="Submit" class="btn btn-primary" OnClick="creditsubmit_Click" />
 <a href="Default.aspx" class="btn btn-info">Back</a>
 </div>
     </div>

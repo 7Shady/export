@@ -13,6 +13,24 @@ namespace export {
     public partial class debt_collection {
         
         /// <summary>
+        /// LabelClientId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelClientId;
+        
+        /// <summary>
+        /// LabelName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelName;
+        
+        /// <summary>
         /// TextBoxBname control.
         /// </summary>
         /// <remarks>
@@ -31,13 +49,13 @@ namespace export {
         protected global::System.Web.UI.WebControls.DropDownList DropDownCountry;
         
         /// <summary>
-        /// DropDownListState control.
+        /// DropDownState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListState;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownState;
         
         /// <summary>
         /// CompareValidator2 control.
@@ -49,13 +67,13 @@ namespace export {
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
         
         /// <summary>
-        /// City control.
+        /// TextBoxCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox City;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxCity;
         
         /// <summary>
         /// TextBoxAddress control.
@@ -67,13 +85,13 @@ namespace export {
         protected global::System.Web.UI.WebControls.TextBox TextBoxAddress;
         
         /// <summary>
-        /// TextBoxPro control.
+        /// TextBoxDec control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxPro;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDec;
         
         /// <summary>
         /// TextBoxConsig control.
@@ -112,13 +130,22 @@ namespace export {
         protected global::System.Web.UI.WebControls.TextBox TextBoxDone;
         
         /// <summary>
-        /// TextBoxRe control.
+        /// txtstartdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxRe;
+        protected global::System.Web.UI.WebControls.TextBox txtstartdate;
+        
+        /// <summary>
+        /// TextBoxRemarks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxRemarks;
         
         /// <summary>
         /// uploadpanlegal_second control.

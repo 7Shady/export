@@ -13,13 +13,31 @@ namespace export {
     public partial class audit_structuring {
         
         /// <summary>
-        /// TextBoxPer control.
+        /// LabelClientId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxPer;
+        protected global::System.Web.UI.WebControls.Label LabelClientId;
+        
+        /// <summary>
+        /// LabelName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelName;
+        
+        /// <summary>
+        /// TextBoxAname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxAname;
         
         /// <summary>
         /// DropDownCountry control.
@@ -85,13 +103,13 @@ namespace export {
         protected global::System.Web.UI.WebControls.TextBox TextBoxMob;
         
         /// <summary>
-        /// TextBoxAdd control.
+        /// TextBoxAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxAdd;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxAddress;
         
         /// <summary>
         /// uploadpanlegal_second control.

@@ -28,12 +28,12 @@
 <p><b>Client ID:</b></p>
 </div>
 <div  class="col-lg-2 col-md-2 col-sm-3 col-xs-3 client_legal">
-<p>CL/001</p>
+<p><asp:Label ID="LabelClientId" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 full_name">
 <p>Client Name:</p></div>
 <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 client_legal">
-<p>Pankaj Rana</p>
+<p><asp:Label ID="LabelName" runat="server" Text="Label" Font-Bold="True"></asp:Label></p></p>
 </div>
 </div>
     </div>
@@ -99,7 +99,7 @@
 <div class="col-md-6">
 <div class="form-group">
 <label>State</label>
-<asp:DropDownList ID="DropDownListState" name="State" runat="server" class="form-control register-input"
+<asp:DropDownList ID="DropDownState" name="State" runat="server" class="form-control register-input"
      style="width:100%;">
    <asp:ListItem>Select State</asp:ListItem>
    <asp:ListItem>Andaman & Nicobar Islands</asp:ListItem>
@@ -110,7 +110,7 @@
    <asp:ListItem>Chandigarh</asp:ListItem>
    <asp:ListItem>Chattisgarh</asp:ListItem>
    </asp:DropDownList>
-    <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="DropDownListState" Display="Dynamic" ErrorMessage="Please Enter Your State Name" 
+    <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="DropDownState" Display="Dynamic" ErrorMessage="Please Enter Your State Name" 
      ForeColor="Red" Operator="NotEqual" ValueToCompare="Select State" Type="String" ToolTip="Select from list"></asp:CompareValidator>
 <div id='myform_State_errorloc' class="error_strings"></div>
 </div>
@@ -119,7 +119,7 @@
 <div class="col-md-6">
 <div class="form-group">
 <label>City</label>
- <asp:TextBox ID="City" name="City" required="required" class="form-control register-input" value="" runat="server"></asp:TextBox>
+ <asp:TextBox ID="TextBoxCity" name="City" required="required" class="form-control register-input" value="" runat="server"></asp:TextBox>
 <div id='myform_City_errorloc' class="error_strings"></div>
 </div>
 
@@ -140,7 +140,7 @@
 <div class="col-md-6">
 <div class="form-group">
 <label>Description </label>
- <asp:TextBox ID="TextBoxPro" rows="2" cols="20" name="Description" class="form-control register-input" required="required" value="" runat="server" style="height:28px;"></asp:TextBox>
+ <asp:TextBox ID="TextBoxDec" rows="2" cols="20" name="Description" class="form-control register-input" required="required" value="" runat="server" style="height:28px;"></asp:TextBox>
 <div id='myform_Description_errorloc' class="error_strings"></div>
 </div>
 </div>
@@ -196,8 +196,9 @@
 <label>Payment Due Date</label>
 <div class="input-group">
       <div class="input-group-addon"><i class="fa fa-calendar" style="z-index: 1;"></i> </div>
-
-    <input type="text" id="txtstartdate" name="Payment_Due" class="form-control register-input" value="" readonly="">
+    <asp:TextBox ID="txtstartdate" name="txtstartdate" class="form-control register-input" required="required" value="" runat="server"></asp:TextBox>
+    
+    <!--<input type="text" id="txtstartdate" name="Payment_Due" class="form-control register-input" value="" readonly="">-->
          
     </div>
 
@@ -208,7 +209,7 @@
 <div class="col-md-6">
 <div class="form-group">
 <label>Remarks</label>
-<asp:TextBox ID="TextBoxRe" name="Remarks" class="form-control register-input" value="" runat="server"></asp:TextBox>
+<asp:TextBox ID="TextBoxRemarks" name="Remarks" class="form-control register-input" value="" runat="server"></asp:TextBox>
      
 <div id='myform_Remarks_errorloc' class="error_strings"></div>
 </div>
@@ -246,7 +247,7 @@
 <div class="row">
 <div class="form-group">
 <div class="col-md-6 back_buttom">
-<asp:Button ID="debtsubmit" runat="server" Text="Submit" value="Submit" class="btn btn-primary" />
+<asp:Button ID="debtsubmit" runat="server" Text="Submit" value="Submit" class="btn btn-primary" OnClick="debtsubmit_Click" />
 <a href="Default.aspx" class="btn btn-info">Back</a>
 </div>
 </div>
