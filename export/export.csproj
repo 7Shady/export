@@ -3459,7 +3459,6 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\select2.min.css" />
     <Content Include="debt_collection.aspx" />
-    <Content Include="debt_collection_view.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="editprofile.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -3562,13 +3561,6 @@
     </Compile>
     <Compile Include="debt_collection.aspx.designer.cs">
       <DependentUpon>debt_collection.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="debt_collection_view.aspx.cs">
-      <DependentUpon>debt_collection_view.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="debt_collection_view.aspx.designer.cs">
-      <DependentUpon>debt_collection_view.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
