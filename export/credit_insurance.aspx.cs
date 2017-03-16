@@ -17,7 +17,7 @@ namespace export
         gt_dal obj_gt_dal = new gt_dal();
         Byte[] ClientDocBytes = null;
         string filename = null;
-
+        //test
         public static string GetUserIpAddress()
         {
             string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
