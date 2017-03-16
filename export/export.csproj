@@ -3445,10 +3445,11 @@
     <Content Include="Admin\js\datepicker\daterangepicker.js" />
     <Content Include="Admin\js\moment\moment.min.js" />
     <Content Include="audit_structuring.aspx" />
+    <Content Include="audit_structuring_view.aspx" />
     <Content Include="buyer_financial.aspx" />
     <Content Include="buyer_financial_view.aspx" />
     <Content Include="credit_insurance.aspx" />
-    <Content Include="credit_insurance_table.aspx" />
+    <Content Include="credit_insurance_view.aspx" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -3458,7 +3459,7 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\select2.min.css" />
     <Content Include="debt_collection.aspx" />
-    <Content Include="debt_collection_table.aspx" />
+    <Content Include="debt_collection_view.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="editprofile.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -3520,6 +3521,13 @@
     <Compile Include="audit_structuring.aspx.designer.cs">
       <DependentUpon>audit_structuring.aspx</DependentUpon>
     </Compile>
+    <Compile Include="audit_structuring_view.aspx.cs">
+      <DependentUpon>audit_structuring_view.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="audit_structuring_view.aspx.designer.cs">
+      <DependentUpon>audit_structuring_view.aspx</DependentUpon>
+    </Compile>
     <Compile Include="buyer_financial.aspx.cs">
       <DependentUpon>buyer_financial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3541,12 +3549,12 @@
     <Compile Include="credit_insurance.aspx.designer.cs">
       <DependentUpon>credit_insurance.aspx</DependentUpon>
     </Compile>
-    <Compile Include="credit_insurance_table.aspx.cs">
-      <DependentUpon>credit_insurance_table.aspx</DependentUpon>
+    <Compile Include="credit_insurance_view.aspx.cs">
+      <DependentUpon>credit_insurance_view.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="credit_insurance_table.aspx.designer.cs">
-      <DependentUpon>credit_insurance_table.aspx</DependentUpon>
+    <Compile Include="credit_insurance_view.aspx.designer.cs">
+      <DependentUpon>credit_insurance_view.aspx</DependentUpon>
     </Compile>
     <Compile Include="debt_collection.aspx.cs">
       <DependentUpon>debt_collection.aspx</DependentUpon>
@@ -3555,12 +3563,12 @@
     <Compile Include="debt_collection.aspx.designer.cs">
       <DependentUpon>debt_collection.aspx</DependentUpon>
     </Compile>
-    <Compile Include="debt_collection_table.aspx.cs">
-      <DependentUpon>debt_collection_table.aspx</DependentUpon>
+    <Compile Include="debt_collection_view.aspx.cs">
+      <DependentUpon>debt_collection_view.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="debt_collection_table.aspx.designer.cs">
-      <DependentUpon>debt_collection_table.aspx</DependentUpon>
+    <Compile Include="debt_collection_view.aspx.designer.cs">
+      <DependentUpon>debt_collection_view.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

@@ -14,6 +14,7 @@
 
 </ul>
 
+
 <div id="legal_service" class="tab-pane talk_legal active">
 <div class="bg-yellow">
 <div class="col-sm-12 bg-primary consultant_id">
@@ -24,12 +25,12 @@
 <p><b>Client ID:</b></p>
 </div>
 <div  class="col-lg-2 col-md-2 col-sm-3 col-xs-3 client_legal">
-<p>CL/001</p>
+<p><asp:Label ID="LabelClientId" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 full_name">
 <p>Client Name:</p></div>
 <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 client_legal">
-<p>Pankaj Rana</p>
+<p><asp:Label ID="LabelName" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 </div>
     </div>
@@ -47,47 +48,55 @@
 
 
 <div class="inner_padding legal_table">
-<div>
+
 <div class="table-responsive">
+
 <table class="table-bordered table-hover table">
-<tbody><tr>
-<td class="bg-green-light">TalkID</td>
-<td>
-<div>TAL/CL/14/997</div>
+<tbody>
+<tr>
+<td class="bg-green-light">Buyer Id</td>
+<td><asp:Label ID="LabelBuyerId" runat="server" Text="Label" Font-Bold="True"></asp:Label>
 </td>
 
-<td class="bg-green-light">Industry</td>
-<td>
-<div>Construction </div>
+<td class="bg-green-light">Name of the Buyer</td>
+<td><asp:Label ID="LabelBName" runat="server" Text="Label" Font-Bold="True"></asp:Label>
 </td>
 
 </tr>
 
 <tr>
-<td class="bg-green-light">Functional Area</td>
-<td>
-<div>Actuarial/Statistics</div>
+<td class="bg-green-light">Country</td>
+<td><asp:Label ID="LabelCountry" runat="server" Text="Label" Font-Bold="True"></asp:Label>
 </td>
 
-<td class="bg-green-light">Time Frame</td>
-<td>
-<div>20</div>
+<td class="bg-green-light">State</td>
+<td><asp:Label ID="LabelState" runat="server" Text="Label" Font-Bold="True"></asp:Label>
 </td>
 
 </tr>
 
 <tr>
-<td class="bg-green-light">Articulate Query</td>
-<td>
-<div>test </div>
-</td>
-
-<td class="bg-green-light">Remarks </td>
-<td>
-<div>test2</div>
+<td class="bg-green-light">City </td>
+<td><asp:Label ID="LabelCity" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td><td class="bg-green-light">Address</td>
+<td><asp:Label ID="LabelAddress" runat="server" Text="Label" Font-Bold="True"></asp:Label>
 </td>
 
 </tr>
+
+<tr>
+
+
+<td class="bg-green-light">Description </td>
+<td><asp:Label ID="LabelDescription" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
+<td class="bg-green-light">Amount of Order</td>
+<td><asp:Label ID="LabelAmount" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
+</tr>
+    
+
+ 
 
 <tr>
 <td class="bg-green-light">Status</td>
@@ -121,19 +130,21 @@
 
 </tbody>
 </table>
-  
     </div>
 <div style="text-align: center;">
 <input type="submit" value="Back" onclick="location.href='request_status.aspx'" class="btn btn-primary back_table">
 <br>
 </div>
+
+
+
+ 
+
 </div>
 
 
 </div>
 
-
-</div>
 
 </div>
 </div>
