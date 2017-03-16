@@ -19,7 +19,7 @@ namespace export
         string filename = null;
 
 
-        //test
+        
         public static string GetUserIpAddress()
         {
             string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];

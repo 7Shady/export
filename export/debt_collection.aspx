@@ -34,7 +34,7 @@
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 full_name">
 <p>Client Name:</p></div>
 <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 client_legal">
-<p><asp:Label ID="LabelName" runat="server" Text="Label" Font-Bold="True"></asp:Label></p></p>
+<p><asp:Label ID="LabelName" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 </div>
     </div>

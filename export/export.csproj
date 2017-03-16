@@ -3649,7 +3649,6 @@
   <ItemGroup>
     <Content Include="Main.Master" />
     <Content Include="ViewImage.ashx" />
-    <Content Include="APP_DATA\Resume.docx" />
     <Content Include="Admin\assets\animate.css\.bower.json" />
     <Content Include="Admin\assets\animate.css\animate-config.json" />
     <Content Include="Admin\assets\animate.css\bower.json" />
