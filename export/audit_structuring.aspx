@@ -151,7 +151,7 @@
      <div class="form-group">
 <label>Address <span class="collecting">(for collecting information)</span></label>
  <asp:TextBox ID="TextBoxAddress" class="form-control register-input" required="required" runat="server"></asp:TextBox>   
-         <div id='myform_Address_errorloc' class="error_strings"></div>
+         <div id='myform_Address_clerrorloc' class="error_strings"></div>
     </div>
 
 </div>

@@ -62,7 +62,7 @@ namespace export
                     br.Close();
                     fs.Close();
                 }
-                SqlCommand cmd9 = new SqlCommand("INSERT INTO tblAudit (AuditId,ClientId,Name,Country,State,City,Email,contactnumber,Address_at,AttachedFile,AttachProfileName,AttachProfileContentType,IpAddress) VALUES(@AuditId,@ClientId,@Name,@Country,@State,@City,@Email,@contactnumber,@Address_at,@AttachedFile,@AttachProfileName,@AttachProfileContentType,@IpAddress)", con9);
+                SqlCommand cmd9 = new SqlCommand("INSERT INTO tblAudit (AuditId,ClientId,Name,Country,State,City,Email,contactnumber,Address_cl,AttachedFile,AttachProfileName,AttachProfileContentType,IpAddress) VALUES(@AuditId,@ClientId,@Name,@Country,@State,@City,@Email,@contactnumber,@Address_cl,@AttachedFile,@AttachProfileName,@AttachProfileContentType,@IpAddress)", con9);
 
                 //+LabelClientId.Text + "','" + LabelName.Text + "','" + DropDownCountry.SelectedItem.ToString() + "','" + DropDownListState.SelectedItem.ToString() + "','" + TextBoxCity.Text + "','" + TextBoxAddress.Text + "','" 
                 //+ TextBoxDec.Text + "','" + TextBoxAmount.Text + "','" + ClientDocBytes + "','" + filename + "','application/vnd.ms-word'
@@ -77,7 +77,7 @@ namespace export
                 cmd9.Parameters.AddWithValue("City", TextBoxCity.Text);
                 cmd9.Parameters.AddWithValue("Email", TextBoxEmail.Text);
                 cmd9.Parameters.AddWithValue("contactnumber", TextBoxMob.Text);
-                cmd9.Parameters.AddWithValue("Address_at", TextBoxAddress.Text);
+                cmd9.Parameters.AddWithValue("Address_cl", TextBoxAddress.Text);
                 cmd9.Parameters.AddWithValue("AttachedFile", ClientDocBytes);
                 cmd9.Parameters.AddWithValue("AttachProfileName", filename);
                 cmd9.Parameters.AddWithValue("AttachProfileContentType", "application/vnd.ms-word");

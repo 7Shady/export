@@ -60,7 +60,7 @@ namespace export
                     br.Close();
                     fs.Close();
                 }
-                SqlCommand cmd9 = new SqlCommand("INSERT INTO tblBuyer (BuyerId,ClientId,Name,Country,State,City,Address_bl,Description,AmountofOrder" + q1 + ") VALUES(@BuyerId,@ClientId,@Name,@Country,@State,@City,@Address_bl,@Description,@AmountofOrder" + q2 + ")", con9);
+                SqlCommand cmd9 = new SqlCommand("INSERT INTO tblBuyer (BuyerId,ClientId,Name,Country,State,City,Address_cl,Description,AmountofOrder" + q1 + ") VALUES(@BuyerId,@ClientId,@Name,@Country,@State,@City,@Address_cl,@Description,@AmountofOrder" + q2 + ")", con9);
 
                 string BuyerId = Get8Digits();
                 cmd9.Parameters.AddWithValue("BuyerId", BuyerId);
@@ -69,7 +69,7 @@ namespace export
                 cmd9.Parameters.AddWithValue("Country", DropDownCountry.SelectedItem.ToString());
                 cmd9.Parameters.AddWithValue("State", DropDownListState.SelectedItem.ToString());
                 cmd9.Parameters.AddWithValue("City", TextBoxCity.Text);
-                cmd9.Parameters.AddWithValue("Address_bl", TextBoxAddress.Text);
+                cmd9.Parameters.AddWithValue("Address_cl", TextBoxAddress.Text);
                 cmd9.Parameters.AddWithValue("Description", TextBoxDec.Text);
                 cmd9.Parameters.AddWithValue("AmountofOrder", TextBoxAmount.Text);
                 if (uploadpanlegal_second.FileName != string.Empty)

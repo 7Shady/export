@@ -62,7 +62,7 @@ namespace export
                     br.Close();
                     fs.Close();
                 }
-                SqlCommand cmd9 = new SqlCommand("INSERT INTO tblCredit (CreditId,ClientId,Name,Country,State,City,Address_cr,Description,ValueofConsignment,TermsofDelivery,TermsofPayment,AttachedFile,AttachProfileName,AttachProfileContentType,IpAddress) VALUES (@CreditId,@ClientId,@Name,@Country,@State,@City,@Address_cr, @Address_cr,@ValueofConsignment,@TermsofDelivery,@TermsofPayment,@AttachedFile,@AttachProfileName,@AttachProfileContentType,@IpAddress)", con9);
+                SqlCommand cmd9 = new SqlCommand("INSERT INTO tblCredit (CreditId,ClientId,Name,Country,State,City,Address_cl,Description,ValueofConsignment,TermsofDelivery,TermsofPayment,AttachedFile,AttachProfileName,AttachProfileContentType,IpAddress) VALUES (@CreditId,@ClientId,@Name,@Country,@State,@City,@Address_cl,@ValueofConsignment,@TermsofDelivery,@TermsofPayment,@AttachedFile,@AttachProfileName,@AttachProfileContentType,@IpAddress)", con9);
 
                 //+LabelClientId.Text + "','" + LabelName.Text + "','" + DropDownCountry.SelectedItem.ToString() + "','" + DropDownListState.SelectedItem.ToString() + "','" + TextBoxCity.Text + "','" + TextBoxAddress.Text + "','" 
                 //+ TextBoxDec.Text + "','" + TextBoxAmount.Text + "','" + ClientDocBytes + "','" + filename + "','application/vnd.ms-word'
@@ -75,7 +75,7 @@ namespace export
                 cmd9.Parameters.AddWithValue("Country", DropDownCountry.SelectedItem.ToString());
                 cmd9.Parameters.AddWithValue("State", DropDownState.SelectedItem.ToString());
                 cmd9.Parameters.AddWithValue("City", TextBoxCity.Text);
-                cmd9.Parameters.AddWithValue("Address_cr", TextBoxAddress.Text);
+                cmd9.Parameters.AddWithValue("Address_cl", TextBoxAddress.Text);
                 cmd9.Parameters.AddWithValue("Description", TextBoxDec.Text);
                 cmd9.Parameters.AddWithValue("ValueofConsignment", TextBoxConsig.Text);
                 cmd9.Parameters.AddWithValue("TermsofDelivery", TextBoxDeli.Text);
