@@ -27,7 +27,7 @@
 <p><asp:Label ID="LabelClientId" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 full_name">
-<p>Client Name:</p></div>
+<p>Client Nameeeeeeeeee:</p></div>
 <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 client_legal">
 <p><asp:Label ID="LabelName" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
@@ -58,7 +58,7 @@
 </td>
 
 <td class="bg-green-light">Name of the Buyer</td>
-<td><asp:Label ID="LabelBName" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelBNameee" runat="server" Text="Label" Font-Bold="True"></asp:Label>
 </td>
 
 </tr>
