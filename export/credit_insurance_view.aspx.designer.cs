@@ -10,7 +10,7 @@
 namespace export {
     
     
-    public partial class buyer_financial_view {
+    public partial class credit_insurance_table {
         
         /// <summary>
         /// LabelClientId control.
@@ -31,13 +31,13 @@ namespace export {
         protected global::System.Web.UI.WebControls.Label LabelName;
         
         /// <summary>
-        /// LabelBuyerId control.
+        /// LabelCreditId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelBuyerId;
+        protected global::System.Web.UI.WebControls.Label LabelCreditId;
         
         /// <summary>
         /// LabelBName control.
@@ -94,12 +94,30 @@ namespace export {
         protected global::System.Web.UI.WebControls.Label LabelDescription;
         
         /// <summary>
-        /// LabelAmount control.
+        /// LabelConsig control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelAmount;
+        protected global::System.Web.UI.WebControls.Label LabelConsig;
+        
+        /// <summary>
+        /// LabelDelivery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelDelivery;
+        
+        /// <summary>
+        /// LabelPayment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelPayment;
     }
 }

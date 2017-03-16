@@ -1,8 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="credit_insurance_table.aspx.cs" Inherits="export.credit_insurance_table" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="audit_structuring_view.aspx.cs" Inherits="export.audit_structuring_view" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    
+
+        
 <section class="page-section legal_service">
 <div class="registration">
 <div class="container">
@@ -24,12 +25,12 @@
 <p><b>Client ID:</b></p>
 </div>
 <div  class="col-lg-2 col-md-2 col-sm-3 col-xs-3 client_legal">
-<p>CL/001</p>
+<p><asp:Label ID="LabelClientId" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 full_name">
 <p>Client Name:</p></div>
 <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 client_legal">
-<p>Pankaj Rana</p>
+<p><asp:Label ID="LabelName" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 </div>
     </div>
@@ -53,31 +54,49 @@
 <table class="table-bordered table-hover table">
 <tbody>
 <tr>
-<td class="bg-green-light">TalkID</td>
-<td>PQ/CL/4/995</td>
+<td class="bg-green-light">Audit Id</td>
+<td><asp:Label ID="LabelCreditId" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
 
-<td class="bg-green-light">Industry</td>
-<td>Aerospace</td>
-
-</tr>
-
-<tr>
-<td class="bg-green-light">Functional Area</td>
-<td>Chemical Engineering</td>
-
-<td class="bg-green-light">Time Frame</td>
-<td>10</td>
+<td class="bg-green-light">Person to be contacted for Audit</td>
+<td><asp:Label ID="LabelBName" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
 
 </tr>
 
 <tr>
-<td class="bg-green-light">Articulate Query</td>
-<td>ddsf</td>
+<td class="bg-green-light">Country</td>
+<td><asp:Label ID="LabelCountry" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
 
-<td class="bg-green-light">Remarks </td>
-<td>sdf</td>
+<td class="bg-green-light">State</td>
+<td><asp:Label ID="LabelState" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
 
 </tr>
+
+<tr>
+<td class="bg-green-light">City </td>
+<td><asp:Label ID="LabelCity" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td><td class="bg-green-light">Address</td>
+<td><asp:Label ID="LabelAddress" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
+
+</tr>
+
+<tr>
+
+
+<td class="bg-green-light">Email ID of the person </td>
+<td><asp:Label ID="LabelEmail" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
+<td class="bg-green-light">Telephone Number of the person</td>
+<td><asp:Label ID="LabelNumber" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
+</tr>
+    
+
+ 
 
 <tr>
 <td class="bg-green-light">Status</td>

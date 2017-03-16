@@ -46,8 +46,8 @@ namespace export
                 //sdt = obj_gt_dal.FunDataTableSP("ust_rscredit", param1,param2 );
                 if (sdt.Rows.Count != 0)
                 {
-                    //GridView1.DataSource = sdt;
-                    //GridView1.DataBind();
+                    GridView1.DataSource = sdt;
+                    GridView1.DataBind();
                 }
                
 

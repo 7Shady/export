@@ -1,15 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="debt_collection_table.aspx.cs" Inherits="export.debt_collection_table" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="credit_insurance_view.aspx.cs" Inherits="export.credit_insurance_table" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <section class="page-section legal_service">
+    
+<section class="page-section legal_service">
 <div class="registration">
 <div class="container">
  <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
         <div class="sure_legal">
-<ul class="nav nav-tabs finance">
-<li><a data-toggle="tab" href="#legal_service" class="finance_account">Debt Collection</a></li>
+<ul class="nav nav-tabs training">
+<li><a data-toggle="tab" href="#legal_service" class="legal_certification">Credit Insurance Cover</a></li>
 
 </ul>
 
@@ -23,12 +24,12 @@
 <p><b>Client ID:</b></p>
 </div>
 <div  class="col-lg-2 col-md-2 col-sm-3 col-xs-3 client_legal">
-<p>CL/001</p>
+<p><asp:Label ID="LabelClientId" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 full_name">
 <p>Client Name:</p></div>
 <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 client_legal">
-<p>Pankaj Rana</p>
+<p><asp:Label ID="LabelName" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
 </div>
 </div>
     </div>
@@ -52,39 +53,58 @@
 <table class="table-bordered table-hover table">
 <tbody>
 <tr>
-<td class="bg-green-light">TalkID</td>
-<td>PP/CL/9/995</td>
+<td class="bg-green-light">Credit Id</td>
+<td><asp:Label ID="LabelCreditId" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
 
-<td class="bg-green-light">Industry</td>
-<td>Banking</td>
+<td class="bg-green-light">Name of the Buyer</td>
+<td><asp:Label ID="LabelBName" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
 
 </tr>
 
 <tr>
-<td class="bg-green-light">Functional Area</td>
-<td>Business Development</td>
+<td class="bg-green-light">Country</td>
+<td><asp:Label ID="LabelCountry" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
 
-<td class="bg-green-light">Time Frame</td>
-<td>10</td>
+<td class="bg-green-light">State</td>
+<td><asp:Label ID="LabelState" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
 
 </tr>
+
+<tr>
+<td class="bg-green-light">City </td>
+<td><asp:Label ID="LabelCity" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td><td class="bg-green-light">Address</td>
+<td><asp:Label ID="LabelAddress" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
+
+</tr>
+
 <tr>
 
 
-<td class="bg-green-light">Budget</td>
-<td>10</td>
-<td class="bg-green-light"></td>
-<td></td>
+<td class="bg-green-light">Description </td>
+<td><asp:Label ID="LabelDescription" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
+<td class="bg-green-light">Value of the Consignment</td>
+<td><asp:Label ID="LabelConsig" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
 </tr>
-<tr>
-<td class="bg-green-light">Articulate Query</td>
-<td>ddsf</td>
+    <tr>
 
-<td class="bg-green-light">Remarks </td>
-<td>	
-dgg</td>
 
+<td class="bg-green-light">Terms of Delivery </td>
+<td><asp:Label ID="LabelDelivery" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
+<td class="bg-green-light">Terms of Payment</td>
+<td><asp:Label ID="LabelPayment" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+</td>
 </tr>
+
+ 
 
 <tr>
 <td class="bg-green-light">Status</td>
@@ -126,7 +146,7 @@ dgg</td>
 
 
 
-
+ 
 
 </div>
 

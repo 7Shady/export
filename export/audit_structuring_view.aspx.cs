@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace export
 {
-    public partial class credit_insurance_table : System.Web.UI.Page
+    public partial class audit_structuring_view : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
