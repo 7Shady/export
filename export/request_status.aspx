@@ -4,7 +4,6 @@
     <style>
         .gd-border
         { 
-
         }
     </style>
 </asp:Content>
@@ -83,7 +82,7 @@
     <div id="collapse4" class="panel-collapse collapse in">
       <div class="panel-body">
             <div class="table-responsive">
-                 
+                
     
 
                 <asp:SqlDataSource ID="SqlDataSourceCredit" runat="server" ConnectionString="<%$ ConnectionStrings:gt_ConStr %>" SelectCommand="SELECT [CreditId], [Name], [ValueofConsignment], [Status], [TermsofDelivery] FROM [tblCredit]"></asp:SqlDataSource>
@@ -165,6 +164,7 @@
     <div id="collapse1" class="panel-collapse collapse in">
       <div class="panel-body">
         <div class="table-responsive">
+
           <table cellspacing="0" cellpadding="4" rules="rows" class="talkid">
 <tbody>
 <tr align="center" class="industryid">
@@ -210,7 +210,7 @@
                          </asp:TemplateField>
                          <asp:TemplateField HeaderText="View" >
                           <ItemTemplate>
-                        <asp:Button ID="BtnSelect" CommandName="Select" runat="server" Text="View" CssClass="btn btn-primary btn-xs" />
+                        <asp:Button ID="BtnSelect"  OnClick="BtnSelect_Click"  CommandName="Select" runat="server" Text="View" CssClass="btn btn-primary btn-xs" />
                     </ItemTemplate></asp:TemplateField>
                      </Columns>
                      
@@ -220,6 +220,7 @@
                      <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
                  </asp:GridView>
 
+            
           </div>
         
         </div>

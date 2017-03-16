@@ -49,6 +49,7 @@ namespace export
                     //GridView1.DataSource = sdt;
                     //GridView1.DataBind();
                 }
+               
 
             }
         }
@@ -57,6 +58,13 @@ namespace export
         {
             //creditid = "ds";
            
+
+
+        }
+
+        protected void BtnSelect_Click(object sender, EventArgs e)
+        {
+          //  Response.Redirect("credit_insurance_table.aspx?ClientId=" + clientid + "&CreditId=");
         }
     }
 }
