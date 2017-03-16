@@ -23,7 +23,7 @@ namespace export
         {
             SqlParameter param1 = new SqlParameter();
             param1.ParameterName = "@ClientId";
-            param1.Value = gt_dal_obj.Get8Digits();
+            param1.Value = gt_dal_obj.Get8Digits("CL");
             param1.SqlDbType = SqlDbType.VarChar;
 
             SqlParameter param1a = new SqlParameter();

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 #region Namespace for Database Connection
 using System.Data.SqlClient;
@@ -125,9 +123,9 @@ namespace export
                 foreach (var p in parameters)
                     Sqlcmd.Parameters.Add(p);
             }
-
-            a = Sqlcmd.ExecuteNonQuery();
-            CloseConn();
+            try { a = Sqlcmd.ExecuteNonQuery(); }
+            catch (Exception ex) { throw ex; }
+            finally{ CloseConn(); }
             return a;
         }
         #endregion
@@ -149,26 +147,6 @@ namespace export
         }
         #endregion
 
-        #region Function for GenerateRondomNumber
-        public string Get8Digits()
-        {
-            var bytes = new byte[4];
-            var rng = RandomNumberGenerator.Create();
-            rng.GetBytes(bytes);
-            uint random = BitConverter.ToUInt32(bytes, 0) % 100000000;
-            return String.Format("CL" + "{0:D8}", random);
-        }
-        #endregion
-
-        #region Function for Image to ByteArray
-        public byte[] image2ByteArray(System.Drawing.Image imageIn)
-        {
-            MemoryStream ms = new MemoryStream();
-            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-            return ms.ToArray();
-        }
-        #endregion
-
         #region Function For DataTableStoreProcedure(Disconnected Mode)
         public DataTable FunDataTableSP(string Command, params SqlParameter[] parameters)
         {
@@ -178,8 +156,6 @@ namespace export
             {
                 foreach (var p in parameters)
                     SqlDa.SelectCommand.Parameters.Add(p);
-
-                //Sqlcmd.Parameters.Add(p);
             }
             Dt = new DataTable();
             SqlDa.Fill(Dt);
@@ -204,6 +180,82 @@ namespace export
             return Ds;
 
         }
+        #endregion
+
+        //Add DB functions here
+
+
+
+
+
+       //Add other functions below this
+        #region Function for GenerateRondomNumber
+        public string Get8Digits(string cbtype)
+        {
+            var bytes = new byte[4];
+            var rng = RandomNumberGenerator.Create();
+            rng.GetBytes(bytes);
+            uint random = BitConverter.ToUInt32(bytes, 0) % 100000000;
+            return String.Format(cbtype + "{0:D8}", random);
+        }
+        #endregion
+
+        #region Function for Image to ByteArray
+        public byte[] image2ByteArray(System.Drawing.Image imageIn)
+        {
+            MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            return ms.ToArray();
+        }
+        #endregion
+
+        public string doctype(System.Web.UI.WebControls.FileUpload updoc)
+        {
+            string filePath = updoc.PostedFile.FileName;
+            string filename = Path.GetFileName(filePath);
+            string ext = Path.GetExtension(filename);
+            string contenttype = String.Empty;
+            switch (ext)
+            {
+                case ".doc":
+                    contenttype = "application/vnd.ms-word";
+                    break;
+                case ".docx":
+                    contenttype = "application/vnd.ms-word";
+                    break;
+                case ".xls":
+                    contenttype = "application/vnd.ms-excel";
+                    break;
+                case ".xlsx":
+                    contenttype = "application/vnd.ms-excel";
+                    break;
+                case ".pdf":
+                    contenttype = "application/pdf";
+                    break;
+            }
+            return contenttype;
+        }
+
+        #region Function for Document to ByteArray
+        public Byte[] Doc2ByteArray( System.Web.UI.WebControls.FileUpload upfile)
+        {
+            //string filePath = upfile.PostedFile.FileName;
+            //string filename = Path.GetFileName(filePath);
+            //string ext = Path.GetExtension(filename);
+            Byte[] ClientDocBytes = null;
+            string contenttype = doctype(upfile);
+            
+            if (contenttype != String.Empty)
+            {
+                Stream fs = upfile.PostedFile.InputStream;
+                BinaryReader br = new BinaryReader(fs);
+                ClientDocBytes = br.ReadBytes((Int32)fs.Length);
+                fs.Close();
+                br.Close();
+            }
+            return ClientDocBytes;
+        }
+
         #endregion
 
 
