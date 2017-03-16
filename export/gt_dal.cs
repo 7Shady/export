@@ -34,6 +34,7 @@ namespace export
 
         }
         #endregion
+
         #region Function for Close Connection
         public void CloseConn()
         {
@@ -41,6 +42,7 @@ namespace export
                 SqlConn.Close();
         }
         #endregion
+
         #region Function for Dataset for Disconnected Mode
         public DataSet FunDataSet(string Commmand)
         {
@@ -53,6 +55,7 @@ namespace export
 
         }
         #endregion
+
         #region Function For DataTable(Disconnected Mode)
         public DataTable FunDataTable(string Command)
         {
@@ -64,6 +67,7 @@ namespace export
             return Dt;
         }
         #endregion
+
         #region Function for ExecuteNonQuery(Insert,Update,Delete)
         public int FunExecuteNonQuery(string Command)
         {
@@ -75,6 +79,7 @@ namespace export
 
         }
         #endregion
+
         #region Function For ExecuteReader fetch number of rows
         public SqlDataReader FunExecuteReader(string Command)
         {
@@ -84,6 +89,7 @@ namespace export
             return SqlDr;
         }
         #endregion
+
         #region Function for ExecuteScalar(Fetch a single value)
         public object FunExecuteScalar(string Command)
         {
@@ -94,6 +100,7 @@ namespace export
             return ab;
         }
         #endregion
+
         #region Function for BulkInsert
         public void FuncBulkCopy(DataTable dt, string DestinationTable)
         {
@@ -152,6 +159,7 @@ namespace export
         {
             OpenConn();
             SqlDa = new SqlDataAdapter(Command, SqlConn);
+            SqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
             if (parameters != null && parameters.Length > 0)
             {
                 foreach (var p in parameters)
@@ -209,6 +217,7 @@ namespace export
         }
         #endregion
 
+        #region Function for Document Type Check
         public string doctype(System.Web.UI.WebControls.FileUpload updoc)
         {
             string filePath = updoc.PostedFile.FileName;
@@ -235,13 +244,11 @@ namespace export
             }
             return contenttype;
         }
+        #endregion
 
         #region Function for Document to ByteArray
         public Byte[] Doc2ByteArray( System.Web.UI.WebControls.FileUpload upfile)
         {
-            //string filePath = upfile.PostedFile.FileName;
-            //string filename = Path.GetFileName(filePath);
-            //string ext = Path.GetExtension(filename);
             Byte[] ClientDocBytes = null;
             string contenttype = doctype(upfile);
             
@@ -255,12 +262,19 @@ namespace export
             }
             return ClientDocBytes;
         }
-
         #endregion
 
-
-        #region Function for GetUserIpAddress
-
+        #region Function for Get User IP Address
+        public string GetUserIpAddress()
+        {
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (string.IsNullOrEmpty(ip))
+            {
+                ip = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+                if (ip == "::1") ip = "127.0.0.1"; // localhost
+            }
+            return ip;
+        }
         #endregion
     }
 }

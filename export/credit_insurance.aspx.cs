@@ -18,19 +18,6 @@ namespace export
         Byte[] ClientDocBytes = null;
         string filename = null;
 
-
-        //test
-        public static string GetUserIpAddress()
-        {
-            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-            if (string.IsNullOrEmpty(ip))
-            {
-                ip = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-                if (ip == "::1") ip = "127.0.0.1"; // localhost
-            }
-            return ip;
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["ClientId"] != null && Request.QueryString["Name"] != null)
@@ -38,15 +25,6 @@ namespace export
                 LabelClientId.Text = Request.QueryString["ClientId"];
                 LabelName.Text = Request.QueryString["Name"];
             }
-        }
-
-        public string Get8Digits()
-        {
-            var bytes = new byte[4];
-            var rng = RandomNumberGenerator.Create();
-            rng.GetBytes(bytes);
-            uint random = BitConverter.ToUInt32(bytes, 0) % 100000000;
-            return String.Format("CR" + "{0:D8}", random);
         }
 
         protected void creditsubmit_Click(object sender, EventArgs e)
@@ -64,16 +42,12 @@ namespace export
                     br.Close();
                     fs.Close();
                 }
-                // SqlCommand cmd9 = new SqlCommand("INSERT INTO tblCredit (CreditId,ClientId,Name,Country,State,City,Address_cl,Description,ValueofConsignment,TermsofDelivery,TermsofPayment,AttachedFile,AttachProfileName,AttachProfileContentType,IpAddress) VALUES (@CreditId,@ClientId,@Name,@Country,@State,@City,@Address_cl,@Description,@ValueofConsignment,@TermsofDelivery,@TermsofPayment,@AttachedFile,@AttachProfileName,@AttachProfileContentType,@IpAddress)", con9);
-                               
-                //+LabelClientId.Text + "','" + LabelName.Text + "','" + DropDownCountry.SelectedItem.ToString() + "','" + DropDownListState.SelectedItem.ToString() + "','" + TextBoxCity.Text + "','" + TextBoxAddress.Text + "','" 
-                //+ TextBoxDec.Text + "','" + TextBoxAmount.Text + "','" + ClientDocBytes + "','" + filename + "','application/vnd.ms-word'
 
                 SqlCommand cmd9 = new SqlCommand("ust_credit", con9);
                 cmd9.CommandType = CommandType.StoredProcedure;
 
-                string CreditId = Get8Digits();
-                string IpAddress = GetUserIpAddress();
+                string CreditId = obj_gt_dal.Get8Digits("CR");
+                string IpAddress = obj_gt_dal.GetUserIpAddress();
                 cmd9.Parameters.AddWithValue("CreditId", CreditId);
                 cmd9.Parameters.AddWithValue("ClientId", LabelClientId.Text);
                 cmd9.Parameters.AddWithValue("Name", TextBoxBname.Text);
