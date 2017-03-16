@@ -17,6 +17,8 @@ namespace export
         gt_dal obj_gt_dal = new gt_dal();
         Byte[] ClientDocBytes = null;
         string filename = null;
+
+
         //test
         public static string GetUserIpAddress()
         {
@@ -62,10 +64,13 @@ namespace export
                     br.Close();
                     fs.Close();
                 }
-                SqlCommand cmd9 = new SqlCommand("INSERT INTO tblCredit (CreditId,ClientId,Name,Country,State,City,Address_cl,Description,ValueofConsignment,TermsofDelivery,TermsofPayment,AttachedFile,AttachProfileName,AttachProfileContentType,IpAddress) VALUES (@CreditId,@ClientId,@Name,@Country,@State,@City,@Address_cl,@ValueofConsignment,@TermsofDelivery,@TermsofPayment,@AttachedFile,@AttachProfileName,@AttachProfileContentType,@IpAddress)", con9);
-
+                // SqlCommand cmd9 = new SqlCommand("INSERT INTO tblCredit (CreditId,ClientId,Name,Country,State,City,Address_cl,Description,ValueofConsignment,TermsofDelivery,TermsofPayment,AttachedFile,AttachProfileName,AttachProfileContentType,IpAddress) VALUES (@CreditId,@ClientId,@Name,@Country,@State,@City,@Address_cl,@Description,@ValueofConsignment,@TermsofDelivery,@TermsofPayment,@AttachedFile,@AttachProfileName,@AttachProfileContentType,@IpAddress)", con9);
+                               
                 //+LabelClientId.Text + "','" + LabelName.Text + "','" + DropDownCountry.SelectedItem.ToString() + "','" + DropDownListState.SelectedItem.ToString() + "','" + TextBoxCity.Text + "','" + TextBoxAddress.Text + "','" 
                 //+ TextBoxDec.Text + "','" + TextBoxAmount.Text + "','" + ClientDocBytes + "','" + filename + "','application/vnd.ms-word'
+
+                SqlCommand cmd9 = new SqlCommand("ust_credit", con9);
+                cmd9.CommandType = CommandType.StoredProcedure;
 
                 string CreditId = Get8Digits();
                 string IpAddress = GetUserIpAddress();

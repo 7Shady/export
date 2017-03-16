@@ -63,11 +63,14 @@ namespace export
                     br.Close();
                     fs.Close();
                 }
-                SqlCommand cmd9 = new SqlCommand("INSERT INTO tblAudit (AuditId,ClientId,Name,Country,State,City,Email,contactnumber,Address_cl,AttachedFile,AttachProfileName,AttachProfileContentType,IpAddress) VALUES(@AuditId,@ClientId,@Name,@Country,@State,@City,@Email,@contactnumber,@Address_cl,@AttachedFile,@AttachProfileName,@AttachProfileContentType,@IpAddress)", con9);
+                //SqlCommand cmd9 = new SqlCommand("INSERT INTO tblAudit (AuditId,ClientId,Name,Country,State,City,Email,contactnumber,Address_cl,AttachedFile,AttachProfileName,AttachProfileContentType,IpAddress) VALUES(@AuditId,@ClientId,@Name,@Country,@State,@City,@Email,@contactnumber,@Address_cl,@AttachedFile,@AttachProfileName,@AttachProfileContentType,@IpAddress)", con9);
 
                 //+LabelClientId.Text + "','" + LabelName.Text + "','" + DropDownCountry.SelectedItem.ToString() + "','" + DropDownListState.SelectedItem.ToString() + "','" + TextBoxCity.Text + "','" + TextBoxAddress.Text + "','" 
                 //+ TextBoxDec.Text + "','" + TextBoxAmount.Text + "','" + ClientDocBytes + "','" + filename + "','application/vnd.ms-word'
 
+                SqlCommand cmd9 = new SqlCommand("ust_audit", con9);
+                cmd9.CommandType = CommandType.StoredProcedure;
+                
                 string AuditId = Get8Digits();
                 string IpAddress = GetUserIpAddress();
                 cmd9.Parameters.AddWithValue("AuditId", AuditId);

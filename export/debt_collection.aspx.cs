@@ -64,10 +64,13 @@ namespace export
                     br.Close();
                     fs.Close();
                 }
-                SqlCommand cmd9 = new SqlCommand("INSERT INTO tblDebt (DebtId,ClientId,Name,Country,State,City,Address_cl,Description,ValueofConsignment,TermsofDelivery,TermsofPayment,DeliveryDone,PaymentDate,Remarks,AttachedFile,AttachProfileName,AttachProfileContentType,IpAddress) VALUES(@DebtId,@ClientId,@Name,@Country,@State,@City,@Address_cl,@Description,@ValueofConsignment,@TermsofDelivery,@TermsofPayment,@DeliveryDone,@PaymentDate,@Remarks,@AttachedFile,@AttachProfileName,@AttachProfileContentType,@IpAddress)", con9);
+                //SqlCommand cmd9 = new SqlCommand("INSERT INTO tblDebt (DebtId,ClientId,Name,Country,State,City,Address_cl,Description,ValueofConsignment,TermsofDelivery,TermsofPayment,DeliveryDone,PaymentDate,Remarks,AttachedFile,AttachProfileName,AttachProfileContentType,IpAddress) VALUES(@DebtId,@ClientId,@Name,@Country,@State,@City,@Address_cl,@Description,@ValueofConsignment,@TermsofDelivery,@TermsofPayment,@DeliveryDone,@PaymentDate,@Remarks,@AttachedFile,@AttachProfileName,@AttachProfileContentType,@IpAddress)", con9);
 
                 //+LabelClientId.Text + "','" + LabelName.Text + "','" + DropDownCountry.SelectedItem.ToString() + "','" + DropDownListState.SelectedItem.ToString() + "','" + TextBoxCity.Text + "','" + TextBoxAddress.Text + "','" 
                 //+ TextBoxDec.Text + "','" + TextBoxAmount.Text + "','" + ClientDocBytes + "','" + filename + "','application/vnd.ms-word'
+
+                SqlCommand cmd9 = new SqlCommand("ust_debt", con9);
+                cmd9.CommandType = CommandType.StoredProcedure;
 
                 string DebtId = Get8Digits();
                 string IpAddress = GetUserIpAddress();
