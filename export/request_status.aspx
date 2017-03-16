@@ -85,7 +85,7 @@
                 
     
 
-                <asp:SqlDataSource ID="SqlDataSourceCredit" runat="server" ConnectionString="<%$ ConnectionStrings:gt_ConStr %>" SelectCommand="SELECT [CreditId], [Name], [ValueofConsignment], [Status], [TermsofDelivery] FROM [tblCredit]"></asp:SqlDataSource>
+                
 
           </div>
         
@@ -196,7 +196,7 @@
 </table>
            <asp:GridView ID="GridView1" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" 
                      GridLines="None" 
-                      AutoGenerateColumns="False" DataSourceID="SqlDataSourceCredit" CssClass="talkid">
+                      AutoGenerateColumns="False" CssClass="talkid">
                      <AlternatingRowStyle BackColor="White" />
                      <Columns>
                          <asp:BoundField DataField="CreditId" HeaderText="CreditId" SortExpression="CreditId" />
@@ -240,11 +240,36 @@
 <tr>
 <td>
 <h3>No Records..</h3>
+
 </td>
 </tr>
 </tbody>
 </table>
-
+ <asp:GridView ID="GridView2" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" 
+                     GridLines="None" 
+                      AutoGenerateColumns="False" CssClass="talkid">
+                     <AlternatingRowStyle BackColor="White" />
+                     <Columns>
+                         <asp:BoundField DataField="CreditId" HeaderText="CreditId" SortExpression="CreditId" />
+                         <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                         <asp:BoundField DataField="ValueofConsignment" HeaderText="ValueofConsignment" SortExpression="ValueofConsignment" />                         
+                         <asp:BoundField DataField="TermsofDelivery" HeaderText="TermsofDelivery" SortExpression="TermsofDelivery" />
+                         <asp:TemplateField HeaderText="Status" SortExpression="Status">                           
+                             <ItemTemplate>
+                                 <asp:Label ID="Label1" runat="server" CssClass="btn btn-xs btn-info" Text='<%# Bind("Status") %>'></asp:Label>
+                             </ItemTemplate>
+                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText="View" >
+                          <ItemTemplate>
+                        <asp:Button ID="BtnSelect"  OnClick="BtnSelect_Click"  CommandName="Select" runat="server" Text="View" CssClass="btn btn-primary btn-xs" />
+                    </ItemTemplate></asp:TemplateField>
+                     </Columns>
+                     
+                     <HeaderStyle CssClass="industryid" />
+                    
+                     <RowStyle HorizontalAlign="Center" CssClass="gd-border"  />
+                     <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                 </asp:GridView>
 
 
 </div>
