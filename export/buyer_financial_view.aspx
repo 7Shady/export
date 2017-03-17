@@ -132,7 +132,7 @@
 </table>
     </div>
 <div style="text-align: center;">
-<input type="submit" value="Back" onclick="location.href='request_status.aspx'" class="btn btn-primary back_table">
+<input type="submit" value="Back" onclick="location.href='request_status.aspx'" class="btn btn-primary back_table" />
 <br>
 </div>
 
