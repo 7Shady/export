@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="debt_collection_view.aspx.cs" Inherits="export.debt_collection_table" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <%--head--%>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <section class="page-section legal_service">
