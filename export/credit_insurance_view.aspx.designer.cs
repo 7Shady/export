@@ -40,13 +40,13 @@ namespace export {
         protected global::System.Web.UI.WebControls.Label LabelCreditId;
         
         /// <summary>
-        /// LabelBNameee control.
+        /// LabelBName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelBNameee;
+        protected global::System.Web.UI.WebControls.Label LabelBName;
         
         /// <summary>
         /// LabelCountry control.
