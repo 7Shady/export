@@ -19,7 +19,7 @@ namespace export
         gt_dal obj_gt_dal = new gt_dal();
         string clientid = "";
         DataTable sdt = new DataTable();
-
+        //rs
         public void LoadGrid(string modetype, GridView Grid)
         {
             clientid = Request.QueryString["ClientId"];
@@ -61,6 +61,7 @@ namespace export
 
         protected void GridViewCICP_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             //Accessing BoundField Column
             string creditid = GridViewCICP.SelectedRow.Cells[1].Text;
             Response.Redirect("credit_insurance_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&CreditId=" + creditid);
@@ -70,8 +71,34 @@ namespace export
         }
 
         protected void GridViewCICA_SelectedIndexChanged(object sender, EventArgs e)
-        { }
+        {
+            string creditid = GridViewCICA.SelectedRow.Cells[1].Text;
+            Response.Redirect("credit_insurance_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&CreditId=" + creditid);
+        }
         protected void GridViewCICD_SelectedIndexChanged(object sender, EventArgs e)
-        { }
+        {
+            string creditid = GridViewCICD.SelectedRow.Cells[1].Text;
+            Response.Redirect("credit_insurance_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&CreditId=" + creditid);
+        }
+
+
+
+        //Debt Collection  GridViewDCP
+        protected void GridViewDCP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string creditid = GridViewDCP.SelectedRow.Cells[1].Text;
+            Response.Redirect("credit_insurance_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&CreditId=" + creditid);
+        }
+
+        protected void GridViewDCA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string creditid = GridViewDCA.SelectedRow.Cells[1].Text;
+            Response.Redirect("credit_insurance_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&CreditId=" + creditid);
+        }
+        protected void GridViewDCD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string creditid = GridViewDCD.SelectedRow.Cells[1].Text;
+            Response.Redirect("credit_insurance_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&CreditId=" + creditid);
+        }
     }
 }

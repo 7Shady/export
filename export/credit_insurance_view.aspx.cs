@@ -21,7 +21,7 @@ namespace export
 
         protected void Page_Load(object sender, EventArgs e)
         {
-             if (Request.QueryString["ClientId"] != null && Request.QueryString["CreditId"] != null )
+            if (Request.QueryString["ClientId"] != null && Request.QueryString["CreditId"] != null)
             {
                 LabelCName.Text = Request.QueryString["Name"];
                 LabelClientId.Text = Request.QueryString["ClientId"];
