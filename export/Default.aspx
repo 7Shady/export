@@ -14,7 +14,8 @@
                     <div class="row">
                         <div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 profile_img">
                             <asp:Image ID="ImageClient" runat="server" ImageUrl="images/user.png" Width="144" Height="144" />
-                            <p><asp:Label ID="LabelNameB" runat="server"></asp:Label> <asp:Button ID="ButtonSignOut" Style="border:none; font-weight:normal;color:#808080; font-size:small;" runat="server" Text=" SignOut " OnClick="ButtonSignOut_Click"  /></p>
+                            <p><asp:Label ID="LabelNameB" runat="server"></asp:Label> 
+                                <br /><asp:Button ID="ButtonSignOut" Style="border:none; font-weight:normal;color:#808080; font-size:small;" runat="server" Text=" SignOut " OnClick="ButtonSignOut_Click"  /></p>
                         </div>
 
                         <div class="col-lg-4 col-md-3 col-sm-9 col-xs-8 con_address">

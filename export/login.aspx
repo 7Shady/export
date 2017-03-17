@@ -39,7 +39,7 @@
   <div class="form-group">
     <label>E-mail</label>
      
-      <asp:TextBox ID="TextBoxemail" name="E-mail" class="form-control existing-form" placeholder="" runat="server"></asp:TextBox>
+      <asp:TextBox ID="TextBoxEmail" name="E-mail" class="form-control existing-form" placeholder="" runat="server"></asp:TextBox>
 	<div id='myform_Email_errorloc' class="error_strings"></div>
   </div>
   <div class="form-group">
@@ -53,7 +53,7 @@
         <li>
     <div class="checkbox">
     <label>
-        <asp:CheckBox ID="CheckBox1" Text=" Remember me" runat="server" />
+        <asp:CheckBox ID="CheckBoxPersist" Text=" Remember me" runat="server" />
       
     </label>
   </div>

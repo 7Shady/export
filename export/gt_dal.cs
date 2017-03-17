@@ -49,8 +49,19 @@ namespace export
             OpenConn();
             SqlDa = new SqlDataAdapter(Commmand, SqlConn);
             Ds = new DataSet();
-            SqlDa.Fill(Ds);
-            CloseConn();
+            try
+            {
+                SqlDa.Fill(Ds);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+
+                CloseConn();
+            }
             return Ds;
 
         }
@@ -62,8 +73,18 @@ namespace export
             OpenConn();
             SqlDa = new SqlDataAdapter(Command, SqlConn);
             Dt = new DataTable();
-            SqlDa.Fill(Dt);
-            CloseConn();
+            try
+            {
+                SqlDa.Fill(Dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                CloseConn();
+            }
             return Dt;
         }
         #endregion
@@ -73,8 +94,18 @@ namespace export
         {
             OpenConn();
             Sqlcmd = new SqlCommand(Command, SqlConn);
-            a = Sqlcmd.ExecuteNonQuery();
-            CloseConn();
+            try
+            {
+                a = Sqlcmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                CloseConn();
+            }
             return a;
 
         }
@@ -85,7 +116,15 @@ namespace export
         {
             OpenConn();
             Sqlcmd = new SqlCommand(Command, SqlConn);
-            SqlDr = Sqlcmd.ExecuteReader();
+
+            try
+            {
+                SqlDr = Sqlcmd.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             return SqlDr;
         }
         #endregion
@@ -95,8 +134,18 @@ namespace export
         {
             OpenConn();
             Sqlcmd = new SqlCommand(Command, SqlConn);
-            ab = Sqlcmd.ExecuteScalar();
-            CloseConn();
+            try
+            {
+                ab = Sqlcmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                CloseConn();
+            }
             return ab;
         }
         #endregion
@@ -132,7 +181,7 @@ namespace export
             }
             try { a = Sqlcmd.ExecuteNonQuery(); }
             catch (Exception ex) { throw ex; }
-            finally{ CloseConn(); }
+            finally { CloseConn(); }
             return a;
         }
         #endregion
@@ -148,13 +197,23 @@ namespace export
                 foreach (var p in parameters)
                     Sqlcmd.Parameters.Add(p);
             }
-            ab = Sqlcmd.ExecuteScalar();
-            CloseConn();
+            try
+            {
+                ab = Sqlcmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                CloseConn();
+            }
             return ab;
         }
         #endregion
 
-        #region Function For DataTableStoreProcedure(Disconnected Mode)
+        #region Function For DataTable StoreProcedure (Disconnected Mode)
         public DataTable FunDataTableSP(string Command, params SqlParameter[] parameters)
         {
             OpenConn();
@@ -166,8 +225,18 @@ namespace export
                     SqlDa.SelectCommand.Parameters.Add(p);
             }
             Dt = new DataTable();
-            SqlDa.Fill(Dt);
-            CloseConn();
+            try
+            {
+                SqlDa.Fill(Dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                CloseConn();
+            }
             return Dt;
         }
         #endregion
@@ -183,8 +252,18 @@ namespace export
                     Sqlcmd.Parameters.Add(p);
             }
             Ds = new DataSet();
-            SqlDa.Fill(Ds);
-            CloseConn();
+            try
+            {
+                SqlDa.Fill(Ds);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                CloseConn();
+            }
             return Ds;
 
         }
@@ -196,7 +275,10 @@ namespace export
 
 
 
-       //Add other functions below this
+        //Add other functions below this
+
+
+
         #region Function for GenerateRondomNumber
         public string Get8Digits(string cbtype)
         {
@@ -218,7 +300,7 @@ namespace export
         #endregion
 
         #region Function for Document Type Check
-        public string doctype(System.Web.UI.WebControls.FileUpload updoc)
+        public string DocType(System.Web.UI.WebControls.FileUpload updoc)
         {
             string filePath = updoc.PostedFile.FileName;
             string filename = Path.GetFileName(filePath);
@@ -247,11 +329,11 @@ namespace export
         #endregion
 
         #region Function for Document to ByteArray
-        public Byte[] Doc2ByteArray( System.Web.UI.WebControls.FileUpload upfile)
+        public Byte[] Doc2ByteArray(System.Web.UI.WebControls.FileUpload upfile)
         {
             Byte[] ClientDocBytes = null;
-            string contenttype = doctype(upfile);
-            
+            string contenttype = DocType(upfile);
+
             if (contenttype != String.Empty)
             {
                 Stream fs = upfile.PostedFile.InputStream;
@@ -287,7 +369,23 @@ namespace export
             return param;
         }
         #endregion
+
+        #region Function for Download Document
+        public void DocDownload(DataTable dt, string databytecolum, string dataconttype, string datafilename)
+        {
+            Byte[] bytes = (Byte[])dt.Rows[0][databytecolum];
+            System.Web.HttpContext.Current.Response.Buffer = true;
+            System.Web.HttpContext.Current.Response.Charset = "";
+            System.Web.HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            System.Web.HttpContext.Current.Response.ContentType = dt.Rows[0][dataconttype].ToString();
+            System.Web.HttpContext.Current.Response.AddHeader("content-disposition", "attachment;filename="
+            + dt.Rows[0][datafilename].ToString());
+            System.Web.HttpContext.Current.Response.BinaryWrite(bytes);
+            System.Web.HttpContext.Current.Response.Flush();
+            System.Web.HttpContext.Current.Response.End();
+        }
+        #endregion
+
     }
 }
-
 

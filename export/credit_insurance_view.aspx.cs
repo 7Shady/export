@@ -12,7 +12,7 @@ using System.Configuration;
 
 namespace export
 {
-    //Credit
+   
     public partial class credit_insurance_table : System.Web.UI.Page
     {
         gt_dal obj_gt_dal = new gt_dal();
@@ -56,27 +56,6 @@ namespace export
                     LabelDelivery.Text = (Pdt.Rows[0]["TermsofDelivery"].ToString());
                     LabelPayment.Text = (Pdt.Rows[0]["TermsofPayment"].ToString());
                 }
-
-                //"exec ust_rscredit " + clientid + ",'" + mode + "'"
-                //Pdt = obj_gt_dal.FunDataTable("SELECT * FROM tblcredit WHERE CreditId=" + creditid + "");
-
-                //if (Pdt.Rows.Count != 0)
-                //{                    
-                //    LabelCreditId.Text= (Pdt.Rows[0]["CreditId"].ToString());
-                //    LabelBName.Text = (Pdt.Rows[0]["Name"].ToString());
-                //    LabelCountry.Text = (Pdt.Rows[0]["Country"].ToString());
-                //    LabelState.Text = (Pdt.Rows[0]["State"].ToString());
-                //    LabelCity.Text = (Pdt.Rows[0]["City"].ToString());
-                //    LabelAddress.Text = (Pdt.Rows[0]["Address_cl"].ToString());
-                //    LabelDescription.Text = (Pdt.Rows[0]["Description"].ToString());
-                //    LabelConsig.Text = (Pdt.Rows[0]["ValueofConsignment"].ToString());
-                //    LabelDelivery.Text = (Pdt.Rows[0]["TermsofDelivery"].ToString());
-                //    LabelPayment.Text = (Pdt.Rows[0]["TermsofPayment"].ToString());
-
-                //}
-
-
-
             }
         }
 
@@ -96,10 +75,9 @@ namespace export
 
         protected void ButtonDload_Click(object sender, EventArgs e)
         {
-            //DataTable dt = gt_dal_obj.FunDataTable("exec ust_selectattachprofile " + clientid + "");
             if (Pdt.Rows[0]["AttachedFile"] != DBNull.Value)
             {
-                download(Pdt);
+                obj_gt_dal.DocDownload(Pdt, "AttachedFile", "AttachProfileContentType", "AttachProfileName");
             }
         }
     }

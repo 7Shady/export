@@ -148,7 +148,7 @@
                                                                         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
                                                                             <div class="fileUpload btn btn-primary">
                                                                                 <span>Choose File</span>
-                                                                                <asp:FileUpload ID="uploadpanlegal_second" class="upload" runat="server" placeholder="Choose File" />
+                                                                                <asp:FileUpload ID="uploadpanlegal_second" CssClass="upload" runat="server" ToolTip="Choose .xls/.xlsx/.pdf/.doc/.docx) file only"  />
                                                                                 <%--accept="application/ms-word"--%>
                                                                             </div>
                                                                         </div>
