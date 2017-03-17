@@ -148,13 +148,14 @@
                                                                         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
                                                                             <div class="fileUpload btn btn-primary">
                                                                                 <span>Choose File</span>
-                                                                                <asp:FileUpload ID="uploadpanlegal_second" class="upload" runat="server" />
+                                                                                <asp:FileUpload ID="uploadpanlegal_second" class="upload" runat="server" placeholder="Choose File" />
                                                                                 <%--accept="application/ms-word"--%>
                                                                             </div>
                                                                         </div>
-
                                                                     </div>
-                                                                    <span class="upload_file">(Upload .xls/.pdf/.doc/.docx) file only</span>
+                                                                    <span class="upload_file"><asp:RegularExpressionValidator ID="ValidFile" runat="server" Text="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only"
+                                                                                    ToolTip="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only" ControlToValidate="uploadpanlegal_second" ValidationExpression="[a-zA-Z0_9].*\b(.xls|.xlsx|.pdf|.doc|.docx)\b"
+                                                                                    ForeColor="Red" Display="Dynamic" Font-Size="Small"></asp:RegularExpressionValidator></span>
                                                                     <div id='myform_Attached_errorloc' class="error_strings"></div>
                                                                 </div>
                                                             </div>

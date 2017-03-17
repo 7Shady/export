@@ -15,11 +15,8 @@ namespace export
     public partial class buyer_financial : System.Web.UI.Page
     {
         gt_dal obj_gt_dal = new gt_dal();
-        Byte[] ClientDocBytes = null;
-        string filename = null;
-        string clientid = null;
-        string clientname = null;
-        //test
+        string clientid = "";
+        string clientname = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,75 +29,89 @@ namespace export
             }
         }
 
-        public string Get8Digits()
-        {
-            var bytes = new byte[4];
-            var rng = RandomNumberGenerator.Create();
-            rng.GetBytes(bytes);
-            uint random = BitConverter.ToUInt32(bytes, 0) % 100000000;
-            return String.Format("BR" + "{0:D8}", random);
-        }
-
         protected void buyersubmit_Click(object sender, EventArgs e)
         {
+            SqlParameter param1 = new SqlParameter();
+            param1.ParameterName = "@BuyerId";
+            param1.Value = obj_gt_dal.Get8Digits("BR");
+            param1.SqlDbType = SqlDbType.VarChar;
 
-            using (SqlConnection con9 = new SqlConnection(ConfigurationManager.ConnectionStrings["gt_ConStr"].ConnectionString))
+            SqlParameter param2 = new SqlParameter();
+            param2.ParameterName = "@ClientId";
+            param2.Value = clientid;
+            param2.SqlDbType = SqlDbType.VarChar;
+
+            SqlParameter param3 = new SqlParameter();
+            param3.ParameterName = "@Name";
+            param3.Value = TextBoxBname.Text;
+            param3.SqlDbType = SqlDbType.VarChar;
+
+            SqlParameter param4 = new SqlParameter();
+            param4.ParameterName = "@Country";
+            param4.Value = DropDownCountry.SelectedItem.ToString();
+            param4.SqlDbType = SqlDbType.VarChar;
+
+            SqlParameter param5 = new SqlParameter();
+            param5.ParameterName = "@State";
+            param5.Value = DropDownListState.SelectedItem.ToString();
+            param5.SqlDbType = SqlDbType.VarChar;
+
+            SqlParameter param6 = new SqlParameter();
+            param6.ParameterName = "@City";
+            param6.Value = TextBoxCity.Text;
+            param6.SqlDbType = SqlDbType.VarChar;
+
+            SqlParameter param7 = new SqlParameter();
+            param7.ParameterName = "@Address_cl";
+            param7.Value = TextBoxAddress.Text;
+            param7.SqlDbType = SqlDbType.VarChar;
+
+            SqlParameter param8 = new SqlParameter();
+            param8.ParameterName = "@Description";
+            param8.Value = TextBoxDec.Text;
+            param8.SqlDbType = SqlDbType.VarChar;
+
+
+            SqlParameter param9 = new SqlParameter();
+            param9.ParameterName = "@AmountofOrder";
+            param9.Value = TextBoxAmount.Text;
+            param9.SqlDbType = SqlDbType.VarChar;
+
+            SqlParameter param10 = new SqlParameter();
+            param10.ParameterName = "@AttachedFile";
+            param10.SqlDbType = SqlDbType.VarBinary;
+
+            SqlParameter param11 = new SqlParameter();
+            param11.ParameterName = "@AttachProfileName";
+            param11.SqlDbType = SqlDbType.VarChar;
+
+            SqlParameter param12 = new SqlParameter();
+            param12.ParameterName = "@AttachProfileContentType";
+            param12.SqlDbType = SqlDbType.VarChar;
+
+            string filePath = uploadpanlegal_second.PostedFile.FileName;
+            string filename = Path.GetFileName(filePath);
+            string ext = Path.GetExtension(filename);
+
+            if (ext == ".doc" || ext == ".docx" || ext == ".xls" || ext == ".xlsx" || ext == ".pdf")
             {
-                string q1 = "";
-                string q2 = "";
-                if (uploadpanlegal_second.FileName != string.Empty)
-                {
-                    q1 = ",AttachedFile,AttachProfileName,AttachProfileContentType";
-                    q2 = ",@AttachedFile,@AttachProfileName,@AttachProfileContentType";
-                    string filePath = Server.MapPath("APP_DATA/Resume.docx");
-                    filename = Path.GetFileName(filePath);
+                param10.Value = obj_gt_dal.Doc2ByteArray(uploadpanlegal_second);
+                param11.Value = uploadpanlegal_second.PostedFile.FileName;
+                param12.Value = obj_gt_dal.doctype(uploadpanlegal_second);
+            }
+            else
+            {
+                param10.Value = DBNull.Value;
+                param11.Value = DBNull.Value;
+                param12.Value = DBNull.Value;
+            }
 
-                    FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-                    BinaryReader br = new BinaryReader(fs);
-                    ClientDocBytes = br.ReadBytes((Int32)fs.Length);
-                    br.Close();
-                    fs.Close();
-                }
-                SqlCommand cmd9 = new SqlCommand("INSERT INTO tblBuyer (BuyerId,ClientId,Name,Country,State,City,Address_cl,Description,AmountofOrder" + q1 + ") VALUES(@BuyerId,@ClientId,@Name,@Country,@State,@City,@Address_cl,@Description,@AmountofOrder" + q2 + ")", con9);
-
-                string BuyerId = Get8Digits();
-                cmd9.Parameters.AddWithValue("BuyerId", BuyerId);
-                cmd9.Parameters.AddWithValue("ClientId", clientid);
-                cmd9.Parameters.AddWithValue("Name", TextBoxBname.Text);
-                cmd9.Parameters.AddWithValue("Country", DropDownCountry.SelectedItem.ToString());
-                cmd9.Parameters.AddWithValue("State", DropDownListState.SelectedItem.ToString());
-                cmd9.Parameters.AddWithValue("City", TextBoxCity.Text);
-                cmd9.Parameters.AddWithValue("Address_cl", TextBoxAddress.Text);
-                cmd9.Parameters.AddWithValue("Description", TextBoxDec.Text);
-                cmd9.Parameters.AddWithValue("AmountofOrder", TextBoxAmount.Text);
-                if (uploadpanlegal_second.FileName != string.Empty)
-                {
-                    cmd9.Parameters.AddWithValue("AttachedFile", ClientDocBytes);
-                    cmd9.Parameters.AddWithValue("AttachProfileName", filename);
-                    cmd9.Parameters.AddWithValue("AttachProfileContentType", "application/vnd.ms-word");
-                }
-
-                try
-                {
-                    con9.Open();
-                    int CheckSuc = cmd9.ExecuteNonQuery();
-                    if (CheckSuc > 0)
-                    {
-                        Response.Write("<script>alert('Buyer added successfully!');</script>");
-                        panelbuyer.Visible = false;
-                        ButtonAddMorei.Visible = true;
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    string errorMessage = "Opps Error! Please try again. ";
-                    errorMessage += ex.Message;
-                    throw new Exception(errorMessage);
-                }
-                finally
-                {
-                    con9.Close();
-                }
+            int ab = obj_gt_dal.FunExecuteNonQuerySP("ust_buyerfinancial", param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12);
+            if (ab > 0)
+            {
+                Response.Write("<script>alert('Buyer added successfully!');</script>");
+                panelbuyer.Visible = false;
+                ButtonAddMorei.Visible = true;
             }
         }
 
@@ -108,5 +119,6 @@ namespace export
         {
             Response.Redirect("buyer_financial.aspx?ClientId=" + clientid + "&Name=" + clientname);
         }
+
     }
 }

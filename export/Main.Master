@@ -35,7 +35,7 @@
 <div class="container">
 <div class="row">
 <div class="col-sm-12">
-    <img src="images/logo-dark.png">
+    <a href="Default.aspx"><img src="images/logo-dark.png" /></a>
     </div>   
     </div>    
     </div>    

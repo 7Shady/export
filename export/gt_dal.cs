@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 #region Namespace for Database Connection
 using System.Data.SqlClient;
@@ -36,6 +34,7 @@ namespace export
 
         }
         #endregion
+
         #region Function for Close Connection
         public void CloseConn()
         {
@@ -43,6 +42,7 @@ namespace export
                 SqlConn.Close();
         }
         #endregion
+
         #region Function for Dataset for Disconnected Mode
         public DataSet FunDataSet(string Commmand)
         {
@@ -55,6 +55,7 @@ namespace export
 
         }
         #endregion
+
         #region Function For DataTable(Disconnected Mode)
         public DataTable FunDataTable(string Command)
         {
@@ -66,6 +67,7 @@ namespace export
             return Dt;
         }
         #endregion
+
         #region Function for ExecuteNonQuery(Insert,Update,Delete)
         public int FunExecuteNonQuery(string Command)
         {
@@ -77,6 +79,7 @@ namespace export
 
         }
         #endregion
+
         #region Function For ExecuteReader fetch number of rows
         public SqlDataReader FunExecuteReader(string Command)
         {
@@ -86,6 +89,7 @@ namespace export
             return SqlDr;
         }
         #endregion
+
         #region Function for ExecuteScalar(Fetch a single value)
         public object FunExecuteScalar(string Command)
         {
@@ -96,6 +100,7 @@ namespace export
             return ab;
         }
         #endregion
+
         #region Function for BulkInsert
         public void FuncBulkCopy(DataTable dt, string DestinationTable)
         {
@@ -125,9 +130,9 @@ namespace export
                 foreach (var p in parameters)
                     Sqlcmd.Parameters.Add(p);
             }
-
-            a = Sqlcmd.ExecuteNonQuery();
-            CloseConn();
+            try { a = Sqlcmd.ExecuteNonQuery(); }
+            catch (Exception ex) { throw ex; }
+            finally{ CloseConn(); }
             return a;
         }
         #endregion
@@ -149,37 +154,16 @@ namespace export
         }
         #endregion
 
-        #region Function for GenerateRondomNumber
-        public string Get8Digits()
-        {
-            var bytes = new byte[4];
-            var rng = RandomNumberGenerator.Create();
-            rng.GetBytes(bytes);
-            uint random = BitConverter.ToUInt32(bytes, 0) % 100000000;
-            return String.Format("CL" + "{0:D8}", random);
-        }
-        #endregion
-
-        #region Function for Image to ByteArray
-        public byte[] image2ByteArray(System.Drawing.Image imageIn)
-        {
-            MemoryStream ms = new MemoryStream();
-            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-            return ms.ToArray();
-        }
-        #endregion
-
         #region Function For DataTableStoreProcedure(Disconnected Mode)
         public DataTable FunDataTableSP(string Command, params SqlParameter[] parameters)
         {
             OpenConn();
             SqlDa = new SqlDataAdapter(Command, SqlConn);
+            SqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
             if (parameters != null && parameters.Length > 0)
             {
                 foreach (var p in parameters)
                     SqlDa.SelectCommand.Parameters.Add(p);
-
-                //Sqlcmd.Parameters.Add(p);
             }
             Dt = new DataTable();
             SqlDa.Fill(Dt);
@@ -206,9 +190,91 @@ namespace export
         }
         #endregion
 
+        //Add DB functions here
 
-        #region Function for GetUserIpAddress
 
+
+
+
+       //Add other functions below this
+        #region Function for GenerateRondomNumber
+        public string Get8Digits(string cbtype)
+        {
+            var bytes = new byte[4];
+            var rng = RandomNumberGenerator.Create();
+            rng.GetBytes(bytes);
+            uint random = BitConverter.ToUInt32(bytes, 0) % 100000000;
+            return String.Format(cbtype + "{0:D8}", random);
+        }
+        #endregion
+
+        #region Function for Image to ByteArray
+        public byte[] image2ByteArray(System.Drawing.Image imageIn)
+        {
+            MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            return ms.ToArray();
+        }
+        #endregion
+
+        #region Function for Document Type Check
+        public string doctype(System.Web.UI.WebControls.FileUpload updoc)
+        {
+            string filePath = updoc.PostedFile.FileName;
+            string filename = Path.GetFileName(filePath);
+            string ext = Path.GetExtension(filename);
+            string contenttype = String.Empty;
+            switch (ext)
+            {
+                case ".doc":
+                    contenttype = "application/vnd.ms-word";
+                    break;
+                case ".docx":
+                    contenttype = "application/vnd.ms-word";
+                    break;
+                case ".xls":
+                    contenttype = "application/vnd.ms-excel";
+                    break;
+                case ".xlsx":
+                    contenttype = "application/vnd.ms-excel";
+                    break;
+                case ".pdf":
+                    contenttype = "application/pdf";
+                    break;
+            }
+            return contenttype;
+        }
+        #endregion
+
+        #region Function for Document to ByteArray
+        public Byte[] Doc2ByteArray( System.Web.UI.WebControls.FileUpload upfile)
+        {
+            Byte[] ClientDocBytes = null;
+            string contenttype = doctype(upfile);
+            
+            if (contenttype != String.Empty)
+            {
+                Stream fs = upfile.PostedFile.InputStream;
+                BinaryReader br = new BinaryReader(fs);
+                ClientDocBytes = br.ReadBytes((Int32)fs.Length);
+                fs.Close();
+                br.Close();
+            }
+            return ClientDocBytes;
+        }
+        #endregion
+
+        #region Function for Get User IP Address
+        public string GetUserIpAddress()
+        {
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (string.IsNullOrEmpty(ip))
+            {
+                ip = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+                if (ip == "::1") ip = "127.0.0.1"; // localhost
+            }
+            return ip;
+        }
         #endregion
     }
 }

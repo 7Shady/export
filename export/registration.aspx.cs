@@ -56,7 +56,7 @@ namespace export
 
             using (SqlConnection con9 = new SqlConnection(ConfigurationManager.ConnectionStrings["gt_ConStr"].ConnectionString))
             {
-                string ClientID9 = obj_gt_dal.Get8Digits();
+                string ClientID9 = obj_gt_dal.Get8Digits("CL");
                 SqlCommand cmd9 = new SqlCommand("INSERT INTO tblClientRegistration(ClientId, Name, Email, Password) VALUES(@ClientId, @Name, @Email, @Password)", con9);
                 cmd9.Parameters.AddWithValue("ClientId", ClientID9);
                 cmd9.Parameters.AddWithValue("Name", TextBoxName.Text);

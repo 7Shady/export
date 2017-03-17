@@ -31,21 +31,30 @@ namespace export {
         protected global::System.Web.UI.WebControls.Label LabelName;
         
         /// <summary>
-        /// GridView1 control.
+        /// GridViewCICP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView GridViewCICP;
         
         /// <summary>
-        /// GridView2 control.
+        /// GridViewCICA control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView2;
+        protected global::System.Web.UI.WebControls.GridView GridViewCICA;
+        
+        /// <summary>
+        /// GridViewCICD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewCICD;
     }
 }

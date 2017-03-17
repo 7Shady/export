@@ -22,13 +22,13 @@ namespace export {
         protected global::System.Web.UI.WebControls.Label LabelClientId;
         
         /// <summary>
-        /// LabelName control.
+        /// LabelCName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelName;
+        protected global::System.Web.UI.WebControls.Label LabelCName;
         
         /// <summary>
         /// LabelCreditId control.
@@ -119,5 +119,14 @@ namespace export {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelPayment;
+        
+        /// <summary>
+        /// ButtonDload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonDload;
     }
 }
