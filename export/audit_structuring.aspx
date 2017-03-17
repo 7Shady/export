@@ -56,6 +56,7 @@
 <div class="row">
 
     <div class="col-sm-12 overseas">
+         <asp:Panel ID="panelaudit" runat="server">
      <hr>
 <div id="legal_service_request" class="tab-pane talk_legal active">
 <form name="myform" id="myform" method="post" action="">
@@ -174,7 +175,9 @@
 </div>
 </div>
         </div> 
-<span class="upload_file">(Upload .xls/.pdf/.doc/.docx) file only</span>
+ <span class="upload_file"><asp:RegularExpressionValidator ID="ValidFile" runat="server" Text="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only"
+                                                                                    ToolTip="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only" ControlToValidate="uploadpanlegal_second" ValidationExpression="[a-zA-Z0_9].*\b(.xls|.xlsx|.pdf|.doc|.docx)\b"
+                                                                                    ForeColor="Red" Display="Dynamic" Font-Size="Small"></asp:RegularExpressionValidator></span>
          <div id='myform_Attached_errorloc' class="error_strings"></div>
     </div>
 
@@ -188,10 +191,12 @@
 <asp:Button ID="auditsubmit" runat="server" Text="Submit" value="Submit" class="btn btn-primary" OnClick="auditsubmit_Click" />
 
 <a href="Default.aspx" class="btn btn-info">Back</a>
+   </asp:Panel>
+        <asp:Button ID="ButtonAddMorei" runat="server" Text="Add More Audit & structuring" CssClass="btn-lg" Visible="False" OnClick="ButtonAddMore_Click" />
 </div>
     </div>
 </div>
-    </form>
+   
     
         </div>
 

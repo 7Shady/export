@@ -15,98 +15,63 @@ namespace export
     public partial class audit_structuring : System.Web.UI.Page
     {
         gt_dal obj_gt_dal = new gt_dal();
-        Byte[] ClientDocBytes = null;
-        string filename = null;
-        //test
-
-        public static string GetUserIpAddress()
-        {
-            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-            if (string.IsNullOrEmpty(ip))
-            {
-                ip = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
-                if (ip == "::1") ip = "127.0.0.1"; // localhost
-            }
-            return ip;
-        }
+        string clientid = "";
+        string clientname = "";  
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["ClientId"] != null && Request.QueryString["Name"] != null)
             {
-                LabelClientId.Text = Request.QueryString["ClientId"];
-                LabelName.Text = Request.QueryString["Name"];
+                clientid = Request.QueryString["ClientId"];
+                LabelClientId.Text = clientid;
+                clientname = Request.QueryString["Name"];
+                LabelName.Text = clientname;
             }
         }
 
-        public string Get8Digits()
-        {
-            var bytes = new byte[4];
-            var rng = RandomNumberGenerator.Create();
-            rng.GetBytes(bytes);
-            uint random = BitConverter.ToUInt32(bytes, 0) % 100000000;
-            return String.Format("AT" + "{0:D8}", random);
-        }
+      
 
         protected void auditsubmit_Click(object sender, EventArgs e)
         {
-            using (SqlConnection con9 = new SqlConnection(ConfigurationManager.ConnectionStrings["gt_ConStr"].ConnectionString))
+           
+                SqlParameter param1 = obj_gt_dal.SqlParam("@AuditId", obj_gt_dal.Get8Digits("AT"), SqlDbType.VarChar);
+                SqlParameter param2 = obj_gt_dal.SqlParam("@ClientId", clientid, SqlDbType.VarChar);
+                SqlParameter param3 = obj_gt_dal.SqlParam("@Name", TextBoxAname.Text, SqlDbType.VarChar);
+                SqlParameter param4 = obj_gt_dal.SqlParam("@Country", DropDownCountry.SelectedItem.ToString(), SqlDbType.VarChar);
+                SqlParameter param5 = obj_gt_dal.SqlParam("@State", DropDownState.SelectedItem.ToString(), SqlDbType.VarChar);
+                SqlParameter param6 = obj_gt_dal.SqlParam("@City", TextBoxCity.Text, SqlDbType.VarChar);
+                SqlParameter param7 = obj_gt_dal.SqlParam("@Email", TextBoxEmail.Text, SqlDbType.VarChar);
+                SqlParameter param8 = obj_gt_dal.SqlParam("@contactnumber", TextBoxMob.Text, SqlDbType.VarChar);
+                SqlParameter param9 = obj_gt_dal.SqlParam("@Address_cl", TextBoxAddress.Text, SqlDbType.VarChar);
+                SqlParameter param10 = obj_gt_dal.SqlParam("@AttachedFile", DBNull.Value, SqlDbType.VarBinary);
+                SqlParameter param11 = obj_gt_dal.SqlParam("@AttachProfileName", DBNull.Value, SqlDbType.VarChar);
+                SqlParameter param12 = obj_gt_dal.SqlParam("@AttachProfileContentType", DBNull.Value, SqlDbType.VarChar);
+                SqlParameter param13 = obj_gt_dal.SqlParam("@IpAddress", obj_gt_dal.GetUserIpAddress(), SqlDbType.VarChar);
+
+            string filePath = uploadpanlegal_second.PostedFile.FileName;
+            string filename = Path.GetFileName(filePath);
+            string ext = Path.GetExtension(filename);
+
+            if (ext == ".doc" || ext == ".docx" || ext == ".xls" || ext == ".xlsx" || ext == ".pdf")
             {
-                if (uploadpanlegal_second.FileName != string.Empty)
-                {
-                    string filePath = Server.MapPath("APP_DATA/Resume.docx");
-                    filename = Path.GetFileName(filePath);
-
-                    FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-                    BinaryReader br = new BinaryReader(fs);
-                    ClientDocBytes = br.ReadBytes((Int32)fs.Length);
-                    br.Close();
-                    fs.Close();
-                }
-                //SqlCommand cmd9 = new SqlCommand("INSERT INTO tblAudit (AuditId,ClientId,Name,Country,State,City,Email,contactnumber,Address_cl,AttachedFile,AttachProfileName,AttachProfileContentType,IpAddress) VALUES(@AuditId,@ClientId,@Name,@Country,@State,@City,@Email,@contactnumber,@Address_cl,@AttachedFile,@AttachProfileName,@AttachProfileContentType,@IpAddress)", con9);
-
-                //+LabelClientId.Text + "','" + LabelName.Text + "','" + DropDownCountry.SelectedItem.ToString() + "','" + DropDownListState.SelectedItem.ToString() + "','" + TextBoxCity.Text + "','" + TextBoxAddress.Text + "','" 
-                //+ TextBoxDec.Text + "','" + TextBoxAmount.Text + "','" + ClientDocBytes + "','" + filename + "','application/vnd.ms-word'
-
-                SqlCommand cmd9 = new SqlCommand("ust_audit", con9);
-                cmd9.CommandType = CommandType.StoredProcedure;
-                
-                string AuditId = Get8Digits();
-                string IpAddress = GetUserIpAddress();
-                cmd9.Parameters.AddWithValue("AuditId", AuditId);
-                cmd9.Parameters.AddWithValue("ClientId", LabelClientId.Text);
-                cmd9.Parameters.AddWithValue("Name", TextBoxAname.Text);
-                cmd9.Parameters.AddWithValue("Country", DropDownCountry.SelectedItem.ToString());
-                cmd9.Parameters.AddWithValue("State", DropDownState.SelectedItem.ToString());
-                cmd9.Parameters.AddWithValue("City", TextBoxCity.Text);
-                cmd9.Parameters.AddWithValue("Email", TextBoxEmail.Text);
-                cmd9.Parameters.AddWithValue("contactnumber", TextBoxMob.Text);
-                cmd9.Parameters.AddWithValue("Address_cl", TextBoxAddress.Text);
-                cmd9.Parameters.AddWithValue("AttachedFile", ClientDocBytes);
-                cmd9.Parameters.AddWithValue("AttachProfileName", filename);
-                cmd9.Parameters.AddWithValue("AttachProfileContentType", "application/vnd.ms-word");
-                cmd9.Parameters.AddWithValue("IpAddress", IpAddress);
-                try
-                {
-                    con9.Open();
-                    int CheckSuc = cmd9.ExecuteNonQuery();
-                    if (CheckSuc > 0)
-                    {
-                        Response.Write("<script>alert('Profile updated successfully!');</script>");
-
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    string errorMessage = "Opps Error! Please try again. ";
-                    errorMessage += ex.Message;
-                    throw new Exception(errorMessage);
-                }
-                finally
-                {
-                    con9.Close();
-                }
+                param10 = obj_gt_dal.SqlParam("@AttachedFile", obj_gt_dal.Doc2ByteArray(uploadpanlegal_second), SqlDbType.VarBinary);
+                param11 = obj_gt_dal.SqlParam("@AttachProfileName", uploadpanlegal_second.PostedFile.FileName, SqlDbType.VarChar);
+                param12 = obj_gt_dal.SqlParam("@AttachProfileContentType", obj_gt_dal.doctype(uploadpanlegal_second), SqlDbType.VarChar);
             }
+
+            int ab = obj_gt_dal.FunExecuteNonQuerySP("ust_audit", param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13);
+            if (ab > 0)
+            {
+                Response.Write("<script>alert('Audit added successfully!');</script>");
+                panelaudit.Visible = false;
+                ButtonAddMorei.Visible = true;
+            }
+            else Response.Write("<script>alert('I afaid something went wrong! Please try again.');</script>");
+
+        }
+        protected void ButtonAddMore_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("audit_structuring.aspx?ClientId=" + clientid + "&Name=" + clientname);
         }
     }
 }

@@ -31,6 +31,33 @@ namespace export {
         protected global::System.Web.UI.WebControls.Label LabelName;
         
         /// <summary>
+        /// GridViewBFP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewBFP;
+        
+        /// <summary>
+        /// GridViewBFA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewBFA;
+        
+        /// <summary>
+        /// GridViewBFD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewBFD;
+        
+        /// <summary>
         /// GridViewCICP control.
         /// </summary>
         /// <remarks>
@@ -83,5 +110,32 @@ namespace export {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridViewDCD;
+        
+        /// <summary>
+        /// GridViewASP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewASP;
+        
+        /// <summary>
+        /// GridViewASA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewASA;
+        
+        /// <summary>
+        /// GridViewASD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewASD;
     }
 }

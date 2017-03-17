@@ -31,6 +31,15 @@ namespace export {
         protected global::System.Web.UI.WebControls.Label LabelName;
         
         /// <summary>
+        /// panelaudit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelaudit;
+        
+        /// <summary>
         /// TextBoxAname control.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace export {
         protected global::System.Web.UI.WebControls.FileUpload uploadpanlegal_second;
         
         /// <summary>
+        /// ValidFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidFile;
+        
+        /// <summary>
         /// auditsubmit control.
         /// </summary>
         /// <remarks>
@@ -128,5 +146,14 @@ namespace export {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button auditsubmit;
+        
+        /// <summary>
+        /// ButtonAddMorei control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonAddMorei;
     }
 }

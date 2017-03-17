@@ -135,9 +135,9 @@
 <td class="bg-green-light">AttachmentPath</td>
 <td>
 <div>
-<a class="btn btn-info btn-xs" href="#">Download</a>
+ <asp:Button ID="ButtonDload" runat="server" Text="Download" CssClass="btn btn-info btn-xs" OnClick="ButtonDload_Click" />
 
-<input type="hidden" value="">
+<input type="hidden" value="" />
 </div>
 </td>
 </tr>

@@ -42,7 +42,8 @@ namespace export
             SqlParameter param9 = obj_gt_dal.SqlParam("@AmountofOrder", TextBoxAmount.Text, SqlDbType.VarChar);
             SqlParameter param10 = obj_gt_dal.SqlParam("@AttachedFile", DBNull.Value, SqlDbType.VarBinary);
             SqlParameter param11 = obj_gt_dal.SqlParam("@AttachProfileName", DBNull.Value, SqlDbType.VarChar);
-            SqlParameter param12 = obj_gt_dal.SqlParam("@AttachProfileContentType", DBNull.Value, SqlDbType.VarChar);
+            SqlParameter param12 = obj_gt_dal.SqlParam("@AttachProfileContentType", DBNull.Value, SqlDbType.VarChar);            
+
 
             string filePath = uploadpanlegal_second.PostedFile.FileName;
             string filename = Path.GetFileName(filePath);

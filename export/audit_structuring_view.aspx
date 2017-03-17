@@ -11,7 +11,7 @@
     <div class="col-sm-10 col-sm-offset-1">
         <div class="sure_legal">
 <ul class="nav nav-tabs training">
-<li><a data-toggle="tab" href="#legal_service" class="legal_certification">Credit Insurance Cover</a></li>
+<li><a data-toggle="tab" href="#legal_service" class="legal_certification">Audit & structuring of a customized process</a></li>
 
 </ul>
 
@@ -55,7 +55,7 @@
 <tbody>
 <tr>
 <td class="bg-green-light">Audit Id</td>
-<td><asp:Label ID="LabelCreditId" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelAuditId" runat="server" Text="Label" Font-Bold="True"></asp:Label>
 </td>
 
 <td class="bg-green-light">Person to be contacted for Audit</td>
@@ -108,7 +108,7 @@
 <td class="bg-green-light">AttachmentPath</td>
 <td>
 <div>
-<a class="btn btn-info btn-xs" href="#">Download</a>
+ <asp:Button ID="ButtonDload" runat="server" Text="Download" CssClass="btn btn-info btn-xs" OnClick="ButtonDload_Click" />
 
 <input type="hidden" value="">
 </div>

@@ -54,7 +54,7 @@
 
 
 
-<hr>
+<hr />
 <div>
 <ul class="nav nav-tabs status_request">
 
@@ -81,10 +81,36 @@
       <div class="panel-body">
             <div class="table-responsive">
                 
-    
-
+         <asp:GridView ID="GridViewBFP" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewBFP_SelectedIndexChanged" 
+                     GridLines="None"  
+                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+               <Columns>
+                   <asp:TemplateField HeaderText="#">
+                       <ItemTemplate>
+                           <%# Container.DataItemIndex + 1 %>
+                       </ItemTemplate>
+                       <ItemStyle Width="4%" />
+                   </asp:TemplateField>
+                   <asp:BoundField DataField="BuyerId" HeaderText="ID" SortExpression="BuyerId" ItemStyle-width="20%" />
+                   <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-width="20%"  />
+                   <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" ItemStyle-width="16%" />
+                   <asp:BoundField DataField="AmountofOrder" HeaderText="AmountofOrder" SortExpression="TermsofDelivery" ItemStyle-width="16%"  />
+                   <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                       <ItemTemplate>
+                           <asp:Label ID="LabelStatus" runat="server" CssClass="btn btn-xs btn-info" Text='<%# Bind("Status") %>'></asp:Label>
+                       </ItemTemplate>
+                       <ItemStyle Width="14%" />
+                   </asp:TemplateField>
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   </asp:CommandField>
+               </Columns>
+                     <HeaderStyle CssClass="industryid" />
+                     <RowStyle HorizontalAlign="Center" CssClass="gd-border"  />
+                     <EmptyDataRowStyle Font-Size="18" />
+               
+                 </asp:GridView>     
                 
-
           </div>
         
         </div>
@@ -97,15 +123,37 @@
     <div id="collapse5" class="panel-collapse collapse">
       <div class="panel-body">
             <div class="table-responsive">
-        <table cellspacing="0" cellpadding="4" rules="rows" class="talkid">
-<tbody>
-<tr>
-<td>
-<h3>No Records..</h3>
-</td>
-</tr>
-</tbody>
-</table>
+       
+              <asp:GridView ID="GridViewBFA" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewBFA_SelectedIndexChanged" 
+                     GridLines="None"  
+                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+               <Columns>
+                   <asp:TemplateField HeaderText="#">
+                       <ItemTemplate>
+                           <%# Container.DataItemIndex + 1 %>
+                       </ItemTemplate>
+                       <ItemStyle Width="4%" />
+                   </asp:TemplateField>
+                    <asp:BoundField DataField="BuyerId" HeaderText="ID" SortExpression="BuyerId" ItemStyle-width="20%" />
+                   <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-width="20%"  />
+                   <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" ItemStyle-width="16%" />
+                   <asp:BoundField DataField="AmountofOrder" HeaderText="AmountofOrder" SortExpression="TermsofDelivery" ItemStyle-width="16%"  />
+                   <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                       <ItemTemplate>
+                           <asp:Label ID="LabelStatus" runat="server" CssClass="btn btn-xs btn-success" Text='<%# Bind("Status") %>'></asp:Label>
+                       </ItemTemplate>
+                       <ItemStyle Width="14%" />
+                   </asp:TemplateField>
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   </asp:CommandField>
+               </Columns>
+                     <HeaderStyle CssClass="industryid" />
+                     <RowStyle HorizontalAlign="Center" CssClass="gd-border"  />
+                     <EmptyDataRowStyle Font-Size="18" />
+                 </asp:GridView>
+
+
           </div>
         
         </div>
@@ -120,15 +168,36 @@
     <div id="collapse6" class="panel-collapse collapse">
       <div class="panel-body">
             <div class="table-responsive">
-        <table cellspacing="0" cellpadding="4" rules="rows" class="talkid">
-<tbody>
-<tr>
-<td>
-<h3>No Records..</h3>
-</td>
-</tr>
-</tbody>
-</table>
+        
+<asp:GridView ID="GridViewBFD" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewBFD_SelectedIndexChanged" 
+                     GridLines="None"  
+                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+               <Columns>
+                   <asp:TemplateField HeaderText="#">
+                       <ItemTemplate>
+                           <%# Container.DataItemIndex + 1 %>
+                       </ItemTemplate>
+                       <ItemStyle Width="4%" />
+                   </asp:TemplateField>
+                    <asp:BoundField DataField="BuyerId" HeaderText="ID" SortExpression="BuyerId" ItemStyle-width="20%" />
+                   <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-width="20%"  />
+                   <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" ItemStyle-width="16%" />
+                   <asp:BoundField DataField="AmountofOrder" HeaderText="AmountofOrder" SortExpression="TermsofDelivery" ItemStyle-width="16%"  />
+                   <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                       <ItemTemplate>
+                           <asp:Label ID="LabelStatus" runat="server" CssClass="btn btn-xs btn-danger" Text='<%# Bind("Status") %>'></asp:Label>
+                       </ItemTemplate>
+                       <ItemStyle Width="14%" />
+                   </asp:TemplateField>
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   </asp:CommandField>
+               </Columns>
+                     <HeaderStyle CssClass="industryid" />
+                     <RowStyle HorizontalAlign="Center" CssClass="gd-border"  />
+                     <EmptyDataRowStyle Font-Size="18" />
+                 </asp:GridView>
+
 
           </div>
         
@@ -312,7 +381,7 @@
                        </ItemTemplate>
                        <ItemStyle Width="4%" />
                    </asp:TemplateField>
-                   <asp:BoundField DataField="CreditId" HeaderText="ID" SortExpression="CreditId" ItemStyle-width="20%" />
+                   <asp:BoundField DataField="DebtId" HeaderText="ID" SortExpression="DebtId" ItemStyle-width="20%" />
                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-width="20%"  />
                    <asp:BoundField DataField="ValueofConsignment" HeaderText="ValueofConsignment" SortExpression="ValueofConsignment" ItemStyle-width="16%" />
                    <asp:BoundField DataField="TermsofDelivery" HeaderText="TermsofDelivery" SortExpression="TermsofDelivery" ItemStyle-width="16%"  />
@@ -356,7 +425,7 @@
                        </ItemTemplate>
                        <ItemStyle Width="4%" />
                    </asp:TemplateField>
-                   <asp:BoundField DataField="CreditId" HeaderText="ID" SortExpression="CreditId" ItemStyle-width="20%" />
+                   <asp:BoundField DataField="DebtId" HeaderText="ID" SortExpression="DebtId" ItemStyle-width="20%" />
                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-width="20%"  />
                    <asp:BoundField DataField="ValueofConsignment" HeaderText="ValueofConsignment" SortExpression="ValueofConsignment" ItemStyle-width="16%" />
                    <asp:BoundField DataField="TermsofDelivery" HeaderText="TermsofDelivery" SortExpression="TermsofDelivery" ItemStyle-width="16%"  />
@@ -401,7 +470,7 @@
                        </ItemTemplate>
                        <ItemStyle Width="4%" />
                    </asp:TemplateField>
-                   <asp:BoundField DataField="CreditId" HeaderText="ID" SortExpression="CreditId" ItemStyle-width="20%" />
+                   <asp:BoundField DataField="DebtId" HeaderText="ID" SortExpression="CreditId" ItemStyle-width="20%" />
                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-width="20%"  />
                    <asp:BoundField DataField="ValueofConsignment" HeaderText="Value of Consignment" SortExpression="ValueofConsignment" ItemStyle-width="16%" />
                    <asp:BoundField DataField="TermsofDelivery" HeaderText="Terms of Delivery" SortExpression="TermsofDelivery" ItemStyle-width="16%"  />
@@ -454,43 +523,36 @@
     <div id="collapse10" class="panel-collapse collapse in">
       <div class="panel-body">
         <div class="table-responsive">
-         <table cellspacing="0" cellpadding="4" rules="rows" class="talkid">
-<tbody>
-<tr align="center"  class="industryid">
-<th align="center" scope="col">#</th>
-<th align="center" scope="col">ID</th>
-<th align="center" scope="col">Opportunity Title</th>
-<th align="center" scope="col">Organization Name</th>
-<th align="center" scope="col">Industry</th>
-<th align="center" scope="col">Budget</th>
-<th align="center" scope="col">Nature</th>
-<th align="center" scope="col">Location</th>
-<th align="center" scope="col">BidDeadline</th>
-<th align="center" scope="col">ProjectTimeline</th>
-<th align="center" scope="col">Status</th>
-<th align="center" scope="col">View</th>
-</tr>
-<tr>
-<td align="center">1.</td>
-<td align="center">OPT/CL/3/996</td>
-<td align="center">Test Opportunity</td>
-<td align="center">Glocalthinkers</td>
-<td align="center">Advertising </td>
-<td align="center">8</td>
-<td align="center">Onsite</td>
-<td align="center">delhi</td>
-<td align="center">9/16/2016</td>
-<td align="center">2 Years</td>
-<td align="center">
-<a class="btn btn-xs btn-info" href="#">Pending</a>
- </td>
-<td align="center" style="height:40px;">
-<a href="#" class="btn btn-primary btn-xs">View</a>
-</td>
-		</tr>
-</tbody>
-</table>
-
+         <asp:GridView ID="GridViewASP" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewASP_SelectedIndexChanged" 
+                     GridLines="None"  
+                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+               <Columns>
+                   <asp:TemplateField HeaderText="#">
+                       <ItemTemplate>
+                           <%# Container.DataItemIndex + 1 %>
+                       </ItemTemplate>
+                       <ItemStyle Width="4%" />
+                   </asp:TemplateField>
+                   <asp:BoundField DataField="AuditId" HeaderText="ID" SortExpression="AuditId" ItemStyle-width="20%" />
+                   <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-width="20%"  />
+                   <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" ItemStyle-width="16%" />
+                   <asp:BoundField DataField="contactnumber" HeaderText="contactnumber" SortExpression="contactnumber" ItemStyle-width="16%"  />
+                   <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                       <ItemTemplate>
+                           <asp:Label ID="LabelStatus" runat="server" CssClass="btn btn-xs btn-info" Text='<%# Bind("Status") %>'></asp:Label>
+                       </ItemTemplate>
+                       <ItemStyle Width="14%" />
+                   </asp:TemplateField>
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   </asp:CommandField>
+               </Columns>
+                     <HeaderStyle CssClass="industryid" />
+                     <RowStyle HorizontalAlign="Center" CssClass="gd-border"  />
+                     <EmptyDataRowStyle Font-Size="18" />
+               
+                 </asp:GridView>
+           
           </div>
         
         </div>
@@ -505,16 +567,36 @@
     <div id="collapse11" class="panel-collapse collapse">
       <div class="panel-body">
           <div class="table-responsive">
-<table cellspacing="0" cellpadding="4" rules="rows" class="talkid">
-<tbody>
-<tr>
-<td>
-<h3>No Records..</h3>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+                <asp:GridView ID="GridViewASA" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewASA_SelectedIndexChanged" 
+                     GridLines="None"  
+                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+               <Columns>
+                   <asp:TemplateField HeaderText="#">
+                       <ItemTemplate>
+                           <%# Container.DataItemIndex + 1 %>
+                       </ItemTemplate>
+                       <ItemStyle Width="4%" />
+                   </asp:TemplateField>
+                   <asp:BoundField DataField="AuditId" HeaderText="ID" SortExpression="AuditId" ItemStyle-width="20%" />
+                   <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-width="20%"  />
+                   <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" ItemStyle-width="16%" />
+                   <asp:BoundField DataField="contactnumber" HeaderText="contactnumber" SortExpression="contactnumber" ItemStyle-width="16%"  />
+                   <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                       <ItemTemplate>
+                           <asp:Label ID="LabelStatus" runat="server" CssClass="btn btn-xs btn-success" Text='<%# Bind("Status") %>'></asp:Label>
+                       </ItemTemplate>
+                       <ItemStyle Width="14%" />
+                   </asp:TemplateField>
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   </asp:CommandField>
+               </Columns>
+                     <HeaderStyle CssClass="industryid" />
+                     <RowStyle HorizontalAlign="Center" CssClass="gd-border"  />
+                     <EmptyDataRowStyle Font-Size="18" />
+                 </asp:GridView>
+              
+          </div>
         </div>
     </div>
   </div>
@@ -527,16 +609,37 @@
     <div id="collapse12" class="panel-collapse collapse">
       <div class="panel-body">
         <div class="table-responsive">
-<table cellspacing="0" cellpadding="4" rules="rows" class="talkid">
-<tbody>
-<tr>
-<td>
-<h3>No Records..</h3>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
+                  
+<asp:GridView ID="GridViewASD" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewASD_SelectedIndexChanged" 
+                     GridLines="None"  
+                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+               <Columns>
+                   <asp:TemplateField HeaderText="#">
+                       <ItemTemplate>
+                           <%# Container.DataItemIndex + 1 %>
+                       </ItemTemplate>
+                       <ItemStyle Width="4%" />
+                   </asp:TemplateField>
+                   <asp:BoundField DataField="AuditId" HeaderText="ID" SortExpression="AuditId" ItemStyle-width="20%" />
+                   <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-width="20%"  />
+                   <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" ItemStyle-width="16%" />
+                   <asp:BoundField DataField="contactnumber" HeaderText="contactnumber" SortExpression="contactnumber" ItemStyle-width="16%"  />
+                   <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                       <ItemTemplate>
+                           <asp:Label ID="LabelStatus" runat="server" CssClass="btn btn-xs btn-danger" Text='<%# Bind("Status") %>'></asp:Label>
+                       </ItemTemplate>
+                       <ItemStyle Width="14%" />
+                   </asp:TemplateField>
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   </asp:CommandField>
+               </Columns>
+                     <HeaderStyle CssClass="industryid" />
+                     <RowStyle HorizontalAlign="Center" CssClass="gd-border"  />
+                     <EmptyDataRowStyle Font-Size="18" />
+                 </asp:GridView>
+
+        </div>
         
         </div>
     </div>
