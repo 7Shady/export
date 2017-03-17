@@ -86,13 +86,8 @@ namespace export
         //Debt Collection  GridViewDCP
         protected void GridViewDCP_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            //Accessing BoundField Column
             string creditid = GridViewDCP.SelectedRow.Cells[1].Text;
             Response.Redirect("credit_insurance_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&CreditId=" + creditid);
-
-            //Accessing TemplateField Column controls
-            //string status = (GridViewCIC.SelectedRow.FindControl("LabelStatus") as Label).Text;
         }
 
         protected void GridViewDCA_SelectedIndexChanged(object sender, EventArgs e)
