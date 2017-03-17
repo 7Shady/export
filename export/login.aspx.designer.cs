@@ -13,13 +13,13 @@ namespace export {
     public partial class login1 {
         
         /// <summary>
-        /// TextBoxemail control.
+        /// TextBoxEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxemail;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
         
         /// <summary>
         /// TextBoxPass control.
@@ -40,13 +40,13 @@ namespace export {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// CheckBox1 control.
+        /// CheckBoxPersist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxPersist;
         
         /// <summary>
         /// submit control.

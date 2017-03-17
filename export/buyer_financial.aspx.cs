@@ -52,7 +52,7 @@ namespace export
             {
                 param10 = obj_gt_dal.SqlParam("@AttachedFile", obj_gt_dal.Doc2ByteArray(uploadpanlegal_second), SqlDbType.VarBinary);
                 param11 = obj_gt_dal.SqlParam("@AttachProfileName", uploadpanlegal_second.PostedFile.FileName, SqlDbType.VarChar);
-                param12 = obj_gt_dal.SqlParam("@AttachProfileContentType", obj_gt_dal.doctype(uploadpanlegal_second), SqlDbType.VarChar);
+                param12 = obj_gt_dal.SqlParam("@AttachProfileContentType", obj_gt_dal.DocType(uploadpanlegal_second), SqlDbType.VarChar);
             }
 
             int ab = obj_gt_dal.FunExecuteNonQuerySP("ust_buyerfinancial", param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12);

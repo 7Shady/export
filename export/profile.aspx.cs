@@ -12,6 +12,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Data.SqlTypes;
 
+
 namespace export
 {
     public partial class profile : System.Web.UI.Page
@@ -22,7 +23,11 @@ namespace export
 
         public void BindOnPageLoad()
         {
-            Pdt = gt_dal_obj.FunDataTable("exec ust_selectprofile " + clientid + "");
+            SqlParameter Uid = gt_dal_obj.SqlParam("@ClientId", clientid, SqlDbType.VarChar);
+            SqlParameter Uemail = gt_dal_obj.SqlParam("@Email", "", SqlDbType.VarChar);
+            SqlParameter Qmode = gt_dal_obj.SqlParam("@ModeType", "Full", SqlDbType.VarChar);
+            Pdt = gt_dal_obj.FunDataTableSP("ust_selectprofile ", Uid, Uemail, Qmode);
+
             if (Pdt.Rows.Count != 0)
             {
                 TextBoxCname.Text = (Pdt.Rows[0]["Name"].ToString());
@@ -41,19 +46,18 @@ namespace export
                 TextBoxoper.Text = (Pdt.Rows[0]["CountryOperation"].ToString());
                 TextBoxturn.Text = (Pdt.Rows[0]["BusinessTournOver"].ToString());
                 TextBoxBrief.Text = (Pdt.Rows[0]["BriefOperations"].ToString());
-                TextBoxEmp.Text = (Pdt.Rows[0]["NoofEmployees"].ToString()); ;
-                
-                if (Pdt.Rows[0]["AttachedFile"] != DBNull.Value) {previewImage.ImageUrl = "ViewImage.ashx?ClientId=" + Server.UrlEncode(clientid);}
+                TextBoxEmp.Text = (Pdt.Rows[0]["NoofEmployees"].ToString());
+                if (Pdt.Rows[0]["AttachedFile"] != DBNull.Value) { previewImage.ImageUrl = "ViewImage.ashx?ClientId=" + Server.UrlEncode(clientid); }
                 else{previewImage.ImageUrl = "~/images/adduser.png";}
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["ClientId"] != null) 
+            if (Request.QueryString["ClientId"] != "") 
             {
                 clientid = Request.QueryString["ClientId"];
-                if (clientid != "" && IsPostBack == false) 
+                if (!IsPostBack) 
                 {
                     BindOnPageLoad();
                 }
@@ -151,32 +155,35 @@ namespace export
             }
         }
 
-        private void download(DataTable dt)
-        {
-            Byte[] bytes = (Byte[])dt.Rows[0]["AttachProfile"];
-            Response.Buffer = true;
-            Response.Charset = "";
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            Response.ContentType = dt.Rows[0]["AttachProfileContentType"].ToString();
-            Response.AddHeader("content-disposition", "attachment;filename="
-            + dt.Rows[0]["AttachProfileName"].ToString());
-            Response.BinaryWrite(bytes);
-            Response.Flush();
-            Response.End();
-        }
+        //private void download(DataTable dt)
+        //{
+        //    Byte[] bytes = (Byte[])dt.Rows[0]["AttachProfile"];
+        //    Response.Buffer = true;
+        //    Response.Charset = "";
+        //    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        //    Response.ContentType = dt.Rows[0]["AttachProfileContentType"].ToString();
+        //    Response.AddHeader("content-disposition", "attachment;filename="
+        //    + dt.Rows[0]["AttachProfileName"].ToString());
+        //    Response.BinaryWrite(bytes);
+        //    Response.Flush();
+        //    Response.End();
+        //}
 
         protected void ButtonCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("profile.aspx");
+            Response.Redirect("profile.aspx?ClientId=" + clientid);
         }
-
+        
         protected void ButtonDownload_Click(object sender, EventArgs e)
         {
-            DataTable dt = gt_dal_obj.FunDataTable("exec ust_selectattachprofile " + clientid + "");
-            if (dt.Rows[0]["AttachProfile"] != DBNull.Value)
-            {
-                download(dt);
-            }
+            SqlParameter Uid = gt_dal_obj.SqlParam("@ClientId", clientid, SqlDbType.VarChar);
+            SqlParameter Uemail = gt_dal_obj.SqlParam("@Email", "", SqlDbType.VarChar);
+            SqlParameter Qmode = gt_dal_obj.SqlParam("@ModeType", "Doc", SqlDbType.VarChar);
+            DataTable Ddt = gt_dal_obj.FunDataTableSP("ust_selectprofile ", Uid, Uemail, Qmode);
+
+            if (Ddt.Rows[0]["AttachProfile"] != DBNull.Value)
+                gt_dal_obj.DocDownload(Ddt, "AttachProfile", "AttachProfileContentType", "AttachProfileName");
+            else Response.Write("<script>alert('Profile not uploaded!');</script>");
         }
     }
 }

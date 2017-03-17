@@ -130,6 +130,15 @@ namespace export {
         protected global::System.Web.UI.WebControls.FileUpload uploadpanlegal_second;
         
         /// <summary>
+        /// ValidFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidFile;
+        
+        /// <summary>
         /// creditsubmit control.
         /// </summary>
         /// <remarks>

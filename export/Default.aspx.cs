@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -17,16 +19,21 @@ namespace export
         DataTable Pdt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Session["email"] as string))
+            if (HttpContext.Current.User.Identity.IsAuthenticated && !string.IsNullOrEmpty(Session["email"] as string))
             {
-                email = Session["email"].ToString(); LabelEmail.Text = email;
-                email = "'" + email + "'";
-                Pdt = obj_gt_dal.FunDataTable("SELECT ClientId,Name,ContactNo,UpdateDate,AttachedFile FROM tblClientRegistration WHERE Email=" + email + "");
+                email = Session["email"].ToString(); 
+                SqlParameter Uid = obj_gt_dal.SqlParam("@ClientId", "", SqlDbType.VarChar);
+                SqlParameter Uemail = obj_gt_dal.SqlParam("@Email", email, SqlDbType.VarChar);
+                SqlParameter Qmode = obj_gt_dal.SqlParam("@ModeType", "Short", SqlDbType.VarChar);
+                Pdt = obj_gt_dal.FunDataTableSP("ust_selectprofile ", Uid, Uemail, Qmode);
+
+               // Pdt = obj_gt_dal.FunDataTable("SELECT ClientId,Name,ContactNo,UpdateDate,AttachedFile FROM tblClientRegistration WHERE Email=" + email + "");
                 if (Pdt.Rows.Count != 0)
                 {
                     clientid = (Pdt.Rows[0]["ClientId"].ToString());
                     LabelName.Text = (Pdt.Rows[0]["Name"].ToString());
                     LabelNameB.Text = LabelName.Text;
+                    LabelEmail.Text= (Pdt.Rows[0]["Email"].ToString());
                     LabelContact.Text = (Pdt.Rows[0]["ContactNo"].ToString());
                     LabelUpdateDate.Text = (Pdt.Rows[0]["UpdateDate"].ToString());
                     buyer_financial.NavigateUrl = "buyer_financial.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text;
@@ -42,10 +49,8 @@ namespace export
                         ImageClient.ImageUrl = "~/images/user.png";
                     }
                 }
-                else { Response.Redirect("login.aspx"); }
             }
             else { Response.Redirect("login.aspx"); }
-
         }
         
         protected void ButtonViewProfile_Click(object sender, EventArgs e)
@@ -55,8 +60,10 @@ namespace export
 
         protected void ButtonSignOut_Click(object sender, EventArgs e)
         {
+            Session.Clear();
             Session.Abandon();
-            Response.Redirect("login.aspx");
+            FormsAuthentication.SignOut();
+            FormsAuthentication.RedirectToLoginPage();
         }
     }
 }
