@@ -1,14 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="request_status.aspx.cs" Inherits="export.request_status" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
     <style>
         .gd-border
-        { 
-            border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#ededed; font-size:12px;
-        }
-        .gd-border:hover{
-            background-color:#f0f8ff;font-weight:bold;
-        }
+        {border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#ededed; font-size:12px;}
+        .gd-border:hover{background-color:#f0f8ff;font-weight:bold;}
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -19,7 +14,6 @@
     <div class="col-sm-10 col-sm-offset-1">
         <div class="sure_legal">
 <ul class="nav nav-tabs request_nav">
-<!--<li class="active"><a data-toggle="tab" href="#home">Home</a></li>-->
 <li><a data-toggle="tab" href="#menu1" class="request_status">Request Status</a></li>
 </ul>
 
