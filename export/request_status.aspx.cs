@@ -19,7 +19,7 @@ namespace export
         gt_dal obj_gt_dal = new gt_dal();
         string clientid = "";
         DataTable sdt = new DataTable();
-
+        //rs
         public void LoadGrid(string modetype, GridView Grid)
         {
             clientid = Request.QueryString["ClientId"];
