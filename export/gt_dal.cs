@@ -276,6 +276,17 @@ namespace export
             return ip;
         }
         #endregion
+
+        #region Function for SQLParaMeter
+        public SqlParameter SqlParam(string Pname, object Pvalue, SqlDbType Ptype)
+        {
+            SqlParameter param = new SqlParameter();
+            param.ParameterName = Pname;
+            param.Value = Pvalue;
+            param.SqlDbType = Ptype;
+            return param;
+        }
+        #endregion
     }
 }
 
