@@ -19,11 +19,11 @@ namespace export
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["ClientId"] != null && Request.QueryString["AuditId"] != null)
+            if (!string.IsNullOrEmpty(Session["ClientId"] as string) && !string.IsNullOrEmpty(Session["AuditId"] as string))
             {
-                LabelName.Text = Request.QueryString["Name"];
-                LabelClientId.Text = Request.QueryString["ClientId"];
-                auditid = Request.QueryString["AuditId"];
+                LabelName.Text = Session["Name"].ToString();
+                LabelClientId.Text = Session["ClientId"].ToString();
+                auditid = Session["AuditId"].ToString();
 
                 SqlParameter param1 = new SqlParameter();
                 param1.ParameterName = "@ClientId";

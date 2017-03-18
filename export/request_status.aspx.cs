@@ -18,121 +18,18 @@ namespace export
     {
         gt_dal obj_gt_dal = new gt_dal();
         string clientid = "";        
-        DataTable sdt = new DataTable();
 
-        //Buyer
-        public void LoadGridB(string modetype, GridView Grid)
+        public void LoadGrid(string spname, string modetype, string parametrname, GridView Grid)
         {
-            clientid = Request.QueryString["ClientId"];
+            clientid = Session["ClientId"].ToString();
             LabelClientId.Text = clientid;
-            LabelName.Text = Request.QueryString["Name"];
+            LabelName.Text = Session["Name"].ToString();
 
-            SqlParameter param1 = new SqlParameter();
-            param1.ParameterName = "@ClientId";
-            param1.Value = clientid;
-            param1.SqlDbType = SqlDbType.VarChar;
+            SqlParameter param1 = obj_gt_dal.SqlParam("@ClientId", clientid, SqlDbType.VarChar);
+            SqlParameter param2 = obj_gt_dal.SqlParam(parametrname, "", SqlDbType.VarChar);
+            SqlParameter param3 = obj_gt_dal.SqlParam("@ModeType", modetype, SqlDbType.VarChar);
 
-            SqlParameter param1a = new SqlParameter();
-            param1a.ParameterName = "@BuyerId";
-            param1a.Value = "";
-            param1a.SqlDbType = SqlDbType.VarChar;
-
-            SqlParameter param2 = new SqlParameter();
-            param2.ParameterName = "@ModeType";
-            param2.Value = modetype;
-            param2.SqlDbType = SqlDbType.VarChar;
-
-            sdt = obj_gt_dal.FunDataTableSP("ust_rsbuyer", param1, param1a, param2);
-            if (sdt.Rows.Count != 0)
-            {
-                Grid.DataSource = sdt;
-                Grid.DataBind();
-            }
-        }
-
-        //credit
-        public void LoadGrid(string modetype, GridView Grid)
-        {
-            clientid = Request.QueryString["ClientId"];
-            LabelClientId.Text = clientid;
-            LabelName.Text = Request.QueryString["Name"];
-
-            SqlParameter param1 = new SqlParameter();
-            param1.ParameterName = "@ClientId";
-            param1.Value = clientid;
-            param1.SqlDbType = SqlDbType.VarChar;
-
-            SqlParameter param1a = new SqlParameter();
-            param1a.ParameterName = "@CreditId";
-            param1a.Value = "";
-            param1a.SqlDbType = SqlDbType.VarChar;
-
-            SqlParameter param2 = new SqlParameter();
-            param2.ParameterName = "@ModeType";
-            param2.Value = modetype;
-            param2.SqlDbType = SqlDbType.VarChar;
-
-            sdt = obj_gt_dal.FunDataTableSP("ust_rscredit", param1, param1a, param2);
-            if (sdt.Rows.Count != 0)
-            {
-                Grid.DataSource = sdt;
-                Grid.DataBind();
-            }
-        }
-
-        //Debt
-        public void LoadGridD(string modetype, GridView Grid)
-        {
-            clientid = Request.QueryString["ClientId"];
-            LabelClientId.Text = clientid;
-            LabelName.Text = Request.QueryString["Name"];
-
-            SqlParameter param1 = new SqlParameter();
-            param1.ParameterName = "@ClientId";
-            param1.Value = clientid;
-            param1.SqlDbType = SqlDbType.VarChar;
-
-            SqlParameter param1a = new SqlParameter();
-            param1a.ParameterName = "@DebtId";
-            param1a.Value = "";
-            param1a.SqlDbType = SqlDbType.VarChar;
-
-            SqlParameter param2 = new SqlParameter();
-            param2.ParameterName = "@ModeType";
-            param2.Value = modetype;
-            param2.SqlDbType = SqlDbType.VarChar;
-
-            sdt = obj_gt_dal.FunDataTableSP("ust_rsdebt", param1, param1a, param2);
-            if (sdt.Rows.Count != 0)
-            {
-                Grid.DataSource = sdt;
-                Grid.DataBind();
-            }
-        }
-
-        //Audit
-        public void LoadGridA(string modetype, GridView Grid)
-        {
-            clientid = Request.QueryString["ClientId"];
-            LabelClientId.Text = clientid;
-            LabelName.Text = Request.QueryString["Name"];
-
-            SqlParameter param1 = new SqlParameter();
-            param1.ParameterName = "@ClientId";
-            param1.Value = clientid;
-            param1.SqlDbType = SqlDbType.VarChar;
-
-            SqlParameter param1a = new SqlParameter();
-            param1a.ParameterName = "@AuditId";
-            param1a.Value = "";
-            param1a.SqlDbType = SqlDbType.VarChar;
-
-            SqlParameter param2 = new SqlParameter();
-            param2.ParameterName = "@ModeType";
-            param2.Value = modetype;
-            param2.SqlDbType = SqlDbType.VarChar;
-
-            sdt = obj_gt_dal.FunDataTableSP("ust_rsaudit", param1, param1a, param2);
+            DataTable sdt = obj_gt_dal.FunDataTableSP(spname, param1, param2, param3);
             if (sdt.Rows.Count != 0)
             {
                 Grid.DataSource = sdt;
@@ -142,97 +39,92 @@ namespace export
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["ClientId"] != null && Request.QueryString["Name"] != null)
+            if (!string.IsNullOrEmpty(Session["ClientId"] as string) && !string.IsNullOrEmpty(Session["Name"] as string))
             {
-                LoadGridB("ShortPending", GridViewBFP);
-                LoadGridB("ShortApproved", GridViewBFA);
-                LoadGridB("ShortDeclined", GridViewBFD);
+                LoadGrid("ust_rscredit", "ShortPending" , "@CreditId", GridViewCICP);
+                LoadGrid("ust_rscredit", "ShortApproved", "@CreditId", GridViewCICA);
+                LoadGrid("ust_rscredit", "ShortDeclined", "@CreditId", GridViewCICD);
 
-                LoadGrid("ShortPending", GridViewCICP);
-                LoadGrid("ShortApproved", GridViewCICA);
-                LoadGrid("ShortDeclined", GridViewCICD);
+                LoadGrid("ust_rsaudit", "ShortPending", "@AuditId", GridViewASP);
+                LoadGrid("ust_rsaudit", "ShortApproved", "@AuditId", GridViewASA);
+                LoadGrid("ust_rsaudit", "ShortDeclined", "@AuditId", GridViewASD);
 
-                LoadGridD("ShortPending", GridViewDCP);
-                LoadGridD("ShortApproved", GridViewDCA);
-                LoadGridD("ShortDeclined", GridViewDCD);
+                LoadGrid("ust_rsbuyer", "ShortPending", "@BuyerId", GridViewBFP);
+                LoadGrid("ust_rsbuyer", "ShortApproved", "@BuyerId", GridViewBFA);
+                LoadGrid("ust_rsbuyer", "ShortDeclined", "@BuyerId", GridViewBFD);
 
-
-                LoadGridA("ShortPending", GridViewASP);
-                LoadGridA("ShortApproved", GridViewASA);
-                LoadGridA("ShortDeclined", GridViewASD);
+                LoadGrid("ust_rsdebt", "ShortPending", "@DebtId", GridViewDCP);
+                LoadGrid("ust_rsdebt", "ShortApproved", "@DebtId", GridViewDCA);
+                LoadGrid("ust_rsdebt", "ShortDeclined", "@DebtId", GridViewDCD);
             }
         }
 
         //Buyer Collection  GridViewBFP
         protected void GridViewBFP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Accessing BoundField Column
-            string buyerid = GridViewBFP.SelectedRow.Cells[1].Text;
-            Response.Redirect("buyer_financial_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&BuyerId=" + buyerid);
-
-            //Accessing TemplateField Column controls
-            //string status = (GridViewCIC.SelectedRow.FindControl("LabelStatus") as Label).Text;
+            Session["BuyerId"] = GridViewBFP.SelectedRow.Cells[1].Text;
+            Response.Redirect("buyer_financial_view.aspx");
         }
         protected void GridViewBFA_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string buyerid = GridViewBFA.SelectedRow.Cells[1].Text;
-            Response.Redirect("buyer_financial_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&BuyerId=" + buyerid);
+            Session["BuyerId"] = GridViewBFA.SelectedRow.Cells[1].Text;
+            Response.Redirect("buyer_financial_view.aspx");
         }
         protected void GridViewBFD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string buyerid = GridViewBFD.SelectedRow.Cells[1].Text;
-            Response.Redirect("buyer_financial_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&BuyerId=" + buyerid);
+            Session["BuyerId"] = GridViewBFD.SelectedRow.Cells[1].Text;
+            Response.Redirect("buyer_financial_view.aspx");
         }
 
         //Credit Collection  GridViewCICP
         protected void GridViewCICP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string creditid = GridViewCICP.SelectedRow.Cells[1].Text;
-            Response.Redirect("credit_insurance_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&CreditId=" + creditid);
+            Session["CreditId"] = GridViewCICP.SelectedRow.Cells[1].Text;
+            Response.Redirect("credit_insurance_view.aspx");
         }
         protected void GridViewCICA_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string creditid = GridViewCICA.SelectedRow.Cells[1].Text;
-            Response.Redirect("credit_insurance_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&CreditId=" + creditid);
+            Session["CreditId"] = GridViewCICA.SelectedRow.Cells[1].Text;
+            Response.Redirect("credit_insurance_view.aspx");
         }
         protected void GridViewCICD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string creditid = GridViewCICD.SelectedRow.Cells[1].Text;
-            Response.Redirect("credit_insurance_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&CreditId=" + creditid);
+            Session["CreditId"] = GridViewCICD.SelectedRow.Cells[1].Text;
+            Response.Redirect("credit_insurance_view.aspx");
         }
 
         //Debt Collection  GridViewDCP
         protected void GridViewDCP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string debtid = GridViewDCP.SelectedRow.Cells[1].Text;
-            Response.Redirect("debt_collection_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&DebtId=" + debtid);
+            Session["DebtId"] = GridViewDCP.SelectedRow.Cells[1].Text;
+            Response.Redirect("debt_collection_view.aspx");
         }
         protected void GridViewDCA_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string debtid = GridViewDCA.SelectedRow.Cells[1].Text;
-            Response.Redirect("debt_collection_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&DebtId=" + debtid);
+            Session["DebtId"] = GridViewDCA.SelectedRow.Cells[1].Text;
+            Response.Redirect("debt_collection_view.aspx");
         }
         protected void GridViewDCD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string debtid = GridViewDCD.SelectedRow.Cells[1].Text;
-            Response.Redirect("debt_collection_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&DebtId=" + debtid);
+            Session["DebtId"] = GridViewDCD.SelectedRow.Cells[1].Text;
+            Response.Redirect("debt_collection_view.aspx");
         }
 
         //Audit Structuing  GridViewASP
         protected void GridViewASP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string auditid = GridViewASP.SelectedRow.Cells[1].Text;
-            Response.Redirect("audit_structuring_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&AuditId=" + auditid);
+            Session["AuditId"] = GridViewASP.SelectedRow.Cells[1].Text;
+            Response.Redirect("audit_structuring_view.aspx");
         }
         protected void GridViewASA_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string auditid = GridViewASA.SelectedRow.Cells[1].Text;
-            Response.Redirect("audit_structuring_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&AuditId=" + auditid);
+            Session["AuditId"] = GridViewASA.SelectedRow.Cells[1].Text;
+            Response.Redirect("audit_structuring_view.aspx");
         }
         protected void GridViewASD_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string auditid = GridViewDCD.SelectedRow.Cells[1].Text;
-            Response.Redirect("audit_structuring_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&AuditId=" + auditid);
+            Session["AuditId"] = GridViewASD.SelectedRow.Cells[1].Text;
+            Response.Redirect("audit_structuring_view.aspx");
         }
 
     }

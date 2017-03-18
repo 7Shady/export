@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.IO;
+using System.Web.Security;
 
 namespace export
 {
@@ -74,6 +75,11 @@ namespace export
             if (a > 0) { TextBox1.Text = ""; TextBox1.Attributes.Add("placeholder", Email + " already exist"); }
             else { TextBox1.Attributes.Add("placeholder", "Email"); }
 
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Label1.Text =  HttpContext.Current.Request.Url.AbsolutePath;
         }
     }
 }

@@ -20,11 +20,11 @@ namespace export
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["ClientId"] != null && Request.QueryString["Name"] != null)
+            if(!string.IsNullOrEmpty(Session["ClientId"] as string) && !string.IsNullOrEmpty(Session["Name"] as string))
             {
-                clientid = Request.QueryString["ClientId"];
+                clientid = Session["ClientId"].ToString();
                 LabelClientId.Text = clientid;
-                clientname = Request.QueryString["Name"];
+                clientname = Session["Name"].ToString();
                 LabelName.Text = clientname;
             }
         }
@@ -42,18 +42,20 @@ namespace export
             SqlParameter param9 = obj_gt_dal.SqlParam("@AmountofOrder", TextBoxAmount.Text, SqlDbType.VarChar);
             SqlParameter param10 = obj_gt_dal.SqlParam("@AttachedFile", DBNull.Value, SqlDbType.VarBinary);
             SqlParameter param11 = obj_gt_dal.SqlParam("@AttachProfileName", DBNull.Value, SqlDbType.VarChar);
-            SqlParameter param12 = obj_gt_dal.SqlParam("@AttachProfileContentType", DBNull.Value, SqlDbType.VarChar);            
+            SqlParameter param12 = obj_gt_dal.SqlParam("@AttachProfileContentType", DBNull.Value, SqlDbType.VarChar);
 
-
-            string filePath = uploadpanlegal_second.PostedFile.FileName;
-            string filename = Path.GetFileName(filePath);
-            string ext = Path.GetExtension(filename);
-
-            if (ext == ".doc" || ext == ".docx" || ext == ".xls" || ext == ".xlsx" || ext == ".pdf")
+            if (uploadpanlegal_second.PostedFile.FileName != "")
             {
-                param10 = obj_gt_dal.SqlParam("@AttachedFile", obj_gt_dal.Doc2ByteArray(uploadpanlegal_second), SqlDbType.VarBinary);
-                param11 = obj_gt_dal.SqlParam("@AttachProfileName", uploadpanlegal_second.PostedFile.FileName, SqlDbType.VarChar);
-                param12 = obj_gt_dal.SqlParam("@AttachProfileContentType", obj_gt_dal.DocType(uploadpanlegal_second), SqlDbType.VarChar);
+                string filePath = uploadpanlegal_second.PostedFile.FileName;
+                string filename = Path.GetFileName(filePath);
+                string ext = Path.GetExtension(filename);
+
+                if (ext == ".doc" || ext == ".docx" || ext == ".xls" || ext == ".xlsx" || ext == ".pdf")
+                {
+                    param10 = obj_gt_dal.SqlParam("@AttachedFile", obj_gt_dal.Doc2ByteArray(uploadpanlegal_second), SqlDbType.VarBinary);
+                    param11 = obj_gt_dal.SqlParam("@AttachProfileName", uploadpanlegal_second.PostedFile.FileName, SqlDbType.VarChar);
+                    param12 = obj_gt_dal.SqlParam("@AttachProfileContentType", obj_gt_dal.DocType(uploadpanlegal_second), SqlDbType.VarChar);
+                }
             }
 
             int ab = obj_gt_dal.FunExecuteNonQuerySP("ust_buyerfinancial", param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12);
@@ -68,7 +70,8 @@ namespace export
 
         protected void ButtonAddMore_Click(object sender, EventArgs e)
         {
-            Response.Redirect("buyer_financial.aspx?ClientId=" + clientid + "&Name=" + clientname);
+
+            Response.Redirect("buyer_financial.aspx");
         }
 
     }

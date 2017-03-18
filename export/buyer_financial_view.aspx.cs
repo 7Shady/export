@@ -19,11 +19,11 @@ namespace export
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["ClientId"] != null && Request.QueryString["BuyerId"] != null)
+            if (!string.IsNullOrEmpty(Session["ClientId"] as string) && !string.IsNullOrEmpty(Session["BuyerId"] as string))
             {
-                LabelCName.Text = Request.QueryString["Name"];
-                LabelClientId.Text = Request.QueryString["ClientId"];
-                buyerid = Request.QueryString["BuyerId"];
+                LabelCName.Text = Session["Name"].ToString();
+                LabelClientId.Text = Session["ClientId"].ToString();
+                buyerid = Session["BuyerId"].ToString();
 
                 SqlParameter param1 = new SqlParameter();
                 param1.ParameterName = "@ClientId";
@@ -50,7 +50,21 @@ namespace export
                     LabelCity.Text = (Pdt.Rows[0]["City"].ToString());
                     LabelAddress.Text = (Pdt.Rows[0]["Address_cl"].ToString());
                     LabelDescription.Text = (Pdt.Rows[0]["Description"].ToString());
-                    LabelAmount.Text = (Pdt.Rows[0]["AmountofOrder"].ToString());                    
+                    LabelAmount.Text = (Pdt.Rows[0]["AmountofOrder"].ToString());
+                    LabelSatus.Text = (Pdt.Rows[0]["Status"].ToString());
+
+                    switch (LabelSatus.Text)
+                    {
+                        case "Pending":
+                            LabelSatus.CssClass = "btn btn-info btn-xs";
+                            break;
+                        case "Approved":
+                            LabelSatus.CssClass = "btn btn-xs btn-success";
+                            break;
+                        case "Declined":
+                            LabelSatus.CssClass = "btn btn-xs btn-danger";
+                            break;
+                    }
                 }
             }
         }

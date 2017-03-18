@@ -101,14 +101,15 @@
 <tr>
 <td class="bg-green-light">Status</td>
 <td>
-<div class="btn btn-info btn-xs">Pending</div>
+    <asp:Label ID="LabelSatus" CssClass="btn btn-info btn-xs" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+
 </td>
 
 
 <td class="bg-green-light">AttachmentPath</td>
 <td>
 <div>
- <asp:Button ID="ButtonDload" runat="server" Text="Download" CssClass="btn btn-info btn-xs" OnClick="ButtonDload_Click" />
+ <asp:Button ID="ButtonDload" runat="server" Text="Download" CssClass="btn btn-primary back_table" OnClick="ButtonDload_Click" />
 <input type="hidden" value="" />
 </div>
 </td>
@@ -131,8 +132,8 @@
 </table>
     </div>
 <div style="text-align: center;">
-<input type="submit" value="Back" onclick="location.href='request_status.aspx'" class="btn btn-primary back_table" />
-<br>
+    <a href="request_status.aspx" class="btn btn-primary back_table"> Back </a>
+<br />
 </div>
 
 

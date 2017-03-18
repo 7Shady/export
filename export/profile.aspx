@@ -16,7 +16,6 @@
     
     <div id="wrapper">
         <div class="registration">
-
             <!---service-->
             <section id="service">
                 <div class="container">

@@ -1,18 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="request_status.aspx.cs" Inherits="export.request_status" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        .gd-border
-        {border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:#ededed; font-size:12px;}
-        .gd-border:hover{background-color:#f0f8ff;font-weight:bold;}
-    </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
  <section class="page-section legal_service">
  <div class="registration">
-<div class="container">
- <div class="row">
+<div class="container" style="width:90%;">
+ <div class="row" >
     <div class="col-sm-10 col-sm-offset-1">
-        <div class="sure_legal">
+        <div class="sure_legal" >
 <ul class="nav nav-tabs request_nav">
 <li><a data-toggle="tab" href="#menu1" class="request_status">Request Status</a></li>
 </ul>
@@ -83,7 +78,7 @@
                 
          <asp:GridView ID="GridViewBFP" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewBFP_SelectedIndexChanged" 
                      GridLines="None"  
-                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+                      AutoGenerateColumns="False" CssClass="Grid" EmptyDataText="No Records..">
                <Columns>
                    <asp:TemplateField HeaderText="#">
                        <ItemTemplate>
@@ -101,14 +96,10 @@
                        </ItemTemplate>
                        <ItemStyle Width="14%" />
                    </asp:TemplateField>
-                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
-                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                    <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ControlStyle-CssClass="btn btn-primary btn-xs" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
                    </asp:CommandField>
                </Columns>
-                     <HeaderStyle CssClass="industryid" />
-                     <RowStyle HorizontalAlign="Center" CssClass="gd-border"  />
                      <EmptyDataRowStyle Font-Size="18" />
-               
                  </asp:GridView>     
                 
           </div>
@@ -119,14 +110,14 @@
   <div class="panel panel-default assignment">
     <div class="panel-heading assignments">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion1" href="#collapse5">2. Completed Assignments    </div>
+        <a data-toggle="collapse" data-parent="#accordion1" href="#collapse5">2. Completed Assignments </a> </h4>  </div>
     <div id="collapse5" class="panel-collapse collapse">
       <div class="panel-body">
             <div class="table-responsive">
        
               <asp:GridView ID="GridViewBFA" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewBFA_SelectedIndexChanged" 
                      GridLines="None"  
-                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+                      AutoGenerateColumns="False" CssClass="Grid" EmptyDataText="No Records..">
                <Columns>
                    <asp:TemplateField HeaderText="#">
                        <ItemTemplate>
@@ -144,8 +135,8 @@
                        </ItemTemplate>
                        <ItemStyle Width="14%" />
                    </asp:TemplateField>
-                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
-                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ControlStyle-CssClass="btn btn-primary btn-xs" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       
                    </asp:CommandField>
                </Columns>
                      <HeaderStyle CssClass="industryid" />
@@ -171,7 +162,7 @@
         
 <asp:GridView ID="GridViewBFD" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewBFD_SelectedIndexChanged" 
                      GridLines="None"  
-                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+                      AutoGenerateColumns="False" CssClass="Grid" EmptyDataText="No Records..">
                <Columns>
                    <asp:TemplateField HeaderText="#">
                        <ItemTemplate>
@@ -189,8 +180,8 @@
                        </ItemTemplate>
                        <ItemStyle Width="14%" />
                    </asp:TemplateField>
-                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
-                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ControlStyle-CssClass="btn btn-primary btn-xs" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       
                    </asp:CommandField>
                </Columns>
                      <HeaderStyle CssClass="industryid" />
@@ -233,7 +224,7 @@
         <div class="table-responsive">
            <asp:GridView ID="GridViewCICP" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewCICP_SelectedIndexChanged" 
                      GridLines="None"  
-                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+                      AutoGenerateColumns="False" CssClass="Grid" EmptyDataText="No Records..">
                <Columns>
                    <asp:TemplateField HeaderText="#">
                        <ItemTemplate>
@@ -251,8 +242,8 @@
                        </ItemTemplate>
                        <ItemStyle Width="14%" />
                    </asp:TemplateField>
-                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
-                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ControlStyle-CssClass="btn btn-primary btn-xs" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       
                    </asp:CommandField>
                </Columns>
                      <HeaderStyle CssClass="industryid" />
@@ -277,7 +268,7 @@
           <div class="table-responsive">
               <asp:GridView ID="GridViewCICA" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewCICA_SelectedIndexChanged" 
                      GridLines="None"  
-                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+                      AutoGenerateColumns="False" CssClass="Grid" EmptyDataText="No Records..">
                <Columns>
                    <asp:TemplateField HeaderText="#">
                        <ItemTemplate>
@@ -295,8 +286,8 @@
                        </ItemTemplate>
                        <ItemStyle Width="14%" />
                    </asp:TemplateField>
-                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
-                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ControlStyle-CssClass="btn btn-primary btn-xs" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       
                    </asp:CommandField>
                </Columns>
                      <HeaderStyle CssClass="industryid" />
@@ -319,7 +310,7 @@
         <div class="table-responsive">
 <asp:GridView ID="GridViewCICD" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewCICD_SelectedIndexChanged" 
                      GridLines="None"  
-                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+                      AutoGenerateColumns="False" CssClass="Grid" EmptyDataText="No Records..">
                <Columns>
                    <asp:TemplateField HeaderText="#">
                        <ItemTemplate>
@@ -337,8 +328,8 @@
                        </ItemTemplate>
                        <ItemStyle Width="14%" />
                    </asp:TemplateField>
-                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
-                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ControlStyle-CssClass="btn btn-primary btn-xs" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       
                    </asp:CommandField>
                </Columns>
                      <HeaderStyle CssClass="industryid" />
@@ -373,7 +364,7 @@
             <div class="table-responsive">
            <asp:GridView ID="GridViewDCP" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewDCP_SelectedIndexChanged" 
                      GridLines="None"  
-                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+                      AutoGenerateColumns="False" CssClass="Grid" EmptyDataText="No Records..">
                <Columns>
                    <asp:TemplateField HeaderText="#">
                        <ItemTemplate>
@@ -391,8 +382,8 @@
                        </ItemTemplate>
                        <ItemStyle Width="14%" />
                    </asp:TemplateField>
-                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
-                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ControlStyle-CssClass="btn btn-primary btn-xs" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       
                    </asp:CommandField>
                </Columns>
                      <HeaderStyle CssClass="industryid" />
@@ -417,7 +408,7 @@
             <div class="table-responsive">
         <asp:GridView ID="GridViewDCA" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewDCA_SelectedIndexChanged" 
                      GridLines="None"  
-                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+                      AutoGenerateColumns="False" CssClass="Grid" EmptyDataText="No Records..">
                <Columns>
                    <asp:TemplateField HeaderText="#">
                        <ItemTemplate>
@@ -435,8 +426,8 @@
                        </ItemTemplate>
                        <ItemStyle Width="14%" />
                    </asp:TemplateField>
-                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
-                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ControlStyle-CssClass="btn btn-primary btn-xs" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       
                    </asp:CommandField>
                </Columns>
                      <HeaderStyle CssClass="industryid" />
@@ -462,7 +453,7 @@
        
 <asp:GridView ID="GridViewDCD" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewDCD_SelectedIndexChanged" 
                      GridLines="None"  
-                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+                      AutoGenerateColumns="False" CssClass="Grid" EmptyDataText="No Records..">
                <Columns>
                    <asp:TemplateField HeaderText="#">
                        <ItemTemplate>
@@ -480,8 +471,8 @@
                        </ItemTemplate>
                        <ItemStyle Width="14%" />
                    </asp:TemplateField>
-                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
-                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ControlStyle-CssClass="btn btn-primary btn-xs" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       
                    </asp:CommandField>
                </Columns>
                      <HeaderStyle CssClass="industryid" />
@@ -525,7 +516,7 @@
         <div class="table-responsive">
          <asp:GridView ID="GridViewASP" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewASP_SelectedIndexChanged" 
                      GridLines="None"  
-                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+                      AutoGenerateColumns="False" CssClass="Grid" EmptyDataText="No Records..">
                <Columns>
                    <asp:TemplateField HeaderText="#">
                        <ItemTemplate>
@@ -543,8 +534,8 @@
                        </ItemTemplate>
                        <ItemStyle Width="14%" />
                    </asp:TemplateField>
-                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
-                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ControlStyle-CssClass="btn btn-primary btn-xs" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       
                    </asp:CommandField>
                </Columns>
                      <HeaderStyle CssClass="industryid" />
@@ -569,7 +560,7 @@
           <div class="table-responsive">
                 <asp:GridView ID="GridViewASA" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewASA_SelectedIndexChanged" 
                      GridLines="None"  
-                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+                      AutoGenerateColumns="False" CssClass="Grid" EmptyDataText="No Records..">
                <Columns>
                    <asp:TemplateField HeaderText="#">
                        <ItemTemplate>
@@ -587,8 +578,8 @@
                        </ItemTemplate>
                        <ItemStyle Width="14%" />
                    </asp:TemplateField>
-                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
-                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ControlStyle-CssClass="btn btn-primary btn-xs" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       
                    </asp:CommandField>
                </Columns>
                      <HeaderStyle CssClass="industryid" />
@@ -612,7 +603,7 @@
                   
 <asp:GridView ID="GridViewASD" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewASD_SelectedIndexChanged" 
                      GridLines="None"  
-                      AutoGenerateColumns="False" CssClass="talkid" EmptyDataText="No Records..">
+                      AutoGenerateColumns="False" CssClass="Grid" EmptyDataText="No Records..">
                <Columns>
                    <asp:TemplateField HeaderText="#">
                        <ItemTemplate>
@@ -630,8 +621,8 @@
                        </ItemTemplate>
                        <ItemStyle Width="14%" />
                    </asp:TemplateField>
-                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
-                       <ItemStyle CssClass="btn btn-primary btn-xs" />
+                   <asp:CommandField HeaderText="View" ButtonType="Link" SelectText="View" ControlStyle-CssClass="btn btn-primary btn-xs" ShowSelectButton="True" ControlStyle-ForeColor="#ffffff" ControlStyle-Font-Underline="false">
+                       
                    </asp:CommandField>
                </Columns>
                      <HeaderStyle CssClass="industryid" />
@@ -659,6 +650,7 @@
 </div>
 
 </div>
+
 </div>
 </div>
 </div>

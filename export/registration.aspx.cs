@@ -15,12 +15,12 @@ namespace export
 {
     public partial class registration : System.Web.UI.Page
     {
+        gt_dal obj_gt_dal = new gt_dal();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["email"] != null) { Response.Redirect("Default.aspx"); }
+            if (HttpContext.Current.User.Identity.IsAuthenticated) Response.Redirect("Default.aspx");
         }
-
-        gt_dal obj_gt_dal = new gt_dal();
         
         protected void TextBoxEmail_TextChanged(object sender, EventArgs e)
         {

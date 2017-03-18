@@ -20,11 +20,11 @@ namespace export
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["ClientId"] != null && Request.QueryString["Name"] != null)
+            if (!string.IsNullOrEmpty(Session["ClientId"] as string) && !string.IsNullOrEmpty(Session["Name"] as string))
             {
-                clientid = Request.QueryString["ClientId"];
+                clientid = Session["ClientId"].ToString();
                 LabelClientId.Text = clientid;
-                clientname = Request.QueryString["Name"];
+                clientname = Session["Name"].ToString();
                 LabelName.Text = clientname;
             }
         }
@@ -75,7 +75,7 @@ namespace export
         }
         protected void ButtonAddMore_Click(object sender, EventArgs e)
         {
-            Response.Redirect("buyer_financial.aspx?ClientId=" + clientid + "&Name=" + clientname);
+            Response.Redirect("debt_collection.aspx");
         }
     }
 }

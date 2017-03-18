@@ -88,7 +88,7 @@
                     <div class="row legal">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="text_padding">
-                                <asp:HyperLink ID="buyer_financial" CssClass="legal_heading legal_orange" NavigateUrl="#" runat="server">
+                                <asp:HyperLink ID="buyer_financial" CssClass="legal_heading legal_orange" NavigateUrl="buyer_financial.aspx" runat="server">
                                 <%--<a href="buyer_financial.aspx" class="legal_heading legal_orange">--%>
                                     <div class="rounds_1 bg-orange legal_doctor">
                                         <img src="images/exporter/buyer.png" />
@@ -102,9 +102,9 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="text_padding">
-                                 <asp:HyperLink ID="credit_insurance" CssClass="legal_heading legal_green" NavigateUrl="#" runat="server">
+                                 <asp:HyperLink ID="credit_insurance" CssClass="legal_heading legal_green" NavigateUrl="credit_insurance.aspx" runat="server">
                                     <div class="rounds_1 bg-green legal_doctor">
-                                        <img src="images/exporter/credit.png">
+                                        <img src="images/exporter/credit.png" />
                                     </div>
                                     <h2>Credit Insurance Cover</h2>
                                 </asp:HyperLink>
@@ -113,9 +113,9 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="text_padding">
-                                <asp:HyperLink ID="debt_collection" CssClass="legal_heading legal_purple" NavigateUrl="#" runat="server">                                
+                                <asp:HyperLink ID="debt_collection" CssClass="legal_heading legal_purple" NavigateUrl="debt_collection.aspx" runat="server">                                
                                     <div class="rounds_1 bg-purple legal_doctor">
-                                        <img src="images/exporter/debt_collection.png">
+                                        <img src="images/exporter/debt_collection.png" />
                                     </div>
                                     <h2>Debt Collection</h2>
                                 </asp:HyperLink>
@@ -129,9 +129,9 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="text_padding">
-                                <asp:HyperLink ID="audit_structuring" CssClass="legal_heading legal_blue" NavigateUrl="#" runat="server">                                
+                                <asp:HyperLink ID="audit_structuring" CssClass="legal_heading legal_blue" NavigateUrl="audit_structuring.aspx" runat="server">                                
                                     <div class="rounds_1 bg-blue legal_doctor">
-                                        <img src="images/exporter/audit.png">
+                                        <img src="images/exporter/audit.png" />
                                     </div>
                                     <h2>Audit & structuring of a customized process </h2>
                                 </asp:HyperLink>
@@ -141,14 +141,14 @@
 
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="text_padding">
-                                <asp:HyperLink ID="request_status" CssClass="legal_heading legal_purple" NavigateUrl="#" runat="server">                               
+                                <asp:HyperLink ID="request_status" CssClass="legal_heading legal_purple" NavigateUrl="request_status.aspx" runat="server">                               
                                     <div class="rounds_1 view-yellow legal_doctor">                                        
                                         <span class="fa fa-eye-slash logo_span"></span>
                                     </div>
                                     <h2>Request Status</h2>
                                  </asp:HyperLink>
                                 <p>You can view the status of your assignments with Glocal Thinkers in this section.</p>
-                                <br>
+                                <br />
                             </div>
                         </div>
 

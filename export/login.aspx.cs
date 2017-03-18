@@ -16,16 +16,13 @@ namespace export
 {
     public partial class login1 : System.Web.UI.Page
     {
+        gt_dal gt_dal_obj = new gt_dal();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(Request.Params["logout"]))
-            {
-                FormsAuthentication.SignOut();
-                Response.Redirect("./");
-            }
+            if (HttpContext.Current.User.Identity.IsAuthenticated) Response.Redirect("Default.aspx");
         }
 
-        gt_dal gt_dal_obj = new gt_dal();
         protected void submit_Click(object sender, EventArgs e)
         {
             if (TextBoxEmail.Text != "" && TextBoxPass.Text != "")
@@ -50,27 +47,20 @@ namespace export
                 int a = int.Parse(gt_dal_obj.FunExecuteScalarSP("ust_login1", Uname, Upass).ToString());
                 if (a > 0)
                 {
-                    FormsAuthentication.RedirectFromLoginPage(TextBoxEmail.Text, CheckBoxPersist.Checked);
+                    //FormsAuthentication.RedirectFromLoginPage(TextBoxEmail.Text, CheckBoxPersist.Checked);
+                    FormsAuthentication.SetAuthCookie(TextBoxEmail.Text, CheckBoxPersist.Checked);
                     Session["email"] = TextBoxEmail.Text;
+                    Response.Redirect("Default.aspx", true);
+
                 }
                 else
                 {
                     Label1.Text = "Invalid User Name and/or Password";
                 }
-
-
-                //        if (CheckBox1.Checked)
-                //        {
-                //            HttpCookie mycookie = new HttpCookie(TextBoxemail.Text, TextBoxPass.Text);
-                //            mycookie.Expires = DateTime.Now.AddDays(5);
-                //            Response.Cookies.Add(mycookie);
-                //        }
             }
         }
-
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
-
             Response.Redirect("Registration.aspx");
         }
     }

@@ -20,6 +20,10 @@
         <p><asp:Label ID="lblMessage" runat="server" EnableViewState="false" 
 
 ForeColor="Green" /></p>
+
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+
+        <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click" />
     </div>
     </form>
 </body>
