@@ -39,12 +39,12 @@
   <div class="form-group">
     <label>E-mail</label>
      
-      <asp:TextBox ID="TextBoxEmail" name="E-mail" class="form-control existing-form" placeholder="" runat="server"></asp:TextBox>
+      <asp:TextBox ID="TextBoxEmail" name="E-mail" class="form-control existing-form" required="required" placeholder="Email" runat="server"></asp:TextBox>
 	<div id='myform_Email_errorloc' class="error_strings"></div>
   </div>
   <div class="form-group">
    <label>Password</label>
-      <asp:TextBox ID="TextBoxPass" class="form-control existing-form" value="" runat="server" TextMode="Password"></asp:TextBox>
+      <asp:TextBox ID="TextBoxPass" class="form-control existing-form" placeholder="Password" required="required" runat="server" TextMode="Password"></asp:TextBox>
 
       <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
 	<div id='myform_Password_errorloc' class="error_strings"></div>

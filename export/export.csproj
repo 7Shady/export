@@ -114,6 +114,7 @@
     <Content Include="lib\jquery-1.9.0.min.js" />
     <Content Include="lib\jquery.mousewheel-3.0.6.pack.js" />
     <Content Include="login.aspx" />
+    <Content Include="m.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="ProfileSuccess.aspx" />
     <Content Include="registration.aspx" />
@@ -214,6 +215,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="m.aspx.cs">
+      <DependentUpon>m.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="m.aspx.designer.cs">
+      <DependentUpon>m.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>

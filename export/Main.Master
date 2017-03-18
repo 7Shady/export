@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Exporters Receivable Management</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
-        
+      
     </asp:ContentPlaceHolder>
 
     <meta charset="utf-8" />
@@ -26,21 +26,32 @@
      <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.css" />
     </head>
 <body>
-    
+  
     <div>
         <form name="myform" id="myform" method="post" action=""  runat="server">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
- <header>
-    <div class="header_top">
-<div class="container">
-<div class="row">
-<div class="col-sm-12">
-    <a href="Default.aspx"><img src="images/logo-dark.png" /></a>
-    </div>   
-    </div>    
-    </div>    
-    </div>
-</header>
+            <header>
+                <div class="header_top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a href="Default.aspx">
+                                <img src="images/logo-dark.png" /></a>
+                                    <nav class="horizontal-nav full-width horizontalNav-notprocessed">
+  <ul style="list-style: none;">
+      <li><a href="buyer_financial.aspx">Buyer Financial Reports</a></li>
+     <li><a href="credit_insurance.aspx">Credit Insurance Cover</a></li>
+     <li><a href="debt_collection.aspx">Debt Collection</a></li>
+     <li><a href="request_status.aspx">Request Status</a></li>
+     <li><a href="audit_structuring.aspx">Audit &amp; structuring of a customized process</a></li>
+      <li><a href="#">       .      </a></li>
+  </ul>
+</nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
               
         </asp:ContentPlaceHolder>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
@@ -49,14 +60,15 @@
         
         <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
             <footer id="footer">
-<div class="container">
-<div class="row">
-<div class="col-sm-12 copyright">
-<p>Copyright 2016 Powered by : <a href="http://glocalthinkers.com/" target="_blank">Glocal Thinkers</a></p>
-</div>
-</div>
-</div>
-</footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 copyright">
+                            <p>
+                                Copyright 2016 Powered by : <a href="http://glocalthinkers.com/" target="_blank">Glocal Thinkers</a></p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </asp:ContentPlaceHolder>
             </form>
     </div>
