@@ -163,7 +163,6 @@ namespace export
             }
         }
 
-
         //Buyer Collection  GridViewBFP
         protected void GridViewBFP_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -188,13 +187,8 @@ namespace export
         //Credit Collection  GridViewCICP
         protected void GridViewCICP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            //Accessing BoundField Column
             string creditid = GridViewCICP.SelectedRow.Cells[1].Text;
             Response.Redirect("credit_insurance_view.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text + "&CreditId=" + creditid);
-
-            //Accessing TemplateField Column controls
-            //string status = (GridViewCIC.SelectedRow.FindControl("LabelStatus") as Label).Text;
         }
         protected void GridViewCICA_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -14,7 +14,6 @@ namespace export
     {
         string email = null;
         string clientid = null;
-        //object clientid = null;
         gt_dal obj_gt_dal = new gt_dal();
         DataTable Pdt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
@@ -27,7 +26,6 @@ namespace export
                 SqlParameter Qmode = obj_gt_dal.SqlParam("@ModeType", "Short", SqlDbType.VarChar);
                 Pdt = obj_gt_dal.FunDataTableSP("ust_selectprofile ", Uid, Uemail, Qmode);
 
-               // Pdt = obj_gt_dal.FunDataTable("SELECT ClientId,Name,ContactNo,UpdateDate,AttachedFile FROM tblClientRegistration WHERE Email=" + email + "");
                 if (Pdt.Rows.Count != 0)
                 {
                     clientid = (Pdt.Rows[0]["ClientId"].ToString());

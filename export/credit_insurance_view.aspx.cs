@@ -59,20 +59,6 @@ namespace export
             }
         }
 
-        private void download(DataTable dt)
-        {
-            Byte[] bytes = (Byte[])dt.Rows[0]["AttachedFile"];
-            Response.Buffer = true;
-            Response.Charset = "";
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            Response.ContentType = dt.Rows[0]["AttachProfileContentType"].ToString();
-            Response.AddHeader("content-disposition", "attachment;filename="
-            + dt.Rows[0]["AttachProfileName"].ToString());
-            Response.BinaryWrite(bytes);
-            Response.Flush();
-            Response.End();
-        }
-
         protected void ButtonDload_Click(object sender, EventArgs e)
         {
             if (Pdt.Rows[0]["AttachedFile"] != DBNull.Value)
