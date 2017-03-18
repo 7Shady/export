@@ -61,6 +61,7 @@ namespace export
             {
                 obj_gt_dal.DocDownload(Pdt, "AttachedFile", "AttachProfileContentType", "AttachProfileName");
             }
+            else Response.Write("<script>alert('Document not uploaded!');</script>");
         }
     }
 }
