@@ -274,13 +274,13 @@ namespace export {
         protected global::System.Web.UI.WebControls.Button ButtonDownload;
         
         /// <summary>
-        /// uploadFile control.
+        /// UpClientDoc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload uploadFile;
+        protected global::System.Web.UI.WebControls.FileUpload UpClientDoc;
         
         /// <summary>
         /// ValidFile control.
@@ -310,12 +310,12 @@ namespace export {
         protected global::System.Web.UI.WebControls.Button ButtonCancel;
         
         /// <summary>
-        /// HyperLinkDash control.
+        /// ButtonCP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkDash;
+        protected global::System.Web.UI.WebControls.Button ButtonCP;
     }
 }

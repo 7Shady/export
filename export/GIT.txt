@@ -1,1 +1,23 @@
-﻿TEST
+﻿<div class="col-sm-10">
+                                                    <div>
+                                                        <asp:Panel ID="Panel1" runat="server" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1" GroupingText="Change Password" style="padding: 25px;" Enabled="False" Visible="False">
+                                                            <p>
+                                                            <label>Current Password</label>
+                                                            <asp:TextBox ID="TextBoxCurPass" class="form-control register-input" runat="server"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RFV1" ControlToValidate="TextBoxCurPass" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                            </p>
+                                                             <p><label>New Password</label>
+                                                                 <asp:TextBox ID="TextBoxNewPass" class="form-control register-input" runat="server"></asp:TextBox></p>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="TextBoxCurPass" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                             <p><label>Confirm Password</label>
+                                                            <asp:TextBox ID="TextBoxNewPassC" class="form-control register-input" runat="server"></asp:TextBox>
+                                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="TextBoxCurPass" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                 <asp:CompareValidator ID="comparePasswords"
+                                                                     runat="server"
+                                                                     ControlToCompare="TextBoxNewPass"
+                                                                     ControlToValidate="TextBoxNewPassC"
+                                                                     ErrorMessage="Passwords not matched!"
+                                                                     Display="Dynamic" /></p>
+                                                        </asp:Panel>
+                                                    </div>
+                                                </div>

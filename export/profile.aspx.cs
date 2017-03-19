@@ -49,54 +49,22 @@ namespace export
                 TextBoxEmp.Text = (Pdt.Rows[0]["NoofEmployees"].ToString());
                 if (Pdt.Rows[0]["AttachedFile"] != DBNull.Value) { previewImage.ImageUrl = "ViewImage.ashx?ClientId=" + Server.UrlEncode(clientid); }
                 else { previewImage.ImageUrl = "~/images/adduser.png"; }
+                if (Pdt.Rows[0]["AttachProfileName"].ToString() != "")
+                {
+                    ButtonDownload.CssClass = "btn btn-xs btn-success";
+                    ButtonDownload.Text = Pdt.Rows[0]["AttachProfileName"].ToString();
+                    ButtonDownload.ToolTip = "Download " + Pdt.Rows[0]["AttachProfileName"].ToString();
+                }
+                else
+                {
+                    ButtonDownload.CssClass = "btn btn-xs btn-danger";
+                    ButtonDownload.Text = "Not found!";
+                }
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (HttpContext.Current.User.Identity.IsAuthenticated && !string.IsNullOrEmpty(Session["ClientId"] as string))
-            //    if (HttpContext.Current.User.Identity.IsAuthenticated)
-            //    {
-            //        Label1.Text = "____";
-            //        string loginuser = HttpContext.Current.User.Identity.Name;
-            //        loginuser = "'" + loginuser + "'";
-            //        string clientidloginuser = (gt_dal_obj.FunExecuteScalar("SELECT ClientId FROM tblClientRegistration WHERE Email=" + loginuser + "")).ToString();
-
-            //        Label1.Text = loginuser + "__" + clientidloginuser;
-            //        if (clientidloginuser == Request.QueryString["ClientId"])
-            //        {
-            //            clientid = Request.QueryString["ClientId"];
-            //            if (!IsPostBack)
-            //            {
-            //                BindOnPageLoad();
-            //            }
-            //        }
-            //        else
-            //        {
-            //            //Session.Clear();
-            //            //Session.Abandon();
-            //            //FormsAuthentication.SignOut();
-            //            Label1.Text = loginuser + "__" + clientidloginuser + "__else";
-            //            Response.Write("<script>alert('Please login to your account!');</script>");
-            //            //FormsAuthentication.RedirectToLoginPage();
-            //        }
-
-            //}
-
-
-            //if (HttpContext.Current.User.Identity.IsAuthenticated)
-            //{
-            //    if (!string.IsNullOrEmpty(Request.QueryString["ClientId"] as string))
-            //    {
-            //        clientid = Request.QueryString["ClientId"];
-            //        if (!IsPostBack)
-            //        {
-            //            BindOnPageLoad();
-            //        }
-            //    }
-            //}
-
-
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 if (!string.IsNullOrEmpty(Session["ClientId"] as string))
@@ -105,182 +73,88 @@ namespace export
                     if (!IsPostBack)
                     {
                         BindOnPageLoad();
+                        if ((Pdt.Rows[0]["ContactNo"].ToString()) == "")
+                        {
+                            Response.Write("<script>alert('Please update mobile number!');</script>");
+                            this.TextBoxMob.Focus();
+                        }
                     }
                 }
             }
-
-            //else
-            //{
-            //    //Session.Clear();
-            //    //Session.Abandon();
-            //    //FormsAuthentication.SignOut();
-            //    Label1.Text = loginuser + "__" + clientidloginuser + "__else";
-            //    Response.Write("<script>alert('Please login to your account!');</script>");
-            //    //FormsAuthentication.RedirectToLoginPage();
-            //}
-
         }
-
-  
 
         protected void ButtonSave_Click(object sender, EventArgs e)
         {
-            //string filename = "";
-            //byte[] ClientImgBytes = null;
-            //Byte[] ClientDocBytes = null;
-
-            //using (SqlConnection con9 = new SqlConnection(ConfigurationManager.ConnectionStrings["gt_ConStr"].ConnectionString))
-            //{
-            //    string atf = null;
-            //    string atpf = null;
-            //    if (UpClientImg.FileName != string.Empty) { atf = ",AttachedFile = @AttachedFile"; }
-            //    else { atf = ""; }
-            //    if (uploadFile.FileName != string.Empty)
-            //    {
-            //        atpf = ",AttachProfile = @AttachProfile, AttachProfileName = @AttachProfileName, AttachProfileContentType = @AttachProfileContentType";
-            //        string filePath = Server.MapPath("APP_DATA/Resume.docx");
-            //        filename = Path.GetFileName(filePath);
-
-            //        FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-            //        BinaryReader br = new BinaryReader(fs);
-            //        ClientDocBytes = br.ReadBytes((Int32)fs.Length);
-            //        br.Close();
-            //        fs.Close();
-            //    }
-            //    else { atpf = ""; }
-
-            //    SqlCommand cmd9 = new SqlCommand("UPDATE tblClientRegistration SET Name=@Name, CompanyName=@CompanyName, InCorporation=@InCorporation, CompanyType=@CompanyType, Industry=@Industry," +
-            //    "Address_cl = @Address_cl, Country = @Country, City = @City, ZipCode = @ZipCode, Website = @Website, ContactNo = @ContactNo," +
-            //    "Email = @Email, Designation = @Designation, CountryOperation = @CountryOperation, BusinessTournOver = @BusinessTournOver, BriefOperations = @BriefOperations," +
-            //    "NoofEmployees = @NoofEmployees " + atf + "" + atpf + " WHERE ClientId =@ClientId", con9);
-
-            //    cmd9.Parameters.AddWithValue("ClientId", clientid);
-            //    cmd9.Parameters.AddWithValue("Name", TextBoxCname.Text);
-            //    cmd9.Parameters.AddWithValue("CompanyName", TextBoxCom.Text);
-            //    cmd9.Parameters.AddWithValue("InCorporation", TextBoxCin.Text);
-            //    cmd9.Parameters.AddWithValue("CompanyType", DropDownCompany.SelectedValue.ToString());
-            //    cmd9.Parameters.AddWithValue("Industry", DropDownIndustry.SelectedValue.ToString());
-
-            //    cmd9.Parameters.AddWithValue("Address_cl", TextBoxAddress.Text);
-            //    cmd9.Parameters.AddWithValue("Country", DropDownCountry.SelectedValue.ToString());
-            //    cmd9.Parameters.AddWithValue("City", DropDownCity.SelectedValue.ToString());
-            //    cmd9.Parameters.AddWithValue("ZipCode", TextBoxZipCode.Text);
-            //    cmd9.Parameters.AddWithValue("Website", TextBoxWeb.Text);
-            //    cmd9.Parameters.AddWithValue("ContactNo", TextBoxMob.Text);
-            //    cmd9.Parameters.AddWithValue("Email", TextBoxEmail.Text);
-
-            //    cmd9.Parameters.AddWithValue("Designation", TextBoxDesig.Text);
-            //    cmd9.Parameters.AddWithValue("CountryOperation", TextBoxoper.Text);
-            //    cmd9.Parameters.AddWithValue("BusinessTournOver", TextBoxturn.Text);
-            //    cmd9.Parameters.AddWithValue("BriefOperations", TextBoxBrief.Text);
-            //    cmd9.Parameters.AddWithValue("NoofEmployees", TextBoxEmp.Text);
-
-            //    if (UpClientImg.FileName != string.Empty)
-            //    {
-            //        Stream ClientImgBytesStrm = UpClientImg.FileContent;
-            //        ClientImgBytes = gt_dal_obj.image2ByteArray(System.Drawing.Image.FromStream(ClientImgBytesStrm));
-
-            //        cmd9.Parameters.AddWithValue("AttachedFile", ClientImgBytes);
-            //    }
-
-            //    if (uploadFile.FileName != string.Empty)
-            //    {
-            //        cmd9.Parameters.AddWithValue("AttachProfile", ClientDocBytes);
-            //        cmd9.Parameters.AddWithValue("AttachProfileName", filename);
-            //        cmd9.Parameters.AddWithValue("AttachProfileContentType", "application/vnd.ms-word");
-            //    }
-
-            //    try
-            //    {
-            //        con9.Open();
-            //        int CheckSuc = cmd9.ExecuteNonQuery();
-            //        if (CheckSuc > 0)
-            //        {
-            //            Response.Write("<script>alert('Profile updated successfully!');</script>");
-            //            BindOnPageLoad();
-            //        }
-            //    }
-            //    catch (SqlException ex)
-            //    {
-            //        string errorMessage = "Opps Error! Please try again. ";
-            //        errorMessage += ex.Message;
-            //        throw new Exception(errorMessage);
-            //    }
-            //    finally
-            //    {
-            //        con9.Close();
-            //    }
-
-            //}
-
-
-
-
-            
-
             SqlParameter param1 = gt_dal_obj.SqlParam("@ClientId", clientid, SqlDbType.VarChar);
             SqlParameter param2 = gt_dal_obj.SqlParam("@Name", TextBoxCname.Text, SqlDbType.VarChar);
-            SqlParameter param4 = gt_dal_obj.SqlParam("@CompanyName", TextBoxCom.Text, SqlDbType.VarChar);
-            SqlParameter param5 = gt_dal_obj.SqlParam("@InCorporation", TextBoxCin.Text, SqlDbType.VarChar);
-            SqlParameter param6 = gt_dal_obj.SqlParam("@CompanyType", DropDownCompany.SelectedValue.ToString(), SqlDbType.VarChar);
-            SqlParameter param7 = gt_dal_obj.SqlParam("@Industry", DropDownIndustry.SelectedValue.ToString(), SqlDbType.VarChar);
+            SqlParameter param3 = gt_dal_obj.SqlParam("@CompanyName", TextBoxCom.Text, SqlDbType.VarChar);
+            SqlParameter param4 = gt_dal_obj.SqlParam("@InCorporation", TextBoxCin.Text, SqlDbType.VarChar);
+            SqlParameter param5 = gt_dal_obj.SqlParam("@CompanyType", DropDownCompany.SelectedValue.ToString(), SqlDbType.VarChar);
+            SqlParameter param6 = gt_dal_obj.SqlParam("@Industry", DropDownIndustry.SelectedValue.ToString(), SqlDbType.VarChar);
 
-            SqlParameter param8 = gt_dal_obj.SqlParam("@Address_cl", TextBoxAddress.Text, SqlDbType.VarChar);
-            SqlParameter param9 = gt_dal_obj.SqlParam("@Country", DropDownCountry.SelectedValue.ToString(), SqlDbType.VarChar);
-            SqlParameter param10 = gt_dal_obj.SqlParam("@City", DropDownCity.SelectedValue.ToString(), SqlDbType.VarChar);
-            SqlParameter param11 = gt_dal_obj.SqlParam("@ZipCode", TextBoxZipCode.Text, SqlDbType.VarChar);
-            SqlParameter param12= gt_dal_obj.SqlParam("@Website", TextBoxWeb.Text, SqlDbType.VarChar);
-            SqlParameter param13= gt_dal_obj.SqlParam("@ContactNo", TextBoxMob.Text, SqlDbType.VarChar);
-            SqlParameter param14= gt_dal_obj.SqlParam("@Email", TextBoxEmail.Text, SqlDbType.VarChar);
+            SqlParameter param7 = gt_dal_obj.SqlParam("@Address_cl", TextBoxAddress.Text, SqlDbType.VarChar);
+            SqlParameter param8 = gt_dal_obj.SqlParam("@Country", DropDownCountry.SelectedValue.ToString(), SqlDbType.VarChar);
+            SqlParameter param9 = gt_dal_obj.SqlParam("@City", DropDownCity.SelectedValue.ToString(), SqlDbType.VarChar);
+            SqlParameter param10 = gt_dal_obj.SqlParam("@ZipCode", TextBoxZipCode.Text, SqlDbType.VarChar);
+            SqlParameter param11= gt_dal_obj.SqlParam("@Website", TextBoxWeb.Text, SqlDbType.VarChar);
+            SqlParameter param12= gt_dal_obj.SqlParam("@ContactNo", TextBoxMob.Text, SqlDbType.VarChar);
+            SqlParameter param13= gt_dal_obj.SqlParam("@Email", TextBoxEmail.Text, SqlDbType.VarChar);
 
-            SqlParameter param15 = gt_dal_obj.SqlParam("@Designation", TextBoxDesig.Text, SqlDbType.VarChar);
-            SqlParameter param16 = gt_dal_obj.SqlParam("@CountryOperation", TextBoxoper.Text, SqlDbType.VarChar);
-            SqlParameter param17 = gt_dal_obj.SqlParam("@BusinessTournOver", TextBoxturn.Text, SqlDbType.VarChar);
-            SqlParameter param18 = gt_dal_obj.SqlParam("@BriefOperations", TextBoxBrief.Text, SqlDbType.VarChar);
-            SqlParameter param19 = gt_dal_obj.SqlParam("@NoofEmployees", TextBoxEmp.Text, SqlDbType.VarChar);
+            SqlParameter param14 = gt_dal_obj.SqlParam("@Designation", TextBoxDesig.Text, SqlDbType.VarChar);
+            SqlParameter param15 = gt_dal_obj.SqlParam("@CountryOperation", TextBoxoper.Text, SqlDbType.VarChar);
+            SqlParameter param16 = gt_dal_obj.SqlParam("@BusinessTournOver", TextBoxturn.Text, SqlDbType.VarChar);
+            SqlParameter param17 = gt_dal_obj.SqlParam("@BriefOperations", TextBoxBrief.Text, SqlDbType.VarChar);
+            SqlParameter param18 = gt_dal_obj.SqlParam("@NoofEmployees", TextBoxEmp.Text, SqlDbType.VarChar);
+            
+            string isimage = "False";
+            string isdoc = "False";
 
-            SqlParameter param20 = gt_dal_obj.SqlParam("@AttachedFile", DBNull.Value, SqlDbType.VarBinary);
-            if (UpClientImg.FileName != string.Empty)
+            SqlParameter param19 = gt_dal_obj.SqlParam("@AttachedFile", DBNull.Value, SqlDbType.VarBinary);
+            SqlParameter param20 = gt_dal_obj.SqlParam("@AttachProfile", DBNull.Value, SqlDbType.VarBinary);
+            SqlParameter param21 = gt_dal_obj.SqlParam("@AttachProfileName", DBNull.Value, SqlDbType.VarChar);
+            SqlParameter param22 = gt_dal_obj.SqlParam("@AttachProfileContentType", DBNull.Value, SqlDbType.VarChar);
+
+            if (UpClientImg.PostedFile.FileName != "")
             {
+                isimage = "True";
                 Stream ClientImgBytesStrm = UpClientImg.FileContent;
                 byte[] ClientImgBytes = gt_dal_obj.image2ByteArray(System.Drawing.Image.FromStream(ClientImgBytesStrm));
-                param20 = gt_dal_obj.SqlParam("@AttachedFile", ClientImgBytes, SqlDbType.VarBinary);
+                param19 = gt_dal_obj.SqlParam("@AttachedFile", ClientImgBytes, SqlDbType.VarBinary);
             }
 
-            SqlParameter param21 = gt_dal_obj.SqlParam("@AttachProfile", DBNull.Value, SqlDbType.VarBinary);
-            SqlParameter param21a = gt_dal_obj.SqlParam("@AttachProfileName", DBNull.Value, SqlDbType.VarChar);
-            SqlParameter param21b= gt_dal_obj.SqlParam("@AttachProfileContentType", DBNull.Value, SqlDbType.VarChar);
-
-            if (uploadFile.FileName != "")
+            if (UpClientDoc.PostedFile.FileName != "")
             {
-                string filePath = uploadFile.PostedFile.FileName;
+                isdoc = "True";
+                string filePath = UpClientDoc.PostedFile.FileName;
                 string filename = Path.GetFileName(filePath);
                 string ext = Path.GetExtension(filename);
                 if (ext == ".doc" || ext == ".docx" || ext == ".xls" || ext == ".xlsx" || ext == ".pdf")
                 {
-                    param21 = gt_dal_obj.SqlParam("@AttachedFile", gt_dal_obj.Doc2ByteArray(uploadFile), SqlDbType.VarBinary);
-                    param21a = gt_dal_obj.SqlParam("@AttachProfileName", filename, SqlDbType.VarChar);
-                    param21b = gt_dal_obj.SqlParam("@AttachProfileContentType", gt_dal_obj.DocType(uploadFile), SqlDbType.VarChar);
+                    param20 = gt_dal_obj.SqlParam("@AttachProfile", gt_dal_obj.Doc2ByteArray(UpClientDoc), SqlDbType.VarBinary);
+                    param21 = gt_dal_obj.SqlParam("@AttachProfileName", filename, SqlDbType.VarChar);
+                    param22 = gt_dal_obj.SqlParam("@AttachProfileContentType", gt_dal_obj.DocType(UpClientDoc), SqlDbType.VarChar);
                 }
                 else Response.Write("<script>alert('Choose (.doc,.docx,.xls,.xlsx,pdf) file only!');</script>");
             }
 
-            int CheckSuc = gt_dal_obj.FunExecuteNonQuerySP("ust_updateprofile", param1, param2, param4, param5, param6, param7, param8, 
+            SqlParameter param23 = gt_dal_obj.SqlParam("@IsImage", isimage, SqlDbType.VarChar);
+            SqlParameter param24 = gt_dal_obj.SqlParam("@IsDoc", isdoc, SqlDbType.VarChar);
+
+            int CheckSuc = gt_dal_obj.FunExecuteNonQuerySP("ust_updateprofile", param1, param2, param3, param4, param5, param6, param7, param8,
                 param9, param10, param11, param12, param13, param14, param15, param16, param17, param18, param19, param20, param21,
-                param21a, param21b
-                );
+                param22, param23, param24);
+
             if (CheckSuc > 0)
             {
                 Response.Write("<script>alert('Profile updated successfully!');</script>");
                 BindOnPageLoad();
             }
             else Response.Write("<script>alert('I afaid something went wrong! Please try again.');</script>");
-
         }
 
         protected void ButtonCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("profile.aspx?ClientId=" + clientid);
+            Response.Redirect("profile.aspx");
         }
         
         protected void ButtonDownload_Click(object sender, EventArgs e)
@@ -293,6 +167,11 @@ namespace export
             if (Ddt.Rows[0]["AttachProfile"] != DBNull.Value)
                 gt_dal_obj.DocDownload(Ddt, "AttachProfile", "AttachProfileContentType", "AttachProfileName");
             else Response.Write("<script>alert('Profile not uploaded!');</script>");
+        }
+
+        protected void ButtonCP_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ChangePassword.aspx");
         }
     }
 }

@@ -52,7 +52,11 @@ namespace export
 
                     Session["ClientId"] = clientid;
                     Session["Name"] = clientname;
-
+                    if(LabelContact.Text=="")
+                    {
+                        
+                        Response.Redirect("profile.aspx");
+                    }
                 }
             }
             

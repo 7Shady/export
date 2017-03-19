@@ -69,7 +69,7 @@
                                             runat="server"
                                             ControlToCompare="TextBoxPass"
                                             ControlToValidate="TextBoxPassc"
-                                            ErrorMessage="Your passwords do not match up!"
+                                            ErrorMessage="Passwords not matched!"
                                             Display="Dynamic" />
                                     </div>
 
@@ -87,4 +87,9 @@
     </div>
 
 </asp:Content>
+
+<asp:Content ID="Content4" runat="server" contentplaceholderid="ContentPlaceHolderMenu">
+   
+</asp:Content>
+
 

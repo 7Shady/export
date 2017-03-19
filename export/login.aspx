@@ -58,7 +58,7 @@
     </label>
   </div>
         </li>
-        <li><a href="#">Forgot Password</a></li>
+        <li><a href="forget.aspx">Forgot Password</a></li>
         </ul>
         <asp:Button ID="submit" runat="server" Text="Login" value="Login" class="btn btn-primary submit_read" OnClick="submit_Click" />
   
@@ -66,7 +66,7 @@
                                     <div>
                                         <div>
                                             <a href="https://www.paypal.com/in/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/in/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;">
-                                                <img src="https://www.paypalobjects.com/webstatic/en_IN/mktg/logos/AM_SbyPP_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark" style="width:100%;">
+                                                <img src="https://www.paypalobjects.com/webstatic/en_IN/mktg/logos/AM_SbyPP_mc_vs_dc_ae.jpg" border="0" alt="PayPal Acceptance Mark" style="width:100%;" />
                                             </a>
                                         </div>
    
@@ -106,5 +106,11 @@
 </footer>
  
 </asp:Content>
+
+
+<asp:Content ID="Content5" runat="server" contentplaceholderid="ContentPlaceHolderMenu">
+    
+</asp:Content>
+
 
 

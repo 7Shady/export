@@ -21,7 +21,7 @@ namespace export
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated) Response.Redirect("Default.aspx");
         }
-        
+
         protected void TextBoxEmail_TextChanged(object sender, EventArgs e)
         {
             TextBoxEmail.Attributes.Add("placeholder", "Email");
@@ -34,7 +34,7 @@ namespace export
                 param1.SqlDbType = SqlDbType.VarChar;
 
                 int a = int.Parse(obj_gt_dal.FunExecuteScalarSP("ust_emailcheck", param1).ToString());
-                if (a > 0) { TextBoxEmail.Text = ""; TextBoxEmail.Attributes.Add("placeholder", Email +" already exist"); }
+                if (a > 0) { TextBoxEmail.Text = ""; TextBoxEmail.Attributes.Add("placeholder", Email + " already exist"); }
             }
             else { TextBoxEmail.Attributes.Add("placeholder", "Email"); }
         }
@@ -54,36 +54,17 @@ namespace export
             }
             var hash_pass = sb.ToString();
 
-            using (SqlConnection con9 = new SqlConnection(ConfigurationManager.ConnectionStrings["gt_ConStr"].ConnectionString))
-            {
-                string ClientID9 = obj_gt_dal.Get8Digits("CL");
-                SqlCommand cmd9 = new SqlCommand("INSERT INTO tblClientRegistration(ClientId, Name, Email, Password) VALUES(@ClientId, @Name, @Email, @Password)", con9);
-                cmd9.Parameters.AddWithValue("ClientId", ClientID9);
-                cmd9.Parameters.AddWithValue("Name", TextBoxName.Text);
-                cmd9.Parameters.AddWithValue("Email", TextBoxEmail.Text);
-                cmd9.Parameters.AddWithValue("Password", hash_pass);
-                try
-                {
-                    con9.Open();
-                    int CheckSuc = cmd9.ExecuteNonQuery();
-                    if (CheckSuc > 0)
-                    {
-                        Response.Redirect("~/ProfileSuccess.aspx?ClientId=" + ClientID9);
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    string errorMessage = "Opps Error! Please try again. ";
-                    errorMessage += ex.Message;
-                    throw new Exception(errorMessage);
+            string newclientid = obj_gt_dal.Get8Digits("CL");
+            SqlParameter param1 = obj_gt_dal.SqlParam("@ClientId", newclientid, SqlDbType.VarChar);
+            SqlParameter param2 = obj_gt_dal.SqlParam("@Name", TextBoxName.Text, SqlDbType.VarChar);
+            SqlParameter param3 = obj_gt_dal.SqlParam("@Email", TextBoxEmail.Text, SqlDbType.VarChar);
+            SqlParameter param4 = obj_gt_dal.SqlParam("@Password", hash_pass, SqlDbType.VarChar);
 
-                }
-                finally
-                {
-                    con9.Close();
-                }
-
-            }
+            int CheckSuc = obj_gt_dal.FunExecuteNonQuerySP("ust_newregistration", param1, param2, param3, param4);
+            if (CheckSuc > 0)
+                Response.Redirect("~/ProfileSuccess.aspx?ClientId=" + newclientid);
+            else
+                Response.Write("<script>alert('Something went wrong! Please try again.');</script>");
         }
     }
 }

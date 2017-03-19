@@ -24,12 +24,12 @@
 <p><b>Client ID:</b></p>
 </div>
 <div  class="col-lg-2 col-md-2 col-sm-3 col-xs-3 client_legal">
-<p><asp:Label ID="LabelClientId" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
+<p><asp:Label ID="LabelClientId" runat="server"  Font-Bold="True"></asp:Label></p>
 </div>
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 full_name">
 <p>Client Name:</p></div>
 <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 client_legal">
-<p><asp:Label ID="LabelCName" runat="server" Text="Label" Font-Bold="True"></asp:Label></p>
+<p><asp:Label ID="LabelCName" runat="server"  Font-Bold="True"></asp:Label></p>
 </div>
 </div>
     </div>
@@ -54,31 +54,31 @@
 <tbody>
 <tr>
 <td class="bg-green-light">Credit Id</td>
-<td><asp:Label ID="LabelCreditId" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelCreditId" runat="server"  Font-Bold="True"></asp:Label>
 </td>
 
 <td class="bg-green-light">Name of the Buyer</td>
-<td><asp:Label ID="LabelBName" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelBName" runat="server"  Font-Bold="True"></asp:Label>
 </td>
 
 </tr>
 
 <tr>
 <td class="bg-green-light">Country</td>
-<td><asp:Label ID="LabelCountry" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelCountry" runat="server"  Font-Bold="True"></asp:Label>
 </td>
 
 <td class="bg-green-light">State</td>
-<td><asp:Label ID="LabelState" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelState" runat="server"  Font-Bold="True"></asp:Label>
 </td>
 
 </tr>
 
 <tr>
 <td class="bg-green-light">City </td>
-<td><asp:Label ID="LabelCity" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelCity" runat="server"  Font-Bold="True"></asp:Label>
 </td><td class="bg-green-light">Address</td>
-<td><asp:Label ID="LabelAddress" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelAddress" runat="server"  Font-Bold="True"></asp:Label>
 </td>
 
 </tr>
@@ -87,29 +87,27 @@
 
 
 <td class="bg-green-light">Description </td>
-<td><asp:Label ID="LabelDescription" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelDescription" runat="server"  Font-Bold="True"></asp:Label>
 </td>
 <td class="bg-green-light">Value of the Consignment</td>
-<td><asp:Label ID="LabelConsig" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelConsig" runat="server"  Font-Bold="True"></asp:Label>
 </td>
 </tr>
     <tr>
 
 
 <td class="bg-green-light">Terms of Delivery </td>
-<td><asp:Label ID="LabelDelivery" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelDelivery" runat="server"  Font-Bold="True"></asp:Label>
 </td>
 <td class="bg-green-light">Terms of Payment</td>
-<td><asp:Label ID="LabelPayment" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelPayment" runat="server"  Font-Bold="True"></asp:Label>
 </td>
 </tr>
-
- 
 
 <tr>
 <td class="bg-green-light">Status</td>
 <td>
-<div class="btn btn-info btn-xs">Pending</div>
+<asp:Label ID="LabelSatus" CssClass="btn btn-info btn-xs" runat="server"  Font-Bold="True"></asp:Label>
 </td>
 
 

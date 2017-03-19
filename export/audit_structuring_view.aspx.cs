@@ -51,6 +51,20 @@ namespace export
                     LabelAddress.Text = (Pdt.Rows[0]["Address_cl"].ToString());
                     LabelEmail.Text = (Pdt.Rows[0]["Email"].ToString());
                     LabelNumber.Text = (Pdt.Rows[0]["contactnumber"].ToString());
+                    LabelSatus.Text = (Pdt.Rows[0]["Status"].ToString());
+
+                    switch (LabelSatus.Text)
+                    {
+                        case "Pending":
+                            LabelSatus.CssClass = "btn btn-info btn-xs";
+                            break;
+                        case "Approved":
+                            LabelSatus.CssClass = "btn btn-xs btn-success";
+                            break;
+                        case "Declined":
+                            LabelSatus.CssClass = "btn btn-xs btn-danger";
+                            break;
+                    }
                 }
             }
         }

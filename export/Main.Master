@@ -30,23 +30,29 @@
     <div>
         <form name="myform" id="myform" method="post" action=""  runat="server">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+           
             <header>
                 <div class="header_top">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12">
-                                <a href="Default.aspx">
+                                <a href="./">
                                 <img src="images/logo-dark.png" /></a>
+                                 <asp:ContentPlaceHolder ID="ContentPlaceHolderMenu" runat="server">
+                                <div id="menudiv" runat="server">
                                     <nav class="horizontal-nav full-width horizontalNav-notprocessed">
-  <ul style="list-style: none;">
-      <li><a href="buyer_financial.aspx">Buyer Financial Reports</a></li>
-     <li><a href="credit_insurance.aspx">Credit Insurance Cover</a></li>
-     <li><a href="debt_collection.aspx">Debt Collection</a></li>
-     <li><a href="request_status.aspx">Request Status</a></li>
-     <li><a href="audit_structuring.aspx">Audit &amp; structuring of a customized process</a></li>
-      <li><a href="#">       .      </a></li>
-  </ul>
-</nav>
+                                        <ul style="list-style: none; margin-bottom: 0px; border-bottom:none; border-bottom-left-radius:0px;border-bottom-right-radius:0px;">
+                                            <li><a href="./">Dashboard</a></li>
+                                            <li><a href="buyer_financial.aspx">Buyer Financial Reports</a></li>
+                                            <li><a href="credit_insurance.aspx">Credit Insurance Cover</a></li>
+                                            <li><a href="debt_collection.aspx">Debt Collection</a></li>
+                                            <li><a href="audit_structuring.aspx">Audit & Structuring </a></li>
+                                            <li><a href="request_status.aspx">Request Status</a></li>
+                                            <li><a href="profile.aspx">View / Edit Profile</a></li>
+                                            <li><a href="#"></a></li>
+                                        </ul>
+                                    </nav>
+                                </div></asp:ContentPlaceHolder>
                             </div>
                         </div>
                     </div>
@@ -64,7 +70,7 @@
                     <div class="row">
                         <div class="col-sm-12 copyright">
                             <p>
-                                Copyright 2016 Powered by : <a href="http://glocalthinkers.com/" target="_blank">Glocal Thinkers</a></p>
+                                Copyright 2017 Powered by : <a href="http://glocalthinkers.com/" target="_blank">Glocal Thinkers</a></p>
                         </div>
                     </div>
                 </div>

@@ -26,7 +26,7 @@
                                     <div class="profile_service">
                                         <asp:Image ID="previewImage" runat="server" Width="125" Height="125" ImageUrl="~/images/adduser.png" />
                                         <span class="btn btn-file profile_picture">
-                                            <span class="profile">upload your profile picture</span>
+                                            <span class="profile">Update Profile Image</span>
                                             <input type="hidden" />
                                             <asp:FileUpload ID="UpClientImg" runat="server" accept='image/*' onchange="ShowpImagePreview(this);" />
                                             <asp:RegularExpressionValidator ID="ValidImage" runat="server" Text="(Upload .jpg/.png/.gif) file only"
@@ -34,6 +34,7 @@
                                                 ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
                                         </span>
                                     </div>
+                                    
                                 </div>
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-7 service_login">
@@ -135,7 +136,7 @@
                                             <div class="row">
                                                 <div class="form-group col-sm-6">
                                                     <label>Contact Number</label>
-                                                    <asp:TextBox ID="TextBoxMob" ValidationGroup="EditProfile" class="form-control register-input" placeholder="Contact Number" runat="server" MaxLength="10"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBoxMob" ValidationGroup="EditProfile" class="form-control register-input" placeholder="Contact Number" required="required" runat="server" MaxLength="10"></asp:TextBox>
                                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="TextBoxMob"
                                                         ErrorMessage="*" ForeColor="Red" ToolTip="Number Only" ValidationExpression="\d+"></asp:RegularExpressionValidator>
 
@@ -144,7 +145,7 @@
 
                                                 <div class="form-group col-sm-6">
                                                     <label>Email ID</label>
-                                                    <asp:TextBox ID="TextBoxEmail" class="form-control register-input" placeholder="Email ID" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBoxEmail" ReadOnly="true" class="form-control register-input" placeholder="Email ID" runat="server"></asp:TextBox>
                                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBoxEmail"
                                                         Display="Dynamic" ErrorMessage="*" ForeColor="Red" ToolTip="Enter Valid Email"
                                                         ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
@@ -188,14 +189,14 @@
                                                 </div>
 
                                                 <div class="form-group col-sm-6">
-                                                    <label>Attach profile&nbsp;</label><asp:Button ID="ButtonDownload" runat="server" Text="Download" OnClick="ButtonDownload_Click" CssClass="btn-file" />
+                                                    <label>Attached profile&nbsp;</label><asp:Button ID="ButtonDownload" runat="server" Text="Download" OnClick="ButtonDownload_Click" CssClass="btn btn-info btn-xs" />
 
                                                     <div class="row">
                                                         <div class="col-sm-14 pan_input">
                                                             <i class="fa fa-paperclip" aria-hidden="true"></i>
-                                                            <asp:FileUpload ID="uploadFile" CssClass="form-control register-input" runat="server" placeholder="Choose File" />
+                                                            <asp:FileUpload ID="UpClientDoc" CssClass="form-control register-input" runat="server" placeholder="Choose File" />
                                                             <asp:RegularExpressionValidator ID="ValidFile" runat="server" Text="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only"
-                                                                ToolTip="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only" ControlToValidate="uploadFile" ValidationExpression="[a-zA-Z0_9].*\b(.xls|.xlsx|.pdf|.doc|.docx)\b"
+                                                                ToolTip="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only" ControlToValidate="UpClientDoc" ValidationExpression="[a-zA-Z0_9].*\b(.xls|.xlsx|.pdf|.doc|.docx)\b"
                                                                 ForeColor="Red" Display="Dynamic" Font-Size="Small"></asp:RegularExpressionValidator>
                                                         </div>
                                                         <div class="col-sm-4">
@@ -203,12 +204,18 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
+
                                                 </div>
+
+                                               
                                                 <div>
                                                     <asp:Button ID="ButtonSave" runat="server" Text="Save" class="btn btn-primary save" ValidationGroup="EditProfile" OnClick="ButtonSave_Click" />
                                                     <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" class="btn btn-primary save" CausesValidation="False" OnClick="ButtonCancel_Click" />
-                                                    <asp:HyperLink ID="HyperLinkDash" CssClass="btn btn-primary save" runat="server" NavigateUrl="~/Default.aspx" ToolTip="Dashboard"><span class="glyphicon glyphicon-arrow-left"></span> Dashboard</asp:HyperLink>
+                                                    <asp:Button ID="ButtonCP" runat="server" CssClass="btn btn-primary save" Text="Change Passsword" BackColor="#5CB85C" OnClick="ButtonCP_Click"  />
                                                 </div>
+                                               
+                                               
                                             </div>
                                         </div>
                                     </div>

@@ -55,6 +55,20 @@ namespace export
                     LabelConsig.Text = (Pdt.Rows[0]["ValueofConsignment"].ToString());
                     LabelDelivery.Text = (Pdt.Rows[0]["TermsofDelivery"].ToString());
                     LabelPayment.Text = (Pdt.Rows[0]["TermsofPayment"].ToString());
+                    LabelSatus.Text = (Pdt.Rows[0]["Status"].ToString());
+
+                    switch (LabelSatus.Text)
+                    {
+                        case "Pending":
+                            LabelSatus.CssClass = "btn btn-info btn-xs";
+                            break;
+                        case "Approved":
+                            LabelSatus.CssClass = "btn btn-xs btn-success";
+                            break;
+                        case "Declined":
+                            LabelSatus.CssClass = "btn btn-xs btn-danger";
+                            break;
+                    }
                 }
             }
         }

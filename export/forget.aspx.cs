@@ -10,6 +10,9 @@ using System.Drawing;
 using System.Data.SqlClient;
 using System.Text;
 using System.Security.Cryptography;
+using System.Web.Security;
+using System.Collections.Specialized;
+using static System.Net.WebRequestMethods;
 
 namespace export
 {
@@ -17,43 +20,62 @@ namespace export
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
-
+        gt_dal obj_gt_dal = new gt_dal();
         protected void submit_Click(object sender, EventArgs e)
         {
-            //Do MD5 Hashing...
-            byte[] hs = new byte[50];
-            string pass = Label1.Text;
-            MD5 md5 = MD5.Create();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pass);
-            byte[] hash = md5.ComputeHash(inputBytes);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
+            if (TextBoxEmail.Text != null)
             {
-                hs[i] = hash[i];
-                sb.Append(hs[i].ToString("x2"));
-            }
-            var hash_pass = sb.ToString();
+                byte[] hs = new byte[50];
+                string pass = obj_gt_dal.Get8Digits("SK");
+                MD5 md5 = MD5.Create();
+                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pass);
+                byte[] hash = md5.ComputeHash(inputBytes);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hash.Length; i++)
+                {
+                    hs[i] = hash[i];
+                    sb.Append(hs[i].ToString("x2"));
+                }
+                var hash_pass = sb.ToString();
 
-            string connectionString = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            SqlCommand cmd = new SqlCommand("select COUNT(*)FROM reg WHERE Email='" + TextBoxemail.Text + "'");
-            SqlConnection con = new SqlConnection(connectionString);
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.Text;
+                SqlParameter param1 = obj_gt_dal.SqlParam("@Email", TextBoxEmail.Text, SqlDbType.VarChar);
+                SqlParameter param2 = obj_gt_dal.SqlParam("@Password", hash_pass, SqlDbType.VarChar);
+                int CheckSuc = obj_gt_dal.FunExecuteNonQuerySP("ust_forgotpass", param1, param2);
+                if (CheckSuc > 0)
+                {
 
-            con.Open();
-            int OBJ = Convert.ToInt32(cmd.ExecuteScalar());
-            if (OBJ > 0)
-            {
-                
-                Label1.Text =  hash_pass;
-                this.Label1.ForeColor = Color.Red;
+                    LabelPass.Text = pass;
+                    Response.Write("<script>alert('Password updated successfully!');</script>");
+                    Session.Clear();
+                    Session.Abandon();
+                    FormsAuthentication.SignOut();
+                    TextBoxEmail.Text = "";
+                }
+                else
+                {
+                    Response.Write("<script>alert('Please contact administrator!');</script>");
+                    Response.Write(pass);
+                }
             }
-            else
+        }
+
+        protected void TextBoxEmail_TextChanged(object sender, EventArgs e)
+        {
+            TextBoxEmail.Attributes.Add("placeholder", "Email");
+            if (TextBoxEmail.Text != String.Empty)
             {
-                Response.Redirect("google.com");
+                string Email = "'" + TextBoxEmail.Text + "'";
+                SqlParameter param1 = new SqlParameter();
+                param1.ParameterName = "@Email";
+                param1.Value = TextBoxEmail.Text;
+                param1.SqlDbType = SqlDbType.VarChar;
+
+                int a = int.Parse(obj_gt_dal.FunExecuteScalarSP("ust_emailcheck", param1).ToString());
+                if (a != 1) { TextBoxEmail.Text = ""; TextBoxEmail.Attributes.Add("placeholder", Email+ " does not exist."); }
             }
+            else { TextBoxEmail.Attributes.Add("placeholder", "Email"); }
         }
     }
 }

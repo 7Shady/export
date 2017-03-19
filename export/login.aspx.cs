@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Text;
 using System.Security.Cryptography;
 using System.Web.Security;
+using System.Web.UI.HtmlControls;
 
 namespace export
 {
@@ -20,7 +21,8 @@ namespace export
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.User.Identity.IsAuthenticated) Response.Redirect("Default.aspx");
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+                Response.Redirect("Default.aspx");
         }
 
         protected void submit_Click(object sender, EventArgs e)

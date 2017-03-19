@@ -13,16 +13,16 @@
                 <div class="section-text">
                     <div class="row">
                         <div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 profile_img">
-                            <asp:Image ID="ImageClient" runat="server" ImageUrl="images/user.png" Width="144" Height="144" />
+                            <asp:Image ID="ImageClient" runat="server" ImageUrl="images/user.png" Width="160" Height="160" />
                             <p><asp:Label ID="LabelNameB" runat="server"></asp:Label> 
-                                <br /><asp:Button ID="ButtonSignOut" Style="border:none; font-weight:normal;color:#808080; font-size:small;" runat="server" Text=" SignOut " OnClick="ButtonSignOut_Click"  /></p>
+                                <br /><asp:Button ID="ButtonSignOut"  runat="server" Text=" SignOut " OnClick="ButtonSignOut_Click" CssClass="btn btn-primary submit_login" BorderStyle="None"  /></p>
                         </div>
 
                         <div class="col-lg-4 col-md-3 col-sm-9 col-xs-8 con_address">
-                            <p><i class="fa fa-user-circle"></i> <asp:Label ID="LabelName" runat="server"></asp:Label></p>
+                            <p><i class="fa fa-user"></i> <asp:Label ID="LabelName" runat="server" Font-Bold="True"></asp:Label></p>
 							<p><i class="fa fa-envelope"></i> <asp:Label ID="LabelEmail" runat="server"></asp:Label></p>
 							<p><i class="fa fa-phone-square"></i> <asp:Label ID="LabelContact" runat="server"></asp:Label></p>
-							<p><i class="fa fa-calendar-check-o"></i> <asp:Label ID="LabelUpdateDate" runat="server" Text="Label"></asp:Label></p>
+							<p><i class="fa fa-calendar-check-o"></i> <asp:Label ID="LabelUpdateDate" runat="server" ></asp:Label></p>
                             <asp:Button ID="ButtonViewProfile" CssClass="btn btn-primary submit_login" runat="server" Text="View / Edit Profile" OnClick="ButtonViewProfile_Click" />
                         </div> 
 
@@ -72,7 +72,7 @@
             <div class="user_section">
                 <div class="profile_user">
                   
-                            <a href="profile.aspx" class="btn btn-primary btn-xs user_buttom">User Profile</a>
+                            <%--<a href="profile.aspx" class="btn btn-primary btn-xs user_buttom">User Profile</a>--%>
                        
             </div>
                 </div> 

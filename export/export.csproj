@@ -57,6 +57,7 @@
     <Content Include="audit_structuring_view.aspx" />
     <Content Include="buyer_financial.aspx" />
     <Content Include="buyer_financial_view.aspx" />
+    <Content Include="ChangePassword.aspx" />
     <Content Include="credit_insurance.aspx" />
     <Content Include="credit_insurance_view.aspx" />
     <Content Include="css\bootstrap-theme.css" />
@@ -151,6 +152,13 @@
     </Compile>
     <Compile Include="buyer_financial_view.aspx.designer.cs">
       <DependentUpon>buyer_financial_view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="credit_insurance.aspx.cs">
       <DependentUpon>credit_insurance.aspx</DependentUpon>
