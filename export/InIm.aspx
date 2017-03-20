@@ -24,6 +24,11 @@ ForeColor="Green" /></p>
         <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 
         <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button2_Click" />
+        <br />
+        <br />
+        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Button" />
     </div>
     </form>
 </body>

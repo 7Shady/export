@@ -41,28 +41,28 @@ namespace export
 
         protected void submit_Click(object sender, EventArgs e)
         {
-            byte[] hs = new byte[50];
-            string pass = TextBoxPass.Text;
-            MD5 md5 = MD5.Create();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pass);
-            byte[] hash = md5.ComputeHash(inputBytes);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hash.Length; i++)
-            {
-                hs[i] = hash[i];
-                sb.Append(hs[i].ToString("x2"));
-            }
-            var hash_pass = sb.ToString();
-
+            string hash_pass = obj_gt_dal.PassHash(TextBoxPass.Text.Trim());
+            string email = TextBoxEmail.Text;
             string newclientid = obj_gt_dal.Get8Digits("CL");
             SqlParameter param1 = obj_gt_dal.SqlParam("@ClientId", newclientid, SqlDbType.VarChar);
             SqlParameter param2 = obj_gt_dal.SqlParam("@Name", TextBoxName.Text, SqlDbType.VarChar);
-            SqlParameter param3 = obj_gt_dal.SqlParam("@Email", TextBoxEmail.Text, SqlDbType.VarChar);
+            SqlParameter param3 = obj_gt_dal.SqlParam("@Email", email, SqlDbType.VarChar);
             SqlParameter param4 = obj_gt_dal.SqlParam("@Password", hash_pass, SqlDbType.VarChar);
 
             int CheckSuc = obj_gt_dal.FunExecuteNonQuerySP("ust_newregistration", param1, param2, param3, param4);
             if (CheckSuc > 0)
+            {
+                string mailbody = "Dear "+TextBoxName.Text+ ",<br><br>"+
+                    "Thank you for placing your ‘Exporters Receivable Management Request’ "+
+                    "related to <> with us.<br>We have made not of the same, "+
+                    "and one of our team member will get in touch with you shortly "+
+                    "incase more details or clarifications are sought.<br><br>"+
+                    "Warm Regards,<br><br><br><br><b>Team Glocal Thinkers</b>";
+
+                string mailsubject = "Re: Exporters Receivable Management Request Acknowledgement";
+                obj_gt_dal.SendMail(email, mailsubject, mailbody);
                 Response.Redirect("~/ProfileSuccess.aspx?ClientId=" + newclientid);
+            }
             else
                 Response.Write("<script>alert('Something went wrong! Please try again.');</script>");
         }

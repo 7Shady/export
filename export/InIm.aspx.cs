@@ -82,5 +82,10 @@ namespace export
             Label1.Text =  HttpContext.Current.Request.Url.AbsolutePath;
             Label1.Text = Label1.Text + "__" + HttpContext.Current.User.Identity.Name;
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            gt_dal_obj.SendMail(TextBox2.Text,"test", TextBox3.Text);
+        }
     }
 }
