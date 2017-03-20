@@ -8,6 +8,8 @@ using System.Configuration;
 using System.Security.Cryptography;
 using System.IO;
 
+using System.Net.Mail;
+
 namespace export
 {
     public class gt_dal
@@ -386,6 +388,6 @@ namespace export
         }
         #endregion
 
-    }
+}
 }
 

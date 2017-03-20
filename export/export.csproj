@@ -116,6 +116,7 @@
     <Content Include="lib\jquery.mousewheel-3.0.6.pack.js" />
     <Content Include="login.aspx" />
     <Content Include="m.aspx" />
+    <Content Include="mail.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="ProfileSuccess.aspx" />
     <Content Include="registration.aspx" />
@@ -231,6 +232,13 @@
     <Compile Include="m.aspx.designer.cs">
       <DependentUpon>m.aspx</DependentUpon>
     </Compile>
+    <Compile Include="mail.aspx.cs">
+      <DependentUpon>mail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mail.aspx.designer.cs">
+      <DependentUpon>mail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -295,9 +303,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\PublishProfiles\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
