@@ -80,6 +80,7 @@ namespace export
         protected void Button2_Click(object sender, EventArgs e)
         {
             Label1.Text =  HttpContext.Current.Request.Url.AbsolutePath;
+            Label1.Text = Label1.Text + "__" + HttpContext.Current.User.Identity.Name;
         }
     }
 }

@@ -103,6 +103,15 @@ namespace export {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator passwordReq;
         
         /// <summary>
+        /// REVPass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator REVPass;
+        
+        /// <summary>
         /// TextBoxPassc control.
         /// </summary>
         /// <remarks>

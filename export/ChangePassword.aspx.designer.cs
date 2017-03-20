@@ -22,13 +22,22 @@ namespace export {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// Panel1 control.
+        /// PanelCP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel PanelCP;
+        
+        /// <summary>
+        /// UpdatePanelPassCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelPassCheck;
         
         /// <summary>
         /// TextBoxCurPass control.
@@ -58,13 +67,13 @@ namespace export {
         protected global::System.Web.UI.WebControls.TextBox TextBoxNewPass;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// RFV2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV2;
         
         /// <summary>
         /// TextBoxNewPassC control.
@@ -76,13 +85,13 @@ namespace export {
         protected global::System.Web.UI.WebControls.TextBox TextBoxNewPassC;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// RFV3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFV3;
         
         /// <summary>
         /// comparePasswords control.

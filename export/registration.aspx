@@ -55,6 +55,9 @@
                                             ControlToValidate="TextBoxPass"
                                             ErrorMessage="Password is required!"
                                             SetFocusOnError="True" Display="Dynamic" />
+                                        <asp:RegularExpressionValidator ID="REVPass" runat="server" 
+                                            ErrorMessage="• At least one upper case english letter<br> • At least one lower case english letter<br> • At least one digit<br> • At least one special character (#?!@$%^&*-)<br> • Minimum 8 in length<br> • Ex: A@abcd12" 
+                                            ValidationExpression="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" ControlToValidate="TextBoxPass" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
                                     </div>
                                     <div class="form-group">
                                         <label>Confirm Password</label>

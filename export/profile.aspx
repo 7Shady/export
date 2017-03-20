@@ -135,12 +135,14 @@
                                             </div>
                                             <div class="row">
                                                 <div class="form-group col-sm-6">
-                                                    <label>Contact Number</label>
-                                                    <asp:TextBox ID="TextBoxMob" ValidationGroup="EditProfile" class="form-control register-input" placeholder="Contact Number" required="required" runat="server" MaxLength="10"></asp:TextBox>
+                                                    <label>Contact Number With ISD Code</label>
+                                                    <asp:TextBox ID="TextBoxMob" ValidationGroup="EditProfile" class="form-control register-input" 
+                                                        placeholder="919XXXXXXXX9" runat="server" MaxLength="13" ></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ValidationGroup="EditProfile" ID="RFVMNo" ControlToValidate="TextBoxMob" runat="server" ErrorMessage="Required"
+                                                         Display="Dynamic" SetFocusOnError="True" Font-Size="Small"></asp:RequiredFieldValidator>
                                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="TextBoxMob"
-                                                        ErrorMessage="*" ForeColor="Red" ToolTip="Number Only" ValidationExpression="\d+"></asp:RegularExpressionValidator>
-
-
+                                                        ErrorMessage="Number With ISD Code!" ForeColor="Red" ToolTip="Number Only" ValidationExpression="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" Font-Size="Small" Display="Dynamic" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                                                    
                                                 </div>
 
                                                 <div class="form-group col-sm-6">
@@ -210,7 +212,7 @@
 
                                                
                                                 <div>
-                                                    <asp:Button ID="ButtonSave" runat="server" Text="Save" class="btn btn-primary save" ValidationGroup="EditProfile" OnClick="ButtonSave_Click" />
+                                                    <asp:Button ID="ButtonSave" runat="server" Text="Save" class="btn btn-primary save" ValidationGroup="EditProfile" CausesValidation="true" OnClick="ButtonSave_Click" />
                                                     <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" class="btn btn-primary save" CausesValidation="False" OnClick="ButtonCancel_Click" />
                                                     <asp:Button ID="ButtonCP" runat="server" CssClass="btn btn-primary save" Text="Change Passsword" BackColor="#5CB85C" OnClick="ButtonCP_Click"  />
                                                 </div>

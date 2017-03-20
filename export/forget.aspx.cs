@@ -19,10 +19,10 @@ namespace export
     public partial class forget : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            
-        }
+        {}
+
         gt_dal obj_gt_dal = new gt_dal();
+
         protected void submit_Click(object sender, EventArgs e)
         {
             if (TextBoxEmail.Text != null)
@@ -40,9 +40,12 @@ namespace export
                 }
                 var hash_pass = sb.ToString();
 
-                SqlParameter param1 = obj_gt_dal.SqlParam("@Email", TextBoxEmail.Text, SqlDbType.VarChar);
-                SqlParameter param2 = obj_gt_dal.SqlParam("@Password", hash_pass, SqlDbType.VarChar);
-                int CheckSuc = obj_gt_dal.FunExecuteNonQuerySP("ust_forgotpass", param1, param2);
+                SqlParameter param1 = obj_gt_dal.SqlParam("@ClientId", DBNull.Value, SqlDbType.VarChar);
+                SqlParameter param2 = obj_gt_dal.SqlParam("@Email", TextBoxEmail.Text, SqlDbType.VarChar);
+                SqlParameter param3 = obj_gt_dal.SqlParam("@Password", hash_pass, SqlDbType.VarChar);
+                SqlParameter param4 = obj_gt_dal.SqlParam("@ModeType", "Forgot", SqlDbType.VarChar);
+
+                int CheckSuc = obj_gt_dal.FunExecuteNonQuerySP("ust_forgotchangepass", param1, param2, param3, param4);
                 if (CheckSuc > 0)
                 {
 
