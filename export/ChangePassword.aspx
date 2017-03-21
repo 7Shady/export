@@ -20,57 +20,50 @@
                                             <div>
                                                 <asp:Panel ID="PanelCP" runat="server" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1" Style="padding: 25px;">
                                                     <p>
-                                                        <label>Current Password</label>
-
-                                                        <asp:UpdatePanel ID="UpdatePanelPassCheck" runat="server">
-                                                            <ContentTemplate>
-                                                        <asp:TextBox ID="TextBoxCurPass" CssClass="form-control register-input" OnTextChanged="TextBoxCurPass_TextChanged" runat="server" AutoPostBack="True"></asp:TextBox>
-                                                        <asp:RequiredFieldValidator ID="RFV1" ControlToValidate="TextBoxCurPass" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
-                                                        </ContentTemplate>
-                                                        </asp:UpdatePanel>
-
-                                                        <p>
-                                                        </p>
-                                                        <p>
-                                                            <label>
+                                                        <label>Old Password</label>
+                                                                <asp:TextBox ID="TextBoxCurPass" CssClass="form-control register-input" runat="server" TextMode="Password"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RFV1" ControlToValidate="TextBoxCurPass" runat="server" ErrorMessage="*" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                    </p>
+                                                    <p>
+                                                    </p>
+                                                    <p>
+                                                        <label>
                                                             New Password</label>
-                                                            <asp:TextBox ID="TextBoxNewPass" runat="server" class="form-control register-input" TextMode="Password"></asp:TextBox>
-                                                        </p>
-                                                        <asp:RequiredFieldValidator ID="RFV2" runat="server" ControlToValidate="TextBoxCurPass" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
-                                                        <p>
-                                                            <label>
+                                                        <asp:TextBox ID="TextBoxNewPass" runat="server" class="form-control register-input" TextMode="Password"></asp:TextBox>
+                                                    </p>
+                                                    <asp:RequiredFieldValidator ID="RFV2" runat="server" ControlToValidate="TextBoxCurPass" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                    <p>
+                                                        <label>
                                                             Confirm Password</label>
-                                                            <asp:TextBox ID="TextBoxNewPassC" runat="server" class="form-control register-input" TextMode="Password"></asp:TextBox>
-                                                            <asp:RequiredFieldValidator ID="RFV3" runat="server" ControlToValidate="TextBoxCurPass" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
-                                                            <asp:CompareValidator ID="comparePasswords" runat="server" ControlToCompare="TextBoxNewPass" ControlToValidate="TextBoxNewPassC" Display="Dynamic" ErrorMessage="Passwords not matched!" />
-                                                        </p>
-                                                        <div class="col-sm-4">
-                                                            <div>
-                                                                &nbsp;
-                                                            </div>
+                                                        <asp:TextBox ID="TextBoxNewPassC" runat="server" class="form-control register-input" TextMode="Password"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="RFV3" runat="server" ControlToValidate="TextBoxCurPass" Display="Dynamic" ErrorMessage="*"></asp:RequiredFieldValidator>
+                                                        <asp:CompareValidator ID="comparePasswords" runat="server" ControlToCompare="TextBoxNewPass" ControlToValidate="TextBoxNewPassC" Display="Dynamic" ErrorMessage="Passwords not matched!" />
+                                                    </p>
+                                                    <div class="col-sm-4">
+                                                        <div>
+                                                            &nbsp;
                                                         </div>
-                                                        <br />
-                                                        <div class="form-group">
-                                                            <asp:Button ID="ButtonSave" runat="server" CssClass="btn btn-primary btn-success" OnClick="ButtonSave_Click" Text="Submit" />
-                                                            &nbsp;&nbsp;&nbsp;
+                                                    </div>
+                                                    <br />
+                                                    <div class="form-group">
+                                                        <asp:Button ID="ButtonSave" runat="server" CssClass="btn btn-primary btn-success" OnClick="ButtonSave_Click" Text="Submit" />
+                                                        &nbsp;&nbsp;&nbsp;
                                                             <asp:Button ID="ButtonCancel" runat="server" CausesValidation="False" CssClass="btn btn-primary btn-primary" Text="Cancel" />
-                                                        </div>
+                                                    </div>
 
-                                                        <p>
-                                                        </p>
+                                                    <p>
+                                                    </p>
 
-                                                        <p>
-                                                        </p>
+                                                    <p>
+                                                    </p>
 
-                                                        <p>
-                                                        </p>
+                                                    <p>
+                                                    </p>
 
-                                                        <p>
-                                                        </p>
+                                                    <p>
+                                                    </p>
 
-                                                        <p>
-                                                        </p>
-
+                                                    <p>
                                                     </p>
                                                 </asp:Panel>
                                             </div>
