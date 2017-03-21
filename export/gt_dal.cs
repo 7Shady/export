@@ -411,7 +411,7 @@ namespace export
         public void SendMail(string Email, string Subject, string BodyText)
         {
             MailMessage message = new MailMessage();
-            MailAddress Sender = new MailAddress(ConfigurationManager.AppSettings["smtpUser"]);
+            MailAddress Sender = new MailAddress(ConfigurationManager.AppSettings["smtpUser"], "Glocal Thinkers");
             MailAddress receiver = new MailAddress(Email);
             SmtpClient smtp = new SmtpClient()
             {
@@ -421,6 +421,7 @@ namespace export
                 Credentials = new System.Net.NetworkCredential(ConfigurationManager.AppSettings["smtpUser"], ConfigurationManager.AppSettings["smtpPass"])
             };
             message.From = Sender;
+            
             message.To.Add(receiver);
             message.Body = BodyText;
             message.Subject = Subject;

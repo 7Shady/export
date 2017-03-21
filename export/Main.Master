@@ -40,7 +40,7 @@
                                 <img src="images/logo-dark.png" /></a>
                                  <asp:ContentPlaceHolder ID="ContentPlaceHolderMenu" runat="server">
                                 <div id="menudiv" runat="server">
-                                    <nav class="horizontal-nav full-width horizontalNav-notprocessed">
+                                    <nav class="horizontal-nav full-width horizontalNav-notprocessed" responsive="true">
                                         <ul style="list-style: none; margin-bottom: 0px; border-bottom:none; border-bottom-left-radius:0px;border-bottom-right-radius:0px;">
                                             <li><a href="./">Dashboard</a></li>
                                             <li><a href="buyer_financial.aspx">Buyer Financial Reports</a></li>
@@ -49,7 +49,6 @@
                                             <li><a href="audit_structuring.aspx">Audit & Structuring </a></li>
                                             <li><a href="request_status.aspx">Request Status</a></li>
                                             <li><a href="profile.aspx">View / Edit Profile</a></li>
-                                            <li><a href="#"></a></li>
                                         </ul>
                                     </nav>
                                 </div></asp:ContentPlaceHolder>

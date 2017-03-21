@@ -56,8 +56,8 @@ namespace export
                     "Thank you for placing your ‘Exporters Receivable Management Request’ "+
                     "related to <> with us.<br>We have made not of the same, "+
                     "and one of our team member will get in touch with you shortly "+
-                    "incase more details or clarifications are sought.<br><br>"+
-                    "Warm Regards,<br><br><br><br><b>Team Glocal Thinkers</b>";
+                    "incase more details or clarifications are sought.<br><br><br><br>" +
+                    "Warm Regards,<br><br><b>Team Glocal Thinkers</b>";
 
                 string mailsubject = "Re: Exporters Receivable Management Request Acknowledgement";
                 obj_gt_dal.SendMail(email, mailsubject, mailbody);
