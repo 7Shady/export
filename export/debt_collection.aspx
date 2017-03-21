@@ -1,8 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="debt_collection.aspx.cs" Inherits="export.debt_collection" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js"></script>
+   
 
+     <script>
+$(document).ready(function() { 
+    $("#ctl00_ContentPlaceHolder2_txtstartdate").datepicker({
+  minDate: 0,
+  
+});
 
+$("#txtenddate").datepicker({});
 
+});
+</script>
 
 </asp:Content>
 
@@ -198,10 +210,7 @@
 <label>Payment Due Date</label>
 <div class="input-group">
       <div class="input-group-addon"><i class="fa fa-calendar" style="z-index: 1;"></i> </div>
-    <asp:TextBox ID="txtstartdate" name="txtstartdate" class="form-control register-input" required="required" value="" runat="server"></asp:TextBox>
-    
-    <!--<input type="text" id="txtstartdate" name="Payment_Due" class="form-control register-input" value="" readonly="">-->
-         
+    <asp:TextBox ID="txtstartdate" class="form-control register-input" required="required" runat="server" ReadOnly="true"></asp:TextBox>
     </div>
 
 <div id='myform_Payment_Due_errorloc' class="error_strings"></div>
