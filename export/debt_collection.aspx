@@ -241,7 +241,7 @@ ForeColor="Red" Operator="NotEqual" ValueToCompare="Select State" Type="String" 
 </div>
 <span class="upload_file">
 <asp:RegularExpressionValidator ID="ValidFile" runat="server" Text="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only"
-ToolTip="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only" ControlToValidate="uploadpanlegal_second" ValidationExpression="[a-zA-Z0_9].*\b(.xls|.xlsx|.pdf|.doc|.docx)\b"
+ToolTip="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only" ControlToValidate="uploadpanlegal_second" ValidationExpression="^.*\.(doc|DOC|docx|DOCX|pdf|PDF)$"
 ForeColor="Red" Display="Dynamic" Font-Size="Small"></asp:RegularExpressionValidator></span>
 <div id='myform_Attached_errorloc' class="error_strings"></div>
 </div>

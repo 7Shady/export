@@ -56,7 +56,7 @@ namespace export
             SqlParameter param11 = obj_gt_dal.SqlParam("@AttachProfileName", DBNull.Value, SqlDbType.VarChar);
             SqlParameter param12 = obj_gt_dal.SqlParam("@AttachProfileContentType", DBNull.Value, SqlDbType.VarChar);
 
-            if (uploadpanlegal_second.PostedFile.FileName != "")
+            if (uploadpanlegal_second.HasFile)
             {
                 string filePath = uploadpanlegal_second.PostedFile.FileName;
                 string filename = Path.GetFileName(filePath);

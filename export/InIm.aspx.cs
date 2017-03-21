@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.IO;
 using System.Web.Security;
+using System.Globalization;
 
 namespace export
 {
@@ -85,7 +86,10 @@ namespace export
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            gt_dal_obj.SendMail(TextBox2.Text,"test", TextBox3.Text);
+            //gt_dal_obj.SendMail(TextBox2.Text,"test", TextBox3.Text);
+            TextInfo myTI = new CultureInfo("en-US", false).TextInfo;
+            string clientname = myTI.ToTitleCase(TextBox2.Text);
+            lblMessage.Text = clientname;
         }
     }
 }
