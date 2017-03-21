@@ -18,6 +18,8 @@ namespace export
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
                 PanelCP.GroupingText = HttpContext.Current.User.Identity.Name;
+            else
+                Response.Redirect("login.aspx");
         }
 
         gt_dal obj_gt_dal = new gt_dal();
