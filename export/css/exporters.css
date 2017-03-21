@@ -1978,7 +1978,7 @@ tbody tr {
   border-radius: 6px;
 }
 .horizontal-nav ul {
-  background: #999999;
+  background: #43a5de;
   float: left;
   text-align: center;
   border-radius: 6px;
@@ -2002,7 +2002,7 @@ tbody tr {
   border-left: 0 none;
 }
 .horizontal-nav ul li a:hover {
-  background: #666666;
+  background: #337ab7;
   text-decoration: none;
 }
 .horizontal-nav ul li:first-child a {
@@ -2013,6 +2013,8 @@ tbody tr {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
+.active-menu-li {
+    background-color:#337ab7;}
 
 
 
@@ -2036,8 +2038,7 @@ tbody tr {
     font-weight: bold;
 }
 
-.active-menu-li {
-    background-color:#666666;}
+
 
 
 
