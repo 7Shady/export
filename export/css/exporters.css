@@ -2013,3 +2013,7 @@ tbody tr {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
+
+.active-menu-li {
+    background-color:#666666;
+}

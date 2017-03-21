@@ -436,6 +436,30 @@ namespace export
             }
         }
         #endregion
+
+        public void Bind_DropDown(string SqlCommand, string DataTextField, string DataValueField, System.Web.UI.WebControls.DropDownList DDL)
+        {
+            OpenConn();
+            Sqlcmd = new SqlCommand(SqlCommand, SqlConn);
+            //Sqlcmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                SqlDr = Sqlcmd.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            DDL.DataSource = SqlDr;
+            DDL.Items.Clear();
+            DDL.Items.Add("-- Please select --");
+            DDL.DataTextField = DataTextField;
+            DDL.DataValueField = DataValueField;
+            DDL.Items.Add("Others");
+            DDL.DataBind();
+            CloseConn();
+        }
     }
 }
 

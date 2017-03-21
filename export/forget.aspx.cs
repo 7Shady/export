@@ -57,10 +57,7 @@ namespace export
                     TextBoxEmail.Text = "";
                 }
                 else
-                {
                     Response.Write("<script>alert('Please contact administrator!');</script>");
-                    Response.Write(pass);
-                }
             }
         }
 
@@ -79,6 +76,14 @@ namespace export
                 if (a != 1) { TextBoxEmail.Text = ""; TextBoxEmail.Attributes.Add("placeholder", Email+ " does not exist."); }
             }
             else { TextBoxEmail.Attributes.Add("placeholder", "Email"); }
+        }
+
+        protected void RadioButtonListYN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (RadioButtonListYN.SelectedIndex == 0)
+            TextBoxRP.Visible = true;
+            else
+                TextBoxRP.Visible = false;
         }
     }
 }

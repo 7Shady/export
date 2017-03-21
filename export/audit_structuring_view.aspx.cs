@@ -52,6 +52,18 @@ namespace export
                     LabelEmail.Text = (Pdt.Rows[0]["Email"].ToString());
                     LabelNumber.Text = (Pdt.Rows[0]["contactnumber"].ToString());
                     LabelSatus.Text = (Pdt.Rows[0]["Status"].ToString());
+                    string attachprofilename = Pdt.Rows[0]["AttachProfileName"].ToString();
+                    if (attachprofilename!="")
+                    {
+                        ButtonDload.CssClass = "btn btn-xs btn-success";
+                        ButtonDload.Text = Pdt.Rows[0]["AttachProfileName"].ToString();
+                        ButtonDload.ToolTip = "Download " + Pdt.Rows[0]["AttachProfileName"].ToString();
+                    }
+                    else
+                    {
+                        ButtonDload.CssClass = "btn btn-xs btn-link";
+                        ButtonDload.Text = "Not uploded yet!";
+                    }
 
                     switch (LabelSatus.Text)
                     {

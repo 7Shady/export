@@ -193,7 +193,7 @@
                                                 <div class="form-group col-sm-6">
                                                     <label>Attached profile&nbsp;</label><asp:Button ID="ButtonDownload" runat="server" Text="Download" OnClick="ButtonDownload_Click" CssClass="btn btn-info btn-xs" />
 
-                                                    <div class="row">
+                                                    <div class="row" style="border: 1px solid #d1cdcd; padding: 10px; background-color:#f8f8f8;">
                                                         <div class="col-sm-14 pan_input">
                                                             <i class="fa fa-paperclip" aria-hidden="true"></i>
                                                             <asp:FileUpload ID="UpClientDoc" CssClass="form-control register-input" runat="server" placeholder="Choose File" />

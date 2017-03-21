@@ -41,14 +41,14 @@
                                  <asp:ContentPlaceHolder ID="ContentPlaceHolderMenu" runat="server">
                                 <div id="menudiv">
                                     <nav class="horizontal-nav full-width horizontalNav-processed" style="zoom: 1;">
-                                        <ul style="display: table; float: none; width: 100%;list-style: none; margin-bottom: 0px; border-bottom:none; border-bottom-left-radius:0px;border-bottom-right-radius:0px;">
-                                            <li><a href="./">Dashboard</a></li>
-                                            <li><a href="buyer_financial.aspx">Buyer Financial Reports</a></li>
-                                            <li><a href="credit_insurance.aspx">Credit Insurance Cover</a></li>
-                                            <li><a href="debt_collection.aspx">Debt Collection</a></li>
-                                            <li><a href="audit_structuring.aspx">Audit & Structuring </a></li>
-                                            <li><a href="request_status.aspx">Request Status</a></li>
-                                            <li><a href="profile.aspx">View / Edit Profile</a></li>
+                                        <ul style="display: table; float: none; width: 100%; list-style: none; margin-bottom: 0px; border-bottom: none; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
+                                            <li class='<%= SetCssClass("Default.aspx") %>'><a href="./">Dashboard</a></li>
+                                            <li class='<%= SetCssClass("buyer_financial.aspx") %>'><a href="buyer_financial.aspx">Buyer Financial Reports</a></li>
+                                            <li class='<%= SetCssClass("credit_insurance.aspx") %>'><a href="credit_insurance.aspx">Credit Insurance Cover</a></li>
+                                            <li class='<%= SetCssClass("debt_collection.aspx") %>'><a href="debt_collection.aspx">Debt Collection</a></li>
+                                            <li class='<%= SetCssClass("audit_structuring.aspx") %>'><a href="audit_structuring.aspx">Audit & Structuring </a></li>
+                                            <li class='<%= SetCssClass("request_status.aspx") %>'><a href="request_status.aspx">Request Status</a></li>
+                                            <li class='<%= SetCssClass("profile.aspx") %>'><a href="profile.aspx">View / Edit Profile</a></li>
                                         </ul>
                                     </nav>
                                 </div></asp:ContentPlaceHolder>

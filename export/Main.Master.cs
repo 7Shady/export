@@ -16,5 +16,9 @@ namespace export
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.Cache.SetNoStore();
         }
+        protected string SetCssClass(string page)
+        {
+            return Request.Url.AbsolutePath.ToLower().EndsWith(page.ToLower()) ? "active-menu-li" : "";
+        }
     }
 }

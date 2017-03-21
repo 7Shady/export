@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="audit_structuring.aspx.cs" Inherits="export.audit_structuring" %>
 
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-  
 </asp:Content>
+
 <asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder2">
+    <asp:ScriptManager ID="ScriptManageras" runat="server"></asp:ScriptManager>
  <section class="page-section legal_service">
 <div class="registration"> 
 <div class="container">
@@ -57,9 +57,9 @@
 
     <div class="col-sm-12 overseas">
          <asp:Panel ID="panelaudit" runat="server">
-     <hr>
+     <hr />
 <div id="legal_service_request" class="tab-pane talk_legal active">
-<form name="myform" id="myform" method="post" action="">
+
     
 <div class="row jurisdiction">
    
@@ -72,51 +72,47 @@
     </div>
 </div>
     <div class="col-md-6">
-<div class="form-group">
-<label>Country </label>
-    <asp:DropDownList ID="DropDownCountry" runat="server" class="form-control register-input"
-     style="width:100%;">
-   <asp:ListItem>India</asp:ListItem>
-   
-   
-   
-   
-   
-   </asp:DropDownList>
+        <div class="form-group">
+            <label>Country </label>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:DropDownList ID="DropDownCountry" AppendDataBoundItems="true" OnSelectedIndexChanged="DropDownCountry_SelectedIndexChanged" AutoPostBack="true" runat="server" class="form-control register-input"
+                        Style="width: 100%;">
+                    </asp:DropDownList>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
 </div>
-</div>
-    
 </div>
 <div class="row">
-
-
 <div class="col-md-6">
-<div class="form-group">
-<label>State</label>
-    <asp:DropDownList ID="DropDownState" name="State" runat="server" class="form-control register-input"
-     style="width:100%;">
-   <asp:ListItem>Select State</asp:ListItem>
-   <asp:ListItem>Andaman & Nicobar Islands</asp:ListItem>
-   <asp:ListItem>Andhra Pradesh</asp:ListItem>
-   <asp:ListItem>Arunachal Pradesh</asp:ListItem>
-   <asp:ListItem>Assam</asp:ListItem>
-   <asp:ListItem>Bihar</asp:ListItem>
-   <asp:ListItem>Chandigarh</asp:ListItem>
-   <asp:ListItem>Chattisgarh</asp:ListItem>
-   </asp:DropDownList>
-    <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="DropDownState" Display="Dynamic" ErrorMessage="Please Enter Your State Name" 
-     ForeColor="Red" Operator="NotEqual" ValueToCompare="Select State" Type="String" ToolTip="Select from list"></asp:CompareValidator>
-
-<div id='myform_State_errorloc' class="error_strings"></div>
-</div>
+    <div class="form-group">
+        <label>State</label>
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+            <ContentTemplate>
+                <asp:DropDownList ID="DropDownState" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="DropDownState_SelectedIndexChanged" name="State" runat="server" class="form-control register-input"
+                    Style="width: 100%;">
+                </asp:DropDownList>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <div id='myform_State_errorloc' class="error_strings"></div>
+    </div>
 
 </div>
 <div class="col-md-6">
 <div class="form-group">
 <label>City</label>
-    <asp:TextBox ID="TextBoxCity" class="form-control register-input" required="required" value="" runat="server"></asp:TextBox>
-
-<div id='myform_City_errorloc' class="error_strings"></div>
+    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+        <ContentTemplate>
+            <asp:DropDownList ID="DropDownCity" AutoPostBack="true" OnSelectedIndexChanged="DropDownCity_SelectedIndexChanged"
+                AppendDataBoundItems="true" runat="server" class="form-control register-input">
+            </asp:DropDownList>
+                <div class="form-group">
+                    <asp:TextBox ID="TextBoxCity" placeholder="Enter city" Visible="false" class="form-control register-input" required="required" value="" runat="server"></asp:TextBox>
+                </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <div id='myform_City_errorloc' class="error_strings"></div>
 </div>
 
 </div>
@@ -129,10 +125,12 @@
      <div class="form-group">
 <label>Email ID of the person</label>
 <asp:TextBox ID="TextBoxEmail" type="email" class="form-control register-input" required="required" runat="server"></asp:TextBox>
-<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBoxEmail"
-                                                        Display="Dynamic" ErrorMessage="*" ForeColor="Red" ToolTip="Enter Valid Email"
-                                                        ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-         <div id='myform_Email_errorloc' class="error_strings"></div>
+
+         <div id='myform_Email_errorloc' class="error_strings">
+             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBoxEmail"
+                 Display="Dynamic" ErrorMessage="*" ForeColor="Red" ToolTip="Enter Valid Email"
+                 ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+         </div>
     </div>
 </div>
 <div class="col-md-6">
@@ -156,32 +154,34 @@
     </div>
 
 </div>
+    
         
-    <div class="col-md-6">
-     <div class="form-group">
-<label>Attach Financials</label>
+   <div class="col-md-6">
+        <div class="form-group">
+            <label>Attach Financials</label>
 
-<div class="row">
-        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 pan_input">  
-            <i class="fa fa-paperclip" aria-hidden="true"></i>
-       
-    <input id="uploadFilelegal_second" class="form-control file_input" placeholder="Choose File" disabled="disabled" />
+            <div class="row" style="border: 1px solid #d1cdcd; padding: 10px; background-color: #f8f8f8; margin-left:0px;">
+                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 pan_input">
+                    <i class="fa fa-paperclip" aria-hidden="true"></i>
+                    <input id="uploadFilelegal_second" class="form-control file_input" placeholder="Choose File" disabled="disabled" />
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                    <div class="fileUpload btn btn-primary">
+                        <span>Choose File</span>
+                        <asp:FileUpload ID="uploadpanlegal_second" class="upload" runat="server" />
+                    </div>
+                </div>
+            </div>
+            <span class="upload_file">
+                <asp:RegularExpressionValidator ID="ValidFile" runat="server" Text="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only"
+                    ToolTip="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only" ControlToValidate="uploadpanlegal_second" ValidationExpression="[a-zA-Z0_9].*\b(.xls|.xlsx|.pdf|.doc|.docx)\b"
+                    ForeColor="Red" Display="Dynamic" Font-Size="Small"></asp:RegularExpressionValidator>
+            </span>
+            <div id='myform_Attached_errorloc' class="error_strings">
+            </div>
         </div>
-    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-<div class="fileUpload btn btn-primary">
-    <span>Choose File</span>
-    <asp:FileUpload ID="uploadpanlegal_second" name="Attached" type="file" class="upload" runat="server" />
-    <%--accept="application/ms-word"--%>
-</div>
-</div>
-        </div> 
- <span class="upload_file"><asp:RegularExpressionValidator ID="ValidFile" runat="server" Text="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only"
-                                                                                    ToolTip="(Upload .xls/.xlsx/.pdf/.doc/.docx) file only" ControlToValidate="uploadpanlegal_second" ValidationExpression="[a-zA-Z0_9].*\b(.xls|.xlsx|.pdf|.doc|.docx)\b"
-                                                                                    ForeColor="Red" Display="Dynamic" Font-Size="Small"></asp:RegularExpressionValidator></span>
-         <div id='myform_Attached_errorloc' class="error_strings"></div>
-    </div>
 
-</div>
+    </div>
 
 
 </div>
@@ -215,10 +215,7 @@
 </div>
 
 </div>
-</div>
-</div>
-</div>
-</div>
+
 </section>
 
 </asp:Content>
