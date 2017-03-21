@@ -2013,3 +2013,33 @@ tbody tr {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
 }
+
+
+
+.about_debt{ padding: 12px;
+    padding-top: 23px;
+    height: absolute;
+}
+
+
+.about_debt ul{}
+.about_debt ol li{list-style: none;
+    line-height: 22px;
+    font-size: 12px;
+    text-align: justify;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    position: relative;
+}
+.about_debt ol li a{color: #9e99a3;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+

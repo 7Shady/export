@@ -68,6 +68,7 @@
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\select2.min.css" />
+    <Content Include="debt.aspx" />
     <Content Include="debt_collection.aspx" />
     <Content Include="debt_collection_view.aspx" />
     <Content Include="Default.aspx" />
@@ -174,6 +175,13 @@
     </Compile>
     <Compile Include="credit_insurance_view.aspx.designer.cs">
       <DependentUpon>credit_insurance_view.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="debt.aspx.cs">
+      <DependentUpon>debt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="debt.aspx.designer.cs">
+      <DependentUpon>debt.aspx</DependentUpon>
     </Compile>
     <Compile Include="debt_collection.aspx.cs">
       <DependentUpon>debt_collection.aspx</DependentUpon>

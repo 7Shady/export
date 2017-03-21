@@ -96,15 +96,7 @@
                                                                 <asp:DropDownList ID="DropDownCountry" name="Country" runat="server" class="form-control register-input"
                                                                     Style="width: 100%;">
                                                                     <asp:ListItem>-- Select Country --</asp:ListItem>
-
-
-
-
-
                                                                 </asp:DropDownList>
-
-
-
                                                             </div>
                                                         </div>
 
@@ -155,7 +147,7 @@
 
                                                         <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <label>Description </label>
+                                                                <label>Description</label>
                                                                 <asp:TextBox ID="TextBoxDec" Rows="2" cols="20" name="Description" class="form-control register-input" required="required" value="" runat="server" Style="height: 28px;"></asp:TextBox>
                                                                 <div id='myform_Description_errorloc' class="error_strings"></div>
                                                             </div>
