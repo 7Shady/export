@@ -168,7 +168,6 @@
 <label>Address </label>
 <asp:TextBox ID="TextBoxAddress" class="form-control register-input" name="Address" required="required" runat="server"></asp:TextBox>
                                                                 
-<div id='myform_Address_errorloc' class="error_strings"></div>
     </div>
 </div>
 </div>
@@ -179,7 +178,6 @@
 <label>Contact Person</label>
 
 <asp:TextBox ID="TextBoxCperson" class="form-control register-input" required="required" value="" name="Name" runat="server"></asp:TextBox>
-<div id='myform_Contact_errorloc' class="error_strings"></div>
 </div>
 </div>
 
@@ -187,7 +185,6 @@
 <div class="form-group">
 <label>Position</label>
 <asp:TextBox ID="TextBoxPosition" class="form-control register-input" required="required" value="" name="Name" runat="server"></asp:TextBox>
-<div id='myform_Address_errorloc' class="error_strings"></div>
 </div>
 </div>
 </div>
@@ -198,7 +195,7 @@
 <label>Tel No.</label>
 
     <asp:TextBox ID="TextBoxTel" ValidationGroup="EditProfile" class="form-control register-input" placeholder="" runat="server" MaxLength="13" ></asp:TextBox>
-         <div id='myform_Contact_errorloc' class="error_strings"></div>
+        
     </div>
 </div>
 
@@ -208,7 +205,7 @@
 <label>Fax No.</label>
 
 <asp:TextBox ID="TextBoxFax" ValidationGroup="EditProfile" class="form-control register-input" placeholder="" runat="server" MaxLength="13" ></asp:TextBox>
-         <div id='myform_Contact_errorloc' class="error_strings"></div>
+         
     </div>
 </div>
 
