@@ -27,6 +27,10 @@ namespace export
                 clientname = Session["Name"].ToString();
                 LabelName.Text = clientname;
             }
+            if (!IsPostBack)
+            {
+                obj_gt_dal.Bind_DropDown("SELECT [Code],[Name] FROM [country] ORDER BY [Name] ASC", "Name", "Code", DropDownCountry);
+            }
         }
 
         protected void creditsubmit_Click(object sender, EventArgs e)
@@ -37,7 +41,15 @@ namespace export
             SqlParameter param3 = obj_gt_dal.SqlParam("@Name", TextBoxBname.Text, SqlDbType.VarChar);
             SqlParameter param4 = obj_gt_dal.SqlParam("@Country", DropDownCountry.SelectedItem.ToString(), SqlDbType.VarChar);
             SqlParameter param5 = obj_gt_dal.SqlParam("@State", DropDownState.SelectedItem.ToString(), SqlDbType.VarChar);
-            SqlParameter param6 = obj_gt_dal.SqlParam("@City", TextBoxCity.Text, SqlDbType.VarChar);
+            SqlParameter param6;
+            if (DropDownCity.SelectedItem.ToString() == "Others")
+            {
+                param6 = obj_gt_dal.SqlParam("@City", TextBoxCity.Text, SqlDbType.VarChar);
+            }
+            else
+            {
+                param6 = obj_gt_dal.SqlParam("@City", DropDownCity.SelectedItem.ToString(), SqlDbType.VarChar);
+            }
             SqlParameter param7 = obj_gt_dal.SqlParam("@Address_cl", TextBoxAddress.Text, SqlDbType.VarChar);
             SqlParameter param8 = obj_gt_dal.SqlParam("@Description", TextBoxDec.Text, SqlDbType.VarChar);
             SqlParameter param9 = obj_gt_dal.SqlParam("@ValueofConsignment", TextBoxConsig.Text, SqlDbType.VarChar);
@@ -72,6 +84,24 @@ namespace export
         protected void ButtonAddMore_Click(object sender, EventArgs e)
         {
             Response.Redirect("credit_insurance.aspx");
+        }
+
+        protected void DropDownCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            obj_gt_dal.Bind_DropDown("SELECT DISTINCT [State] FROM [city] WHERE [CountryCode]='" + DropDownCountry.SelectedValue + "' ORDER BY [State] ASC", "State", "State", DropDownState);
+        }
+
+        protected void DropDownState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            obj_gt_dal.Bind_DropDown("SELECT [Id], [Name] FROM [city] WHERE [State] ='" + DropDownState.SelectedValue + "' ORDER BY [Name] ASC", "Name", "Id", DropDownCity);
+        }
+
+        protected void DropDownCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DropDownCity.SelectedItem.ToString() == "Others")
+                TextBoxCity.Visible = true;
+            else
+                TextBoxCity.Visible = false;
         }
     }
 }

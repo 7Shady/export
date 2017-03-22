@@ -12,6 +12,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Data.SqlTypes;
 using System.Web.Security;
+using System.Globalization;
 
 namespace export
 {
@@ -27,6 +28,8 @@ namespace export
             SqlParameter Uemail = gt_dal_obj.SqlParam("@Email", "", SqlDbType.VarChar);
             SqlParameter Qmode = gt_dal_obj.SqlParam("@ModeType", "Full", SqlDbType.VarChar);
             Pdt = gt_dal_obj.FunDataTableSP("ust_selectprofile ", Uid, Uemail, Qmode);
+
+            
 
             if (Pdt.Rows.Count != 0)
             {
@@ -85,6 +88,13 @@ namespace export
 
         protected void ButtonSave_Click(object sender, EventArgs e)
         {
+            string isimage = "False";
+            string isdoc = "False";
+
+            //TextInfo myTI = new CultureInfo("en-US", false).TextInfo;
+            //string clientname = myTI.ToTitleCase(TextBoxCname.Text);
+            //Console.WriteLine("\"{0}\" to titlecase: {1}", myString, myTI.ToTitleCase(myString));
+
             SqlParameter param1 = gt_dal_obj.SqlParam("@ClientId", clientid, SqlDbType.VarChar);
             SqlParameter param2 = gt_dal_obj.SqlParam("@Name", TextBoxCname.Text, SqlDbType.VarChar);
             SqlParameter param3 = gt_dal_obj.SqlParam("@CompanyName", TextBoxCom.Text, SqlDbType.VarChar);
@@ -96,25 +106,24 @@ namespace export
             SqlParameter param8 = gt_dal_obj.SqlParam("@Country", DropDownCountry.SelectedValue.ToString(), SqlDbType.VarChar);
             SqlParameter param9 = gt_dal_obj.SqlParam("@City", DropDownCity.SelectedValue.ToString(), SqlDbType.VarChar);
             SqlParameter param10 = gt_dal_obj.SqlParam("@ZipCode", TextBoxZipCode.Text, SqlDbType.VarChar);
-            SqlParameter param11= gt_dal_obj.SqlParam("@Website", TextBoxWeb.Text, SqlDbType.VarChar);
-            SqlParameter param12= gt_dal_obj.SqlParam("@ContactNo", TextBoxMob.Text, SqlDbType.VarChar);
-            SqlParameter param13= gt_dal_obj.SqlParam("@Email", TextBoxEmail.Text, SqlDbType.VarChar);
+            SqlParameter param11 = gt_dal_obj.SqlParam("@Website", TextBoxWeb.Text, SqlDbType.VarChar);
+            SqlParameter param12 = gt_dal_obj.SqlParam("@ContactNo", TextBoxMob.Text, SqlDbType.VarChar);
+            SqlParameter param13 = gt_dal_obj.SqlParam("@Email", TextBoxEmail.Text, SqlDbType.VarChar);
 
             SqlParameter param14 = gt_dal_obj.SqlParam("@Designation", TextBoxDesig.Text, SqlDbType.VarChar);
             SqlParameter param15 = gt_dal_obj.SqlParam("@CountryOperation", TextBoxoper.Text, SqlDbType.VarChar);
             SqlParameter param16 = gt_dal_obj.SqlParam("@BusinessTournOver", TextBoxturn.Text, SqlDbType.VarChar);
             SqlParameter param17 = gt_dal_obj.SqlParam("@BriefOperations", TextBoxBrief.Text, SqlDbType.VarChar);
             SqlParameter param18 = gt_dal_obj.SqlParam("@NoofEmployees", TextBoxEmp.Text, SqlDbType.VarChar);
-            
-            string isimage = "False";
-            string isdoc = "False";
+
+
 
             SqlParameter param19 = gt_dal_obj.SqlParam("@AttachedFile", DBNull.Value, SqlDbType.VarBinary);
             SqlParameter param20 = gt_dal_obj.SqlParam("@AttachProfile", DBNull.Value, SqlDbType.VarBinary);
             SqlParameter param21 = gt_dal_obj.SqlParam("@AttachProfileName", DBNull.Value, SqlDbType.VarChar);
             SqlParameter param22 = gt_dal_obj.SqlParam("@AttachProfileContentType", DBNull.Value, SqlDbType.VarChar);
 
-            if (UpClientImg.PostedFile.FileName != "")
+            if (UpClientImg.HasFile)
             {
                 isimage = "True";
                 Stream ClientImgBytesStrm = UpClientImg.FileContent;
@@ -122,7 +131,7 @@ namespace export
                 param19 = gt_dal_obj.SqlParam("@AttachedFile", ClientImgBytes, SqlDbType.VarBinary);
             }
 
-            if (UpClientDoc.PostedFile.FileName != "")
+            if (UpClientDoc.HasFile)
             {
                 isdoc = "True";
                 string filePath = UpClientDoc.PostedFile.FileName;
@@ -134,23 +143,47 @@ namespace export
                     param21 = gt_dal_obj.SqlParam("@AttachProfileName", filename, SqlDbType.VarChar);
                     param22 = gt_dal_obj.SqlParam("@AttachProfileContentType", gt_dal_obj.DocType(UpClientDoc), SqlDbType.VarChar);
                 }
-                else Response.Write("<script>alert('Choose (.doc,.docx,.xls,.xlsx,pdf) file only!');</script>");
+
             }
 
             SqlParameter param23 = gt_dal_obj.SqlParam("@IsImage", isimage, SqlDbType.VarChar);
             SqlParameter param24 = gt_dal_obj.SqlParam("@IsDoc", isdoc, SqlDbType.VarChar);
 
-            int CheckSuc = gt_dal_obj.FunExecuteNonQuerySP("ust_updateprofile", param1, param2, param3, param4, param5, param6, param7, param8,
-                param9, param10, param11, param12, param13, param14, param15, param16, param17, param18, param19, param20, param21,
-                param22, param23, param24);
-
-            if (CheckSuc > 0)
+            if (UpClientDoc.HasFile)
             {
-                Response.Write("<script>alert('Profile updated successfully!');</script>");
-                BindOnPageLoad();
+                string filePath0 = UpClientDoc.PostedFile.FileName;
+                string filename0 = Path.GetFileName(filePath0);
+                string ext0 = Path.GetExtension(filename0);
+                if (ext0 == ".doc" || ext0 == ".docx" || ext0 == ".xls" || ext0 == ".xlsx" || ext0 == ".pdf")
+                {
+
+                    int CheckSuc = gt_dal_obj.FunExecuteNonQuerySP("ust_updateprofile", param1, param2, param3, param4, param5, param6, param7, param8,
+                    param9, param10, param11, param12, param13, param14, param15, param16, param17, param18, param19, param20, param21,
+                    param22, param23, param24);
+
+                    if (CheckSuc > 0)
+                    {
+                        Response.Write("<script>alert('Profile updated successfully!');</script>");
+                        BindOnPageLoad();
+                    }
+                    else Response.Write("<script>alert('Something went wrong! Please try again.');</script>");
+                }
+                else Response.Write("<script>alert('Choose (.doc,.docx,.xls,.xlsx,pdf) file only!');</script>");
             }
-            else Response.Write("<script>alert('I afaid something went wrong! Please try again.');</script>");
-        }
+            else
+            {
+                int CheckSuc = gt_dal_obj.FunExecuteNonQuerySP("ust_updateprofile", param1, param2, param3, param4, param5, param6, param7, param8,
+                   param9, param10, param11, param12, param13, param14, param15, param16, param17, param18, param19, param20, param21,
+                   param22, param23, param24);
+
+                if (CheckSuc > 0)
+                {
+                    Response.Write("<script>alert('Profile updated successfully!');</script>");
+                    BindOnPageLoad();
+                }
+                else Response.Write("<script>alert('I afaid something went wrong! Please try again.');</script>");
+            }
+        }      
 
         protected void ButtonCancel_Click(object sender, EventArgs e)
         {

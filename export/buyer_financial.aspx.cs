@@ -27,6 +27,10 @@ namespace export
                 clientname = Session["Name"].ToString();
                 LabelName.Text = clientname;
             }
+            if (!IsPostBack)
+            {
+                obj_gt_dal.Bind_DropDown("SELECT [Code],[Name] FROM [country] ORDER BY [Name] ASC", "Name", "Code", DropDownCountry);
+            }
         }
         
         protected void buyersubmit_Click(object sender, EventArgs e)
@@ -35,8 +39,16 @@ namespace export
             SqlParameter param2 = obj_gt_dal.SqlParam("@ClientId", clientid, SqlDbType.VarChar);
             SqlParameter param3 = obj_gt_dal.SqlParam("@Name", TextBoxBname.Text, SqlDbType.VarChar);
             SqlParameter param4 = obj_gt_dal.SqlParam("@Country", DropDownCountry.SelectedItem.ToString(), SqlDbType.VarChar);
-            SqlParameter param5 = obj_gt_dal.SqlParam("@State", DropDownListState.SelectedItem.ToString(), SqlDbType.VarChar);
-            SqlParameter param6 = obj_gt_dal.SqlParam("@City", TextBoxCity.Text, SqlDbType.VarChar);
+            SqlParameter param5 = obj_gt_dal.SqlParam("@State", DropDownState.SelectedItem.ToString(), SqlDbType.VarChar);
+            SqlParameter param6;
+            if (DropDownCity.SelectedItem.ToString() == "Others")
+            {
+                param6 = obj_gt_dal.SqlParam("@City", TextBoxCity.Text, SqlDbType.VarChar);
+            }
+            else
+            {
+                param6 = obj_gt_dal.SqlParam("@City", DropDownCity.SelectedItem.ToString(), SqlDbType.VarChar);
+            }
             SqlParameter param7 = obj_gt_dal.SqlParam("@Address_cl", TextBoxAddress.Text, SqlDbType.VarChar);
             SqlParameter param8 = obj_gt_dal.SqlParam("@Description", TextBoxDec.Text, SqlDbType.VarChar);
             SqlParameter param9 = obj_gt_dal.SqlParam("@AmountofOrder", TextBoxAmount.Text, SqlDbType.VarChar);
@@ -44,7 +56,7 @@ namespace export
             SqlParameter param11 = obj_gt_dal.SqlParam("@AttachProfileName", DBNull.Value, SqlDbType.VarChar);
             SqlParameter param12 = obj_gt_dal.SqlParam("@AttachProfileContentType", DBNull.Value, SqlDbType.VarChar);
 
-            if (uploadpanlegal_second.PostedFile.FileName != "")
+            if (uploadpanlegal_second.HasFile)
             {
                 string filePath = uploadpanlegal_second.PostedFile.FileName;
                 string filename = Path.GetFileName(filePath);
@@ -72,6 +84,24 @@ namespace export
         {
 
             Response.Redirect("buyer_financial.aspx");
+        }
+
+        protected void DropDownCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            obj_gt_dal.Bind_DropDown("SELECT DISTINCT [State] FROM [city] WHERE [CountryCode]='" + DropDownCountry.SelectedValue + "' ORDER BY [State] ASC", "State", "State", DropDownState);
+        }
+
+        protected void DropDownState_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            obj_gt_dal.Bind_DropDown("SELECT [Id], [Name] FROM [city] WHERE [State] ='" + DropDownState.SelectedValue + "' ORDER BY [Name] ASC", "Name", "Id", DropDownCity);
+        }
+
+        protected void DropDownCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DropDownCity.SelectedItem.ToString() == "Others")
+                TextBoxCity.Visible = true;
+            else
+                TextBoxCity.Visible = false;
         }
 
     }

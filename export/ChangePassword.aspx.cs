@@ -17,7 +17,7 @@ namespace export
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
-                PanelCP.GroupingText = HttpContext.Current.User.Identity.Name;
+                PanelCP.GroupingText = "Email: "+ HttpContext.Current.User.Identity.Name;
             else
                 Response.Redirect("login.aspx");
         }
@@ -57,6 +57,10 @@ namespace export
                     Response.Write("<script>alert('Old password not matched!');</script>");
             }
         }
-       
+
+        protected void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("profile.aspx");
+        }
     }
 }
