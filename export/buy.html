@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Exporters Receivable Management</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="images/favicon.ico" />
+
+      <!-- CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+   <link rel="stylesheet" href="css/font-awesome.min.css">
+    
+     <link href="css/select2.min.css" rel="stylesheet" type="text/css" />
+     <link rel="stylesheet" href="css/exporters.css" />
+    <script type="text/javascript">
+    $('form').hide();
+$("#show").on("click", function() {
+  $('form ').slideToggle(300);
+});
+
+$("#js-apply-promo").on("click", function(){
+  $("#js-promo-box").fadeToggle();
+})
+</script>
+
+<script type="text/javascript">
+function doSomethingWithTextBox()
+{
+  var textBox = document.getElementById('percentage');
+  // do something with it ...
+
+}
+</script>
+
+<script type="text/javascript">
+function calculate1() {
+   var price=0, discount=0, afterDiscount=0;
+    price = Number(document.discountCalculator.price.value);
+    discount = Number(document.discountCalculator.discount.value);
+
+
+ afterDiscount=5500 - ( 5500*discount/100 );
+
+   document.discountCalculator.price.value=price.toFixed(2);
+   document.discountCalculator.discount.value=discount.toFixed(2);
+   document.discountCalculator.afterDiscount.value=afterDiscount.toFixed(2);
+
+}
+</script>
+<script type="text/javascript">
+function calculate2() {
+   var price=0, discount=0, afterDiscount=0;
+    price = Number(document.discountCalculator.price.value);
+    discount = Number(document.discountCalculator.discount.value);
+
+
+ afterDiscount=11500 - ( 11500*discount/100 );
+
+   document.discountCalculator.price.value=price.toFixed(2);
+   document.discountCalculator.discount.value=discount.toFixed(2);
+   document.discountCalculator.afterDiscount.value=afterDiscount.toFixed(2);
+
+}
+</script>
+<script type="text/javascript">
+function calculate3() {
+   var price=0, discount=0, afterDiscount=0;
+    price = Number(document.discountCalculator.price.value);
+    discount = Number(document.discountCalculator.discount.value);
+
+
+ afterDiscount=20000 - ( 2000*discount/100 );
+
+   document.discountCalculator.price.value=price.toFixed(2);
+   document.discountCalculator.discount.value=discount.toFixed(2);
+   document.discountCalculator.afterDiscount.value=afterDiscount.toFixed(2);
+
+}
+</script>
+<script language="Javascript">
+
+function hideA()
+{
+	document.getElementById("A").style.visibility="visible";
+    document.getElementById("B").style.visibility="hidden";
+	document.getElementById("C").style.visibility="hidden";
+    
+}
+
+function hideB()
+{
+	document.getElementById("C").style.visibility="hidden";
+    document.getElementById("A").style.visibility="hidden";
+    document.getElementById("B").style.visibility="visible";
+}
+
+function hideC()
+{
+	document.getElementById("C").style.visibility="visible";
+    document.getElementById("B").style.visibility="hidden";
+    document.getElementById("A").style.visibility="hidden";
+}
+</script>
+
+</head>
+<body>
+<header>
+    <div class="header_top">
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+    <img src="images/logo-dark.png">
+    </div>   
+    </div>    
+    </div>    
+    </div>
+</header>
+ <section class="page-section legal_service">
+<div class="registration"> 
+<div class="container">
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="sure_legal">
+<ul class="nav nav-tabs bet_nav">
+<li><a data-toggle="tab" href="#legal_service" class="finance_account">Buy Now</a></li>
+
+</ul>
+
+<div id="legal_service" class="tab-pane talk_legal active">
+<div class="bg-yellow">
+<div class="col-sm-12 bg-primary consultant_id">
+<div class="row">
+<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+    <div class="row opportunities">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 client_legal">
+<p><b>Choose Our Services</b></p>
+</div>
+<div  class="col-lg-2 col-md-2 col-sm-3 col-xs-3 client_legal">
+<p></p>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 full_name">
+<p></p></div>
+<div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 client_legal">
+<p></p>
+</div>
+</div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+<div class="arrow">
+<a href="index.html" class="btn btn-primary share" title="Back">
+<span class="glyphicon glyphicon-arrow-left"></span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="inner_padding business">
+<div class="buyer_finance">
+        <div id="collapse12" class="panel-collapse">
+      <div class="panel-body">
+        <div id="legal_service_request" class="tab-pane talk_legal active">    
+
+ 
+<div class="col-md-4">    
+     <div class="form-group">
+<input value="seller" onClick="hideA()" type="radio" name="Basic"/> <strong>Basic Package (INR 5,500/-)</strong></span>
+    </div>
+</div>
+    <div class="col-md-4">
+    <div class="form-group">
+<input value="buyer" onclick="hideB()" type="radio" name="Basic"/> <strong>Advance Package (INR 11,000/-)</strong> </div>
+</div>
+<div class="col-md-4">
+    <div class="form-group">
+<input type="radio"  onclick="hideC()" type="radio" name="Basic"/> <strong>Additional Requests</strong></div>
+</div>
+
+</div>
+ </div>
+    </div>
+	
+
+
+  </div> 
+  </div>
+ 
+       
+</div>
+<div class="row">
+
+    <div class="col-sm-12 overseas">
+     
+                                                <hr>	     
+
+  <div class="panel panel-default assignment">
+    <div class="panel-heading insurance_assignments">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion4">PERSONAL  DETAILS</a>
+      </h4>
+    </div>
+    <div id="collapse12" class="panel-collapse">
+      <div class="panel-body">
+        <div id="legal_service_request" class="tab-pane talk_legal active">
+
+
+    
+<div class="row jurisdiction">   
+<div class="col-md-6">    
+     <div class="form-group">
+<label>First Name</label>
+<input type="text" name="Name" class="form-control register-input" placeholder="Enter First Name*" value="">
+         <div id='myform_Name_errorloc' class="error_strings"></div>
+    </div>
+</div>
+    <div class="col-md-6">
+    <div class="form-group">
+<label>Last Name</label>
+<input type="text" name="Name" class="form-control register-input" placeholder="Enter Last Name*" value="">
+         <div id='myform_Name_errorloc' class="error_strings"></div>
+    </div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-6">
+     <div class="form-group">
+<lable>Email ID</lable>
+    <input type="text" class="form-control register-input" placeholder="Email ID">
+  </div>
+  </div>
+    <div class="col-md-6">
+     <div class="form-group">
+<lable>Mobile Number</lable>
+    <input type="text" class="form-control register-input" placeholder="Enter 10 Digit Mobile No*">
+    <div id='myform_City_errorloc' class="error_strings"></div>
+    </div>
+
+</div>
+</div>
+
+  <div class="row">           
+    <div class="col-md-6">
+     <div class="form-group">
+<label>State</label>
+<select class="form-control register-input" name="State" style="width:100%;">
+<option value="select_State">Select State</option>
+<option value="">Andaman & Nicobar Islands</option>
+<option value="">Andhra Pradesh</option>
+<option value="">Arunachal Pradesh</option>
+<option value="">Assam</option>
+<option value="">Bihar</option>
+<option value="">Chandigarh</option>
+<option value="">Chattisgarh</option>
+</select> </div>
+</div>
+
+    <div class="col-md-6">
+     <div class="form-group">
+<label>City</label>
+<input type="text" name="City" class="form-control register-input" value="">
+        <div id='myform_Contact_errorloc' class="error_strings"></div>
+    </div>
+</div>
+</div>
+    
+    <div class="row">             
+    <div class="col-md-6">
+     <div class="form-group">
+<label>Address </label>
+<input type="text" name="Address" class="form-control register-input" value="">
+         <div id='myform_Address_errorloc' class="error_strings"></div>
+    </div>
+</div>
+    <div class="col-md-6">
+     <div class="form-group">
+ 
+ </div>
+</div>
+
+
+</div>
+ </div>
+ </div>
+    </div>
+  </div> 
+  
+  
+  <div class="panel panel-default assignment">
+    <div class="panel-heading insurance_assignments">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion4">USE  PROMO CODE</a>
+      </h4>
+    </div>
+    <div id="collapse12" class="panel-collapse">
+      <div class="panel-body">
+        <div id="legal_service_request" class="tab-pane talk_legal active">    
+<div class="row"> 
+<form name="discountCalculator" > 
+<div class="col-md-6">    
+     <div class="form-group">
+	 
+<input type="text" name="discount" class="form-control register-input" placeholder=" Enter Promo Code...." value="">
+<input type="text" name="price" style="visibility:hidden" >
+<span style="visibility:hidden" id="A">
+	 <h3>Basic Package</h3>
+Package Price :   5,500</br>
+Promo Code Discount :-  </br>
+You Pay : <input type="text" name="afterDiscount" >
+ <span style="visibility:hidden"  id="B">
+	 <h3>Advance Package</h3>
+Package Price :   11,500</br>
+Promo Code Discount :   500</br>
+You Pay :   <input type="text" name="afterDiscount" >
+ <span style="visibility:hidden"  id="C">
+	 <h3>Additional Requests</h3>
+Package Price :   5,500</br>
+Promo Code Discount :   500</br>
+You Pay :   <input type="text" name="afterDiscount" >
+</span>
+    </div>
+	</form>
+</div>
+
+    <div class="col-md-6">
+    <div class="form-group">
+<input type="submit" class="btn btn-primary" style="width:50%"  onclick="calculate1()" value="Apply" />
+    </div>
+</div>
+
+</div>
+
+    
+</div>
+ </div>
+    </div>
+  </div> 
+  
+  
+  <div class="panel panel-default assignment">
+    <div class="panel-heading insurance_assignments">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion4">PAYMENT OPTIONS</a>
+      </h4>
+    </div>
+    <div id="collapse12" class="panel-collapse">
+      <div class="panel-body">
+        <div id="legal_service_request" class="tab-pane talk_legal active">    
+<div class="row jurisdiction"> 
+  
+<div class="col-md-6">    
+     <div class="form-group">
+<input type="radio" name="Paytm"/> <span><strong>Paytm</strong><img src="images/paytm.jpg" width="95"  alt='' /></span>
+    </div>
+</div>
+    <div class="col-md-6">
+    <div class="form-group">
+<input type="radio" name="payu"/> <span><strong>Payu</strong><img src="images/payu.jpg" width="95"  alt='' /> </div>
+</div>
+<div class="col-md-6">    
+     <div class="form-group">
+<input type="radio" name="PayUmoney"/> <span><strong>PayUMoney</strong><img src="images/PayUMoney.jpg" width="95"  alt='' /></span>
+    </div>
+</div>
+    <div class="col-md-6">
+    <div class="form-group">
+<input type="radio" name="Citrus"/> <span><strong>Citrus</strong><img src="images/citrus.jpg" width="95"  alt='' /> </div>
+</div>
+</div>
+</div>
+ </div>
+    </div>
+	
+
+
+  </div> 
+  
+  
+  
+  <div class="row">
+<div class="col-md-6">
+   <div class="form-group">
+   <input type="checkbox" name="terms" id="terms"> Please Accept 
+   <a href="#" data-toggle="modal" data-target="#myModal"> Term &amp; Conditions</a>   
+</div>
+</div>
+</div>
+  
+  <div class="row">
+ <div class="form-group">
+<div class="col-md-8 back_buttom">
+<input type="submit"class="btn btn-primary"  value="PROCEED TO CHECKOUT" />
+
+<a href="index.html" class="btn btn-info">Cancel</a>
+</div>
+    </div>
+</div>
+  </div>
+  </div>   
+    
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-sm-12 copyright">
+<p>Copyright 2016 Powered by : <a href="http://glocalthinkers.com/" target="_blank">Glocal Thinkers</a></p>
+</div>
+</div>
+</div>
+</footer>
+
+
+
+
+  
+    <script src="js/jquery.min.js"></script>
+  <!--bootstrap jquery js-->
+<script src="js/bootstrap.min.js"></script>
+<script language="JavaScript" src="js/gen_validatorv4.js" type="text/javascript" xml:space="preserve"></script>
+    
+    
+
+
+
+
+
+
+
+   
+    <script src="js/select2.min.js"></script>
+    <script src="js/form-select2.js"></script>
+    
+    
+</body>
+</html>

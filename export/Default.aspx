@@ -1,6 +1,41 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="export.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     
 </asp:Content>
+
+
+<asp:Content ID="Content4" runat="server" contentplaceholderid="ContentPlaceHolder1">
+    <header>
+        <div class="header_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href="./">
+                        <img src="images/logo-dark.png" /></a>
+    <%--<div id="menudiv">
+<nav class="horizontal-nav full-width horizontalNav-processed" style="zoom: 1;">
+<ul style="display: table; float: none; width: 100%; list-style: none; margin-bottom: 0px; border-bottom: none; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
+<li class='<%= SetCssClass("Default.aspx") %>'><a href="./">Dashboard</a></li>
+<li class='<%= SetCssClass("buyer_financial.aspx") %>'><a href="buyer_financial.aspx">Buyer Financial Reports</a></li>
+<li class='<%= SetCssClass("credit_insurance.aspx") %>'><a href="credit_insurance.aspx">Credit Insurance Cover</a></li>
+<li class='<%= SetCssClass("debt_collection.aspx") %>'><a href="debt_collection.aspx">Debt Collection</a></li>
+<li class='<%= SetCssClass("audit_structuring.aspx") %>'><a href="audit_structuring.aspx">Audit & Structuring </a></li>
+<li class='<%= SetCssClass("request_status.aspx") %>'><a href="request_status.aspx">Request Status</a></li>
+<li class='<%= SetCssClass("profile.aspx") %>'><a href="profile.aspx">View / Edit Profile</a></li>
+</ul>
+</nav>
+</div>--%>
+<span style="float:right; margin-top:20px">
+        Welcome:  <asp:Label ID="Labelhead" runat="server" Text=""></asp:Label>&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+    <asp:LinkButton ID="hl_clear" Text='Log Out' runat="server" OnClick="LinkButton1_Click"></asp:LinkButton> 
+        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</asp:Content>
+
 <asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
 
     <div id="about">
@@ -15,7 +50,7 @@
                         <div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 profile_img">
                             <asp:Image ID="ImageClient" runat="server" ImageUrl="images/user.png" Width="100%" Height="100%" />
                             <p><asp:Label ID="LabelNameB" runat="server"></asp:Label> 
-                                <br /><asp:Button ID="ButtonSignOut"  runat="server" Text=" SignOut " OnClick="ButtonSignOut_Click" CssClass="btn btn-primary submit_login" BorderStyle="None"  /></p>
+                                <br /></p>
                         </div>
 
                         <div class="col-lg-4 col-md-3 col-sm-9 col-xs-8 con_address">
@@ -165,4 +200,5 @@
     </div>
 
 </asp:Content>
+
 

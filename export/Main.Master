@@ -35,7 +35,7 @@
 <a href="./">
 <img src="images/logo-dark.png" /></a>
 <asp:ContentPlaceHolder ID="ContentPlaceHolderMenu" runat="server">
-<div id="menudiv">
+<%--<div id="menudiv">
 <nav class="horizontal-nav full-width horizontalNav-processed" style="zoom: 1;">
 <ul style="display: table; float: none; width: 100%; list-style: none; margin-bottom: 0px; border-bottom: none; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;">
 <li class='<%= SetCssClass("Default.aspx") %>'><a href="./">Dashboard</a></li>
@@ -47,8 +47,8 @@
 <li class='<%= SetCssClass("profile.aspx") %>'><a href="profile.aspx">View / Edit Profile</a></li>
 </ul>
 </nav>
-</div>
-
+</div>--%>
+   
 </asp:ContentPlaceHolder>
 </div>
 </div>

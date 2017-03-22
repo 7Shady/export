@@ -146,7 +146,7 @@
     <div class="form-group">
         <label>Attach Relevant Document</label>
 
-        <div class="row"style="border: 1px solid #d1cdcd; padding: 10px; background-color: #f8f8f8; margin-left:0px;">
+        <div class="row">
             <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 pan_input">
                 <i class="fa fa-paperclip" aria-hidden="true"></i>
                 <input id="uploadFilelegal_second" class="form-control file_input" placeholder="Choose File" disabled="disabled" />

@@ -34,6 +34,7 @@ namespace export
                     clientname= (Pdt.Rows[0]["Name"].ToString());
                     LabelName.Text = clientname;
                     LabelNameB.Text = clientname;
+                    Labelhead.Text = clientname;
                     LabelEmail.Text = (Pdt.Rows[0]["Email"].ToString());
                     LabelContact.Text = (Pdt.Rows[0]["ContactNo"].ToString());
                     LabelUpdateDate.Text = (Pdt.Rows[0]["UpdateDate"].ToString());
@@ -42,8 +43,9 @@ namespace export
                     //credit_insurance.NavigateUrl = "credit_insurance.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text;
                     //debt_collection.NavigateUrl = "debt_collection.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text;
                     //audit_structuring.NavigateUrl = "audit_structuring.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text;
-                   // request_status.NavigateUrl = "request_status.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text;
+                    // request_status.NavigateUrl = "request_status.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text;
 
+                   
                     if (Pdt.Rows[0]["AttachedFile"] != DBNull.Value) { ImageClient.ImageUrl = "ViewImage.ashx?ClientId=" + Server.UrlEncode(clientid); }
                     else
                     {
@@ -61,14 +63,16 @@ namespace export
             }
             
         }
+
         
+
         protected void ButtonViewProfile_Click(object sender, EventArgs e)
         {
            
             Response.Redirect("profile.aspx");
-        }
+        }        
 
-        protected void ButtonSignOut_Click(object sender, EventArgs e)
+        protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Session.Clear();
             Session.Abandon();

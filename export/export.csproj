@@ -55,7 +55,9 @@
   <ItemGroup>
     <Content Include="audit_structuring.aspx" />
     <Content Include="audit_structuring_view.aspx" />
+    <Content Include="buy.html" />
     <Content Include="buyer_financial.aspx" />
+    <Content Include="buyer_financial.html" />
     <Content Include="buyer_financial_view.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="credit_insurance.aspx" />
@@ -122,6 +124,7 @@
     <Content Include="ProfileSuccess.aspx" />
     <Content Include="registration.aspx" />
     <Content Include="request_status.aspx" />
+    <Content Include="test.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -282,6 +285,13 @@
     </Compile>
     <Compile Include="request_status.aspx.designer.cs">
       <DependentUpon>request_status.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewImage.ashx.cs">
       <DependentUpon>ViewImage.ashx</DependentUpon>

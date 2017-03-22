@@ -274,12 +274,7 @@ namespace export
         //Add DB functions here
 
 
-
-
-
         //Add other functions below this
-
-
 
         #region Function for GenerateRondomNumber
         public string Get8Digits(string cbtype)
@@ -437,6 +432,7 @@ namespace export
         }
         #endregion
 
+        #region Function for Bind_DropDown
         public void Bind_DropDown(string SqlCommand, string DataTextField, string DataValueField, System.Web.UI.WebControls.DropDownList DDL)
         {
             OpenConn();
@@ -460,6 +456,7 @@ namespace export
             DDL.DataBind();
             CloseConn();
         }
+        #endregion
     }
 }
 

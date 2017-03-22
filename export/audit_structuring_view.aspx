@@ -25,12 +25,12 @@
 <p><b>Client ID:</b></p>
 </div>
 <div  class="col-lg-2 col-md-2 col-sm-3 col-xs-3 client_legal">
-<p><asp:Label ID="LabelClientId" runat="server"  Font-Bold="True"></asp:Label></p>
+<p><asp:Label ID="LabelClientId" runat="server" ></asp:Label></p>
 </div>
 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 full_name">
 <p>Client Name:</p></div>
 <div class="col-lg-4 col-md-4 col-sm-3 col-xs-3 client_legal">
-<p><asp:Label ID="LabelName" runat="server"  Font-Bold="True"></asp:Label></p>
+<p><asp:Label ID="LabelName" runat="server" ></asp:Label></p>
 </div>
 </div>
     </div>
@@ -55,31 +55,31 @@
 <tbody>
 <tr>
 <td class="bg-green-light">Audit Id</td>
-<td><asp:Label ID="LabelAuditId" runat="server"  Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelAuditId" runat="server" ></asp:Label>
 </td>
 
 <td class="bg-green-light">Person to be contacted for Audit</td>
-<td><asp:Label ID="LabelBName" runat="server"  Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelBName" runat="server" ></asp:Label>
 </td>
 
 </tr>
 
 <tr>
 <td class="bg-green-light">Country</td>
-<td><asp:Label ID="LabelCountry" runat="server"  Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelCountry" runat="server" ></asp:Label>
 </td>
 
 <td class="bg-green-light">State</td>
-<td><asp:Label ID="LabelState" runat="server"  Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelState" runat="server" ></asp:Label>
 </td>
 
 </tr>
 
 <tr>
 <td class="bg-green-light">City </td>
-<td><asp:Label ID="LabelCity" runat="server"  Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelCity" runat="server" ></asp:Label>
 </td><td class="bg-green-light">Address</td>
-<td><asp:Label ID="LabelAddress" runat="server"  Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelAddress" runat="server" ></asp:Label>
 </td>
 
 </tr>
@@ -88,10 +88,10 @@
 
 
 <td class="bg-green-light">Email ID of the person </td>
-<td><asp:Label ID="LabelEmail" runat="server"  Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelEmail" runat="server" ></asp:Label>
 </td>
 <td class="bg-green-light">Telephone Number of the person</td>
-<td><asp:Label ID="LabelNumber" runat="server"  Font-Bold="True"></asp:Label>
+<td><asp:Label ID="LabelNumber" runat="server" ></asp:Label>
 </td>
 </tr>
     
@@ -101,7 +101,7 @@
 <tr>
 <td class="bg-green-light">Status</td>
 <td>
-<asp:Label ID="LabelSatus" CssClass="btn btn-info btn-xs" runat="server"  Font-Bold="True"></asp:Label>
+<asp:Label ID="LabelSatus" CssClass="btn btn-info btn-xs" runat="server" ></asp:Label>
 </td>
 
 
