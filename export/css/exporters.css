@@ -1969,24 +1969,22 @@ tbody tr {
                 color: #000;
                 text-decoration: none;
             }
-
-
     
-
+/********************Menu***********************/
 .horizontal-nav {
-  background: #efefef;
+  background: #337ab7;
   border-radius: 6px;
 }
 .horizontal-nav ul {
-  background: #43a5de;
+  background:  #337ab7;
   float: left;
   text-align: center;
   border-radius: 6px;
-  border: 1px solid #0e7079;
+  border: 1px solid #337ab7;
 }
 .horizontal-nav ul li {
   float: left;
-  border-left: 1px solid #0e7079;
+  border-left: 1px solid #337ab7;
 }
 .horizontal-nav ul li:first-child {
   border-left: 0 none;
@@ -2002,7 +2000,7 @@ tbody tr {
   border-left: 0 none;
 }
 .horizontal-nav ul li a:hover {
-  background: #337ab7;
+  background: #f47631;
   text-decoration: none;
 }
 .horizontal-nav ul li:first-child a {
@@ -2014,9 +2012,10 @@ tbody tr {
   border-bottom-right-radius: 6px;
 }
 .active-menu-li {
-    background-color:#337ab7;}
+    background-color:#f47631;
+}
 
-
+/********************Menu End***********************/
 
 .about_debt{ padding: 12px;
     padding-top: 23px;
