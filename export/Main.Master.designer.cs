@@ -49,6 +49,24 @@ namespace export {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolderMenu;
         
         /// <summary>
+        /// Labelhead control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Labelhead;
+        
+        /// <summary>
+        /// hl_clear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton hl_clear;
+        
+        /// <summary>
         /// ContentPlaceHolder2 control.
         /// </summary>
         /// <remarks>

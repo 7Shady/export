@@ -1,0 +1,28 @@
+.nav.child_menu>li>a, .nav.side-menu>li>a {
+    color: #E7E7E7;
+    font-weight: 500;
+    font-size: 12px;
+	padding: 10px 15px 6px;
+}
+.main_menu .fa {
+    width: 18px;
+    opacity: .99;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.nav_title {
+    width: 230px;
+    float: left;
+    background: #ededed;
+    border-radius: 0;
+    height: 57px;
+}
+.site_title img{    width: 100px;
+    margin-left: 4px;
+}
+.nav.side-menu>li{border-bottom: 1px solid rgba(37, 51, 66, 0.72);}
+.nav.side-menu>li:hover{background:rgba(54, 72, 90, 0.78);}
