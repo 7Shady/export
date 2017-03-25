@@ -1819,6 +1819,7 @@
     <Content Include="Admin\assets\skycons\index.html" />
     <Content Include="Admin\assets\skycons\skycons.js" />
     <Content Include="Admin\Buyer.aspx" />
+    <Content Include="Admin\BuyerPending.aspx" />
     <Content Include="Admin\BuyerView.aspx" />
     <Content Include="Admin\css\custom.css" />
     <Content Include="Admin\css\custom.min.css" />
@@ -1943,6 +1944,13 @@
     </Compile>
     <Compile Include="Admin\Buyer.aspx.designer.cs">
       <DependentUpon>Buyer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BuyerPending.aspx.cs">
+      <DependentUpon>BuyerPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BuyerPending.aspx.designer.cs">
+      <DependentUpon>BuyerPending.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\BuyerView.aspx.cs">
       <DependentUpon>BuyerView.aspx</DependentUpon>

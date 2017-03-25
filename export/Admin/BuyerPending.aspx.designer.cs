@@ -10,7 +10,7 @@
 namespace export.Admin {
     
     
-    public partial class Buyer {
+    public partial class BuyerPending {
         
         /// <summary>
         /// GridViewBFP control.
