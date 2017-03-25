@@ -16,7 +16,12 @@ namespace export
     public partial class InIm : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {}
+        {
+            if(!IsPostBack)
+            {
+                gt_dal_obj.Bind_DropDown("SELECT [Code],[Name] FROM [country] ORDER BY [Name] ASC", "Name", "Code", DropDownList1);
+            }
+        }
 
         gt_dal gt_dal_obj = new gt_dal();
         byte[] ClientImgBytes = null;
@@ -91,5 +96,9 @@ namespace export
             string clientname = myTI.ToTitleCase(TextBox2.Text);
             lblMessage.Text = clientname;
         }
+
+       
+            
+        
     }
 }

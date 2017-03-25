@@ -26,7 +26,7 @@
 </nav>
 </div>--%>
 <span style="float:right; margin-top:20px">
-        Welcome:  <asp:Label ID="Labelhead" runat="server" Text=""></asp:Label>&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+        Welcome:  <asp:Label ID="Labelhead" runat="server" Font-Bold="True"></asp:Label>&nbsp;|
     <asp:LinkButton ID="hl_clear" Text='Log Out' runat="server" OnClick="LinkButton1_Click"></asp:LinkButton> 
         </span>
                     </div>

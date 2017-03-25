@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="audit_structuring.aspx.cs" Inherits="export.audit_structuring" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<%--<script src="js/jquery.min.js"></script>
+<script src="js/select2.min.js"></script>
+<script src="js/form-select2.js"></script>--%>
+
 </asp:Content>
 
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
@@ -70,13 +74,14 @@
 <div class="col-md-6">
 <div class="form-group">
     <label>Country </label>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
-            <asp:DropDownList ID="DropDownCountry" AppendDataBoundItems="true" OnSelectedIndexChanged="DropDownCountry_SelectedIndexChanged" AutoPostBack="true" runat="server" class="form-control register-input"
-                Style="width: 100%;">
+    <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>--%>
+            <asp:DropDownList ID="DropDownCountry" AppendDataBoundItems="true" 
+                OnSelectedIndexChanged="DropDownCountry_SelectedIndexChanged"
+                 AutoPostBack="true" runat="server" CssClass="form-control register-input" Width="100%">
             </asp:DropDownList>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+        <%--</ContentTemplate>
+    </asp:UpdatePanel>--%>
 </div>
 </div>
 </div>
@@ -84,13 +89,14 @@
 <div class="col-md-6">
 <div class="form-group">
     <label>State</label>
-    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-        <ContentTemplate>
-            <asp:DropDownList ID="DropDownState" AutoPostBack="true" AppendDataBoundItems="true" OnSelectedIndexChanged="DropDownState_SelectedIndexChanged" name="State" runat="server" class="form-control register-input"
-                Style="width: 100%;">
+    <%--<asp:UpdatePanel ID="UpdatePanel2" runat="server">
+        <ContentTemplate>--%>
+            <asp:DropDownList ID="DropDownState" AutoPostBack="true" AppendDataBoundItems="true"
+                 OnSelectedIndexChanged="DropDownState_SelectedIndexChanged" 
+                runat="server" CssClass="form-control register-input" Width="100%">
             </asp:DropDownList>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+        <%--</ContentTemplate>
+    </asp:UpdatePanel>--%>
     <div id='myform_State_errorloc' class="error_strings"></div>
 </div>
 
@@ -98,16 +104,17 @@
 <div class="col-md-6">
 <div class="form-group">
     <label>City</label>
-    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-        <ContentTemplate>
+    <%--<asp:UpdatePanel ID="UpdatePanel3" runat="server">
+        <ContentTemplate>--%>
             <asp:DropDownList ID="DropDownCity" AutoPostBack="true" OnSelectedIndexChanged="DropDownCity_SelectedIndexChanged"
-                AppendDataBoundItems="true" runat="server" class="form-control register-input">
+                AppendDataBoundItems="true" runat="server" 
+                CssClass="form-control register-input" Width="100%">
             </asp:DropDownList>
             <div class="form-group">
                 <asp:TextBox ID="TextBoxCity" placeholder="Enter city" Visible="false" class="form-control register-input" required="required" value="" runat="server"></asp:TextBox>
             </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+        <%--</ContentTemplate>
+    </asp:UpdatePanel>--%>
     <div id='myform_City_errorloc' class="error_strings"></div>
 </div>
 </div>

@@ -58,15 +58,6 @@ namespace export {
         protected global::System.Web.UI.WebControls.TextBox TextBoxBname;
         
         /// <summary>
-        /// UpdatePanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
         /// DropDownCountry control.
         /// </summary>
         /// <remarks>
@@ -76,15 +67,6 @@ namespace export {
         protected global::System.Web.UI.WebControls.DropDownList DropDownCountry;
         
         /// <summary>
-        /// UpdatePanel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
-        
-        /// <summary>
         /// DropDownState control.
         /// </summary>
         /// <remarks>
@@ -92,15 +74,6 @@ namespace export {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownState;
-        
-        /// <summary>
-        /// UpdatePanel3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
         
         /// <summary>
         /// DropDownCity control.
