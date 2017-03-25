@@ -14,7 +14,7 @@ using System.Data.SqlTypes;
 
 namespace export.Admin
 {
-    public partial class Buyer : System.Web.UI.Page
+    public partial class BuyerPending : System.Web.UI.Page
     {
         gt_dal obj_gt_dal = new gt_dal();
         string clientid = "";
@@ -29,7 +29,7 @@ namespace export.Admin
             SqlParameter param2 = obj_gt_dal.SqlParam(parametrname, "", SqlDbType.VarChar);
             SqlParameter param3 = obj_gt_dal.SqlParam("@ModeType", modetype, SqlDbType.VarChar);
 
-            DataTable sdt = obj_gt_dal.FunDataTableSP(spname,  param2, param3);
+            DataTable sdt = obj_gt_dal.FunDataTableSP(spname, param2, param3);
             if (sdt.Rows.Count != 0)
             {
                 Grid.DataSource = sdt;
@@ -46,11 +46,9 @@ namespace export.Admin
 
             }
         }
-
         protected void GridViewBFP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["BuyerId"] = GridViewBFP.SelectedRow.Cells[2].Text;
-            //Response.Write(Session["BuyerId"]);
+            Session["BuyerId"] = GridViewBFP.SelectedRow.Cells[1].Text;
             Response.Redirect("BuyerView.aspx");
         }
     }

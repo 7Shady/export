@@ -89,7 +89,7 @@
   <div class="panel panel-default assignment">
     <div class="panel-heading insurance_assignments">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion4">Confirmation</a>
+        <a data-toggle="collapse" data-parent="#accordion4">About the Client (The Creditor)</a>
       </h4>
     </div>
     <div id="collapse11" class="panel-collapse">
