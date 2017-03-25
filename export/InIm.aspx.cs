@@ -17,7 +17,18 @@ namespace export
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+
+            string role = HttpContext.Current.User.Identity.Name;
+            if (HttpContext.Current.User.IsInRole("user"))
+            {
+                Response.Write("user__" + role);
+            }
+            else
+                Response.Write("<h1>Others</h1>" + role);
+            //string[] userroles =  Roles.GetRolesForUser();
+            //string[] userroles2 = Roles.GetRolesForUser("admin");
+            //Response.Write("<h1>" + userroles + "</h1>"+"____"+userroles2);
+            if (!IsPostBack)
             {
                 gt_dal_obj.Bind_DropDown("SELECT [Code],[Name] FROM [country] ORDER BY [Name] ASC", "Name", "Code", DropDownList1);
             }
@@ -97,8 +108,19 @@ namespace export
             lblMessage.Text = clientname;
         }
 
-       
-            
-        
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            SqlParameter Uname = gt_dal_obj.SqlParam("@ClientId", TextBox4.Text, SqlDbType.VarChar);
+            SqlParameter Upass = gt_dal_obj.SqlParam("@Email", TextBox5.Text, SqlDbType.VarChar);
+            DataTable Pdt;
+            Pdt = gt_dal_obj.FunDataTableSP("ust_login ", Uname,Upass);
+            if (Pdt.Rows.Count != 0)
+            {
+                GridView1.DataSource = Pdt;
+                GridView1.DataBind();
+            }
+            else
+                Response.Write("No dataSSS");
+    }
     }
 }

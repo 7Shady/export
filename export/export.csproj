@@ -1843,7 +1843,6 @@
     <Content Include="Admin\images\prod-5.jpg" />
     <Content Include="Admin\images\user.png" />
     <Content Include="Admin\images\visa.png" />
-    <Content Include="Admin\index.html" />
     <Content Include="Admin\js\custom.js" />
     <Content Include="Admin\js\custom.min.js" />
     <Content Include="Admin\js\datepicker\daterangepicker.js" />
@@ -1875,6 +1874,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="forget.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="images\._adduser.png" />
     <Content Include="images\._downarrow_selectbox.png" />
     <Content Include="images\._IMG_1890.JPG" />
@@ -1894,7 +1894,6 @@
     <Content Include="images\IMG_1890.JPG" />
     <Content Include="images\logo-dark.png" />
     <Content Include="images\user.png" />
-    <Content Include="index.html" />
     <Content Include="InIm.aspx" />
     <Content Include="js\._gen_validatorv4.js" />
     <Content Include="js\._jquery.validate.min.js" />
@@ -2061,6 +2060,9 @@
     </Compile>
     <Compile Include="forget.aspx.designer.cs">
       <DependentUpon>forget.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="gt_dal.cs" />
     <Compile Include="InIm.aspx.cs">
@@ -2437,6 +2439,7 @@
     <Content Include="Admin\assets\skycons\.bower.json" />
     <Content Include="Admin\assets\skycons\README.md" />
     <Content Include="Admin\Admin.Master" />
+    <Content Include="Admin\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -29,31 +29,40 @@ namespace export
         {
             if (TextBoxEmail.Text != "" && TextBoxPass.Text != "")
             {
-                //MD5 Hashing...
-                byte[] hs = new byte[50];
-                string pass = TextBoxPass.Text;
-                MD5 md5 = MD5.Create();
-                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pass);
-                byte[] hash = md5.ComputeHash(inputBytes);
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < hash.Length; i++)
-                {
-                    hs[i] = hash[i];
-                    sb.Append(hs[i].ToString("x2"));
-                }
-                var hash_pass = sb.ToString();
+                string username = TextBoxEmail.Text.Trim();
+                var hash_pass = gt_dal_obj.PassHash(TextBoxPass.Text.Trim());
 
-                SqlParameter Uname = gt_dal_obj.SqlParam("@Email", TextBoxEmail.Text, SqlDbType.VarChar);
+                DataTable Pdt = new DataTable();
+                SqlParameter Uname = gt_dal_obj.SqlParam("@UserName", username, SqlDbType.VarChar);
                 SqlParameter Upass = gt_dal_obj.SqlParam("@Password", hash_pass, SqlDbType.VarChar);
-
-                int a = int.Parse(gt_dal_obj.FunExecuteScalarSP("ust_login1", Uname, Upass).ToString());
-                if (a > 0)
+                Pdt = gt_dal_obj.FunDataTableSP("ust_login", Uname, Upass);
+                if (Pdt.Rows.Count == 1)
                 {
-                    //FormsAuthentication.RedirectFromLoginPage(TextBoxEmail.Text, CheckBoxPersist.Checked);
-                    FormsAuthentication.SetAuthCookie(TextBoxEmail.Text, CheckBoxPersist.Checked);
-                    Session["email"] = TextBoxEmail.Text;
-                    Response.Redirect("Default.aspx", true);
+                    string loginusername = (Pdt.Rows[0]["UserName"].ToString());
+                    string userrole = (Pdt.Rows[0]["RoleName"].ToString());
+                    Session["RoleName"] = userrole;
+                    Session["UserName"] = loginusername;
 
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, username, DateTime.Now, DateTime.Now.AddMinutes(2880), CheckBoxPersist.Checked, userrole, FormsAuthentication.FormsCookiePath);
+                    string hash = FormsAuthentication.Encrypt(ticket);
+                    HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
+
+                    if (ticket.IsPersistent)
+                    {
+                        cookie.Expires = ticket.Expiration;
+                    }
+                    Response.Cookies.Add(cookie);
+
+                    if (userrole == "User")
+                    {
+                        Response.Redirect("Default.aspx");
+                        FormsAuthentication.SetAuthCookie(username, CheckBoxPersist.Checked);
+                    }
+                    else if (userrole == "Administrator")
+                    {
+                        Response.Redirect("~/Admin/Dashboard.aspx");
+                        FormsAuthentication.SetAuthCookie(username, CheckBoxPersist.Checked);
+                    }
                 }
                 else
                 {
@@ -65,5 +74,6 @@ namespace export
         {
             Response.Redirect("Registration.aspx");
         }
+
     }
 }

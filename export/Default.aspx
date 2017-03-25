@@ -5,7 +5,6 @@
 
 
 <asp:Content ID="Content3" runat="server" contentplaceholderid="ContentPlaceHolder2">
-
     <div id="about">
         <!-- Head Section -->
 
