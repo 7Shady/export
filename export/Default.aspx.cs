@@ -34,7 +34,7 @@ namespace export
                     clientname= (Pdt.Rows[0]["Name"].ToString());
                     LabelName.Text = clientname;
                     LabelNameB.Text = clientname;
-                    Labelhead.Text = clientname;
+                    //Labelhead.Text = clientname;
                     LabelEmail.Text = (Pdt.Rows[0]["Email"].ToString());
                     LabelContact.Text = (Pdt.Rows[0]["ContactNo"].ToString());
                     LabelUpdateDate.Text = (Pdt.Rows[0]["UpdateDate"].ToString());

@@ -22,6 +22,12 @@ namespace export
             return Request.Url.AbsolutePath.ToLower().EndsWith(page.ToLower()) ? "active-menu-li" : "";
         }
 
-        
+         protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            FormsAuthentication.SignOut();
+            FormsAuthentication.RedirectToLoginPage();
+        }
     }
 }

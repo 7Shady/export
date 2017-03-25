@@ -1,0 +1,222 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="export.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+   <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Admin - Exporters Receivable Management</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="assets/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="assets/iCheck/skins/flat/green.css" rel="stylesheet">
+	
+    <!-- bootstrap-progressbar -->
+    <link href="assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="assets/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="assets/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="css/custom.min.css" rel="stylesheet">
+	 <link href="css/exporter_admin.css" rel="stylesheet">
+
+     <!-- Datatables -->
+    <link href="assets/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="assets/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="assets/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="assets/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="assets/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+	 <style>
+	 .nav>li>a>img {
+    max-width: none;
+    width: 16px;
+}
+	 
+	 
+	 </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="nav-md">
+    <form id="form1" runat="server">
+     <div class="container body">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+          <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+               <a href="index.html" class="site_title"><img src="images/logo-dark.png"></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+               
+               <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="index.html">Dashboard</a></li>
+                     
+                    </ul>
+                  </li>
+                 
+                  <li><a><i class="fa fa-table"></i> Buyer Financial Reports <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                     <li><a href="Buyer.aspx">Pending Assignments</a></li>
+                      <li><a href="buyer_completed.html">Completed Assignments</a></li>
+                      <li><a href="buyer_declined.html">Declined Assignments</a></li>
+                    </ul>
+                  </li>
+				   <li><a><i class="fa fa-table"></i> Credit Insurance Cover <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="credit_insurance_pending.html">Pending Assignments</a></li>
+                      <li><a href="credit_insurance_completed.html">Completed Assignments</a></li>
+                      <li><a href="credit_insurance_declined.html">Declined Assignments</a></li>
+                    </ul>
+                  </li>
+				   <li><a><i class="fa fa-table"></i> Debt Collection <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                     <li><a href="debt_collection_pending.html">Pending Assignments</a></li>
+                      <li><a href="debt_collection_completed.html">Completed Assignments</a></li>
+                      <li><a href="debt_collection_declined.html">Declined Assignments</a></li>
+                    </ul>
+                  </li>
+				   <li><a><i class="fa fa-table"></i> Audit & structuring <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="audit_structuring_pending.html">Pending Assignments</a></li>
+                      <li><a href="audit_structuring_completed.html">Completed Assignments</a></li>
+                      <li><a href="audit_structuring_declined.html">Declined Assignments</a></li>
+                    </ul>
+                  </li>
+                 
+                </ul>
+            
+			 </div>
+             
+			 </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/user.png" alt="">Satish Kumar
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="javascript:;"> Profile</a></li>
+                  
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                  </ul>
+                </li>
+
+          
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+              <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            &copy; 2017 Powered by <a href="http://glocalthinkers.com/" target="_blank">Glocal Thinker</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+
+
+     <!-- jQuery -->
+    <script src="assets/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="assets/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="assets/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="assets/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="assets/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="assets/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="assets/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="assets/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="assets/Flot/jquery.flot.js"></script>
+    <script src="assets/Flot/jquery.flot.pie.js"></script>
+    <script src="assets/Flot/jquery.flot.time.js"></script>
+    <script src="assets/Flot/jquery.flot.stack.js"></script>
+    <script src="assets/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="assets/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="assets/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="assets/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="assets/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="assets/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="assets/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="assets/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="assets/moment/min/moment.min.js"></script>
+    <script src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="js/custom.min.js"></script>
+
+    <!-- Datatables -->
+    <script src="assets/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="assets/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="assets/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="assets/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="assets/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="assets/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="assets/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="assets/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="assets/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="assets/jszip/dist/jszip.min.js"></script>
+    <script src="assets/pdfmake/build/pdfmake.min.js"></script>
+    <script src="assets/pdfmake/build/vfs_fonts.js"></script>
+
+	
+</body>
+</html>
