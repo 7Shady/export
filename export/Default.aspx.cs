@@ -20,46 +20,55 @@ namespace export
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (HttpContext.Current.User.Identity.IsAuthenticated && !string.IsNullOrEmpty(Session["UserName"] as string)
-                && !string.IsNullOrEmpty(Session["RoleName"] as string))
+            && !string.IsNullOrEmpty(Session["RoleName"] as string))
             {
-                username = Session["UserName"].ToString();
-                SqlParameter Uclientid = obj_gt_dal.SqlParam("@ClientId", "", SqlDbType.VarChar);
-                SqlParameter Uusername = obj_gt_dal.SqlParam("@UserName", username, SqlDbType.VarChar);
-                SqlParameter Qmode = obj_gt_dal.SqlParam("@ModeType", "Short", SqlDbType.VarChar);
-                Pdt = obj_gt_dal.FunDataTableSP("ust_selectprofile ", Uclientid, Uusername, Qmode);
-
-                if (Pdt.Rows.Count != 0)
+                if (User.IsInRole("User"))
                 {
-                    clientid = (Pdt.Rows[0]["ClientId"].ToString());
-                    clientname = (Pdt.Rows[0]["Name"].ToString());
-                    LabelName.Text = clientname;
-                    LabelNameB.Text = clientname;
-                    LabelEmail.Text = (Pdt.Rows[0]["Email"].ToString());
-                    LabelContact.Text = (Pdt.Rows[0]["ContactNo"].ToString());
-                    LabelUpdateDate.Text = (Pdt.Rows[0]["UpdateDate"].ToString());
+                    username = Session["UserName"].ToString();
+                    SqlParameter Uclientid = obj_gt_dal.SqlParam("@ClientId", "", SqlDbType.VarChar);
+                    SqlParameter Uusername = obj_gt_dal.SqlParam("@UserName", username, SqlDbType.VarChar);
+                    SqlParameter Qmode = obj_gt_dal.SqlParam("@ModeType", "Short", SqlDbType.VarChar);
+                    Pdt = obj_gt_dal.FunDataTableSP("ust_selectprofile ", Uclientid, Uusername, Qmode);
 
-                    if (Pdt.Rows[0]["AttachedFile"] != DBNull.Value) { ImageClient.ImageUrl = "ViewImage.ashx?ClientId=" + Server.UrlEncode(clientid); }
+                    if (Pdt.Rows.Count != 0)
+                    {
+                        clientid = (Pdt.Rows[0]["ClientId"].ToString());
+                        clientname = (Pdt.Rows[0]["Name"].ToString());
+                        LabelName.Text = clientname;
+                        
+                        LabelNameB.Text = clientname;
+                        LabelEmail.Text = (Pdt.Rows[0]["Email"].ToString());
+                        LabelContact.Text = (Pdt.Rows[0]["ContactNo"].ToString());
+                        LabelUpdateDate.Text = (Pdt.Rows[0]["UpdateDate"].ToString());
+
+                        if (Pdt.Rows[0]["AttachedFile"] != DBNull.Value) { ImageClient.ImageUrl = "ViewImage.ashx?ClientId=" + Server.UrlEncode(clientid); }
+                        else
+                        {
+                            ImageClient.ImageUrl = "~/images/user.png";
+                        }
+
+                        Session["ClientId"] = clientid;
+                        Session["Name"] = clientname;
+
+                        //redirect to profile.aspx to update mobile number if mobile number is not submitted yet
+                        if (LabelContact.Text == "")
+                        {
+                            Response.Redirect("profile.aspx");
+                        }
+                    }
                     else
                     {
-                        ImageClient.ImageUrl = "~/images/user.png";
-                    }
-
-                    Session["ClientId"] = clientid;
-                    Session["Name"] = clientname;
-
-                    //redirect to profile.aspx to update mobile number if mobile number is not submitted yet
-                    if (LabelContact.Text == "")
-                    {
-                        Response.Redirect("profile.aspx");
+                        Session.Clear();
+                        Session.Abandon();
+                        FormsAuthentication.SignOut();
+                        Response.Write("<script>alert('Something went wrong please contact administartor!');</script>");
                     }
                 }
                 else
                 {
-                    Session.Clear();
-                    Session.Abandon();
-                    FormsAuthentication.SignOut();
-                    Response.Write("<script>alert('Something went wrong please contact administartor!');</script>");
+                    Response.Redirect("~/Admin/Dashboard.aspx");
                 }
             }
         }
