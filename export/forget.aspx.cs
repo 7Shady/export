@@ -25,65 +25,82 @@ namespace export
 
         protected void submit_Click(object sender, EventArgs e)
         {
-            if (TextBoxEmail.Text != null)
+            if (TextBoxUserName.Text == null)
+            { Response.Write("<script>alert('Enter Username.');</script>"); }
+            else
             {
-                byte[] hs = new byte[50];
-                string pass = obj_gt_dal.Get8Digits("SK");
-                MD5 md5 = MD5.Create();
-                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(pass);
-                byte[] hash = md5.ComputeHash(inputBytes);
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < hash.Length; i++)
+                string username = "'" + TextBoxUserName.Text + "'";  //  ",'" + Mailid.Text + "','"
+                string useremail = "'" + TextBoxEmail.Text + "'";
+                DataTable dt = obj_gt_dal.FunDataTable("SELECT Name, LoweredEmail FROM Users WHERE UserName=" + username + " AND LoweredEmail=" + useremail + "");
+                if (dt.Rows.Count == 1)
                 {
-                    hs[i] = hash[i];
-                    sb.Append(hs[i].ToString("x2"));
-                }
-                var hash_pass = sb.ToString();
+                    string email = (dt.Rows[0]["LoweredEmail"].ToString());
 
-                SqlParameter param1 = obj_gt_dal.SqlParam("@ClientId", DBNull.Value, SqlDbType.VarChar);
-                SqlParameter param2 = obj_gt_dal.SqlParam("@Email", TextBoxEmail.Text, SqlDbType.VarChar);
-                SqlParameter param3 = obj_gt_dal.SqlParam("@Password", hash_pass, SqlDbType.VarChar);
-                SqlParameter param4 = obj_gt_dal.SqlParam("@ModeType", "Forgot", SqlDbType.VarChar);
+                    if (email == TextBoxEmail.Text)
+                    {
+                        string pass = obj_gt_dal.Get8Digits("SK");
+                        var hash_pass = obj_gt_dal.PassHash(pass);
 
-                int CheckSuc = obj_gt_dal.FunExecuteNonQuerySP("ust_forgotchangepass", param1, param2, param3, param4);
-                if (CheckSuc > 0)
-                {
+                        SqlParameter param2 = obj_gt_dal.SqlParam("@UserName", TextBoxUserName.Text, SqlDbType.VarChar);
+                        SqlParameter param3 = obj_gt_dal.SqlParam("@Password", hash_pass, SqlDbType.VarChar);
+                        SqlParameter param4 = obj_gt_dal.SqlParam("@ModeType", "Forgot", SqlDbType.VarChar);
 
-                    LabelPass.Text = pass;
-                    Response.Write("<script>alert('Password updated successfully!');</script>");
-                    Session.Clear();
-                    Session.Abandon();
-                    FormsAuthentication.SignOut();
-                    TextBoxEmail.Text = "";
+                        int CheckSuc = obj_gt_dal.FunExecuteNonQuerySP("ust_forgotchangepass", param2, param3, param4);
+                        if (CheckSuc == 1)
+                        {
+                            string mailbody = "Hi " + (dt.Rows[0]["Name"].ToString()) + ",<br><br>" +
+                            "You recently requested to reset your password.<br><br>" +
+                            "Following are new details:<br><br>" +
+                            "Username: " + TextBoxUserName.Text + "<br>" +
+                            "Password: " + pass + "<br><br>" +
+                            "<b>Please change your password after login.</b><br><br><br><br>" +
+                            "Team Glocal Thinkers</b>";
+
+                            string mailsubject = "Glocal Thinkers Password Reset";
+                            obj_gt_dal.SendMail(email, mailsubject, mailbody);
+
+                            Response.Write("<script>alert('Password updated successfully! Please login to your registered email.');</script>");
+                            Session.Clear();
+                            Session.Abandon();
+                            FormsAuthentication.SignOut();
+                            TextBoxUserName.Text = "";
+                            TextBoxEmail.Text = "";
+                        }
+                        else
+                            Response.Write("<script>alert('Please contact administrator!');</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Email not matched.');</script>");
+                    }
                 }
                 else
-                    Response.Write("<script>alert('Please contact administrator!');</script>");
+                {
+                    Response.Write("<script>alert('Username and Email not matched.');</script>");
+                }
             }
         }
 
-        protected void TextBoxEmail_TextChanged(object sender, EventArgs e)
+        protected void TextBoxUserName_TextChanged(object sender, EventArgs e)
         {
-            TextBoxEmail.Attributes.Add("placeholder", "Email");
-            if (TextBoxEmail.Text != String.Empty)
+            TextBoxUserName.Attributes.Add("placeholder", "Username");
+            if (TextBoxUserName.Text != String.Empty)
             {
-                string Email = "'" + TextBoxEmail.Text + "'";
+                string username = "'" + TextBoxUserName.Text + "'";
                 SqlParameter param1 = new SqlParameter();
-                param1.ParameterName = "@Email";
-                param1.Value = TextBoxEmail.Text;
+                param1.ParameterName = "@UserName";
+                param1.Value = TextBoxUserName.Text;
                 param1.SqlDbType = SqlDbType.VarChar;
 
                 int a = int.Parse(obj_gt_dal.FunExecuteScalarSP("ust_emailcheck", param1).ToString());
-                if (a != 1) { TextBoxEmail.Text = ""; TextBoxEmail.Attributes.Add("placeholder", Email+ " does not exist."); }
+                if (a != 1) { TextBoxUserName.Text = ""; TextBoxUserName.Attributes.Add("placeholder", username+ " does not exist."); }
             }
-            else { TextBoxEmail.Attributes.Add("placeholder", "Email"); }
+            else
+            { 
+                TextBoxUserName.Attributes.Add("placeholder", "Username");
+            }
         }
 
-        protected void RadioButtonListYN_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (RadioButtonListYN.SelectedIndex == 0)
-            TextBoxRP.Visible = true;
-            else
-                TextBoxRP.Visible = false;
-        }
+       
     }
 }

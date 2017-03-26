@@ -15,7 +15,7 @@
                 <div class="section-text">
                     <div class="row">
                         <div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 profile_img">
-                            <asp:Image ID="ImageClient" runat="server" ImageUrl="images/user.png" Width="100%" Height="100%" />
+                            <asp:Image ID="ImageClient" runat="server" ImageUrl="images/user.png" Width="100%" />
                             <p><asp:Label ID="LabelNameB" runat="server"></asp:Label> 
                                 <br /></p>
                         </div>

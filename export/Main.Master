@@ -58,7 +58,7 @@
 </div>--%>
    <span style="float:right; margin-top:20px">
         Welcome:  <asp:Label ID="Labelhead" runat="server" Text=""></asp:Label>&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
-    <asp:LinkButton ID="hl_clear" Text='Log Out' runat="server" OnClick="LinkButton1_Click"></asp:LinkButton> 
+    <asp:LinkButton ID="hl_clear" Text='Log Out' runat="server" CausesValidation="false" OnClick="LinkButton1_Click"></asp:LinkButton> 
         </span>
 </asp:ContentPlaceHolder>
 </div>
