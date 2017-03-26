@@ -24,7 +24,7 @@ reader.readAsDataURL(input.files[0]);
 <div class="sure_register">
 <div class="col-sm-4 register_profile">
 <div class="profile_service">
-<asp:Image ID="previewImage" runat="server" Width="99%" Height="99%" ImageUrl="~/images/adduser.png" />
+<asp:Image ID="previewImage" runat="server" Width="99%" ImageUrl="~/images/adduser.png" />
 <span class="btn btn-file profile_picture">
 <span class="profile">Update Profile Image</span>
 <input type="hidden" />

@@ -42,6 +42,7 @@ namespace export
                     string userrole = (Pdt.Rows[0]["RoleName"].ToString());
                     Session["RoleName"] = userrole;
                     Session["UserName"] = loginusername;
+                    Session["Name"]= (Pdt.Rows[0]["Name"].ToString());
 
                     FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, username, DateTime.Now, DateTime.Now.AddMinutes(2880), CheckBoxPersist.Checked, userrole, FormsAuthentication.FormsCookiePath);
                     string hash = FormsAuthentication.Encrypt(ticket);
@@ -66,7 +67,7 @@ namespace export
                 }
                 else
                 {
-                    Label1.Text = "Invalid User Name and/or Password";
+                    Label1.Text = "Invalid Username and/or Password";
                 }
             }
         }

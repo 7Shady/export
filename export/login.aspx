@@ -46,8 +46,10 @@
    <label>Password</label>
       <asp:TextBox ID="TextBoxPass" class="form-control existing-form" placeholder="Password" required="required" runat="server" TextMode="Password"></asp:TextBox>
 
-      <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-	<div id='myform_Password_errorloc' class="error_strings"></div>
+      
+	<div id='myform_Password_errorloc' class="error_strings">
+        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+	</div>
   </div>
     <ul class="remember">
         <li>
