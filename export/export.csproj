@@ -55,6 +55,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AdminTest.aspx" />
     <Content Include="Admin\assets\bootstrap-daterangepicker\daterangepicker.css" />
     <Content Include="Admin\assets\bootstrap-daterangepicker\daterangepicker.js" />
     <Content Include="Admin\assets\bootstrap-daterangepicker\demo.html" />
@@ -1949,6 +1950,13 @@
     </Compile>
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminTest.aspx.cs">
+      <DependentUpon>AdminTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminTest.aspx.designer.cs">
+      <DependentUpon>AdminTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AuditCompleted.aspx.cs">
       <DependentUpon>AuditCompleted.aspx</DependentUpon>
