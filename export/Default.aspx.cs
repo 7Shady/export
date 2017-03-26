@@ -12,7 +12,7 @@ namespace export
 {
     public partial class Default : System.Web.UI.Page
     {
-        string email = "";
+        string username = "";
         string clientid = "";
         string clientname = "";
         gt_dal obj_gt_dal = new gt_dal();
@@ -20,51 +20,58 @@ namespace export
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.User.Identity.IsAuthenticated && !string.IsNullOrEmpty(Session["email"] as string))
+
+            if (HttpContext.Current.User.Identity.IsAuthenticated && !string.IsNullOrEmpty(Session["UserName"] as string)
+            && !string.IsNullOrEmpty(Session["RoleName"] as string))
             {
-                email = Session["email"].ToString(); 
-                SqlParameter Uid = obj_gt_dal.SqlParam("@ClientId", "", SqlDbType.VarChar);
-                SqlParameter Uemail = obj_gt_dal.SqlParam("@Email", email, SqlDbType.VarChar);
-                SqlParameter Qmode = obj_gt_dal.SqlParam("@ModeType", "Short", SqlDbType.VarChar);
-                Pdt = obj_gt_dal.FunDataTableSP("ust_selectprofile ", Uid, Uemail, Qmode);
-
-                if (Pdt.Rows.Count != 0)
+                if (User.IsInRole("User"))
                 {
-                    clientid = (Pdt.Rows[0]["ClientId"].ToString());
-                    clientname= (Pdt.Rows[0]["Name"].ToString());
-                    LabelName.Text = clientname;
-                    LabelNameB.Text = clientname;
-                    //Labelhead.Text = clientname;
-                    LabelEmail.Text = (Pdt.Rows[0]["Email"].ToString());
-                    LabelContact.Text = (Pdt.Rows[0]["ContactNo"].ToString());
-                    LabelUpdateDate.Text = (Pdt.Rows[0]["UpdateDate"].ToString());
-                    //buyer_financial.NavigateUrl = "buyer_financial.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text;
+                    username = Session["UserName"].ToString();
+                    SqlParameter Uclientid = obj_gt_dal.SqlParam("@ClientId", "", SqlDbType.VarChar);
+                    SqlParameter Uusername = obj_gt_dal.SqlParam("@UserName", username, SqlDbType.VarChar);
+                    SqlParameter Qmode = obj_gt_dal.SqlParam("@ModeType", "Short", SqlDbType.VarChar);
+                    Pdt = obj_gt_dal.FunDataTableSP("ust_selectprofile ", Uclientid, Uusername, Qmode);
 
-                    //credit_insurance.NavigateUrl = "credit_insurance.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text;
-                    //debt_collection.NavigateUrl = "debt_collection.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text;
-                    //audit_structuring.NavigateUrl = "audit_structuring.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text;
-                    // request_status.NavigateUrl = "request_status.aspx?ClientId=" + clientid + "&Name=" + LabelName.Text;
+                    if (Pdt.Rows.Count != 0)
+                    {
+                        clientid = (Pdt.Rows[0]["ClientId"].ToString());
+                        clientname = (Pdt.Rows[0]["Name"].ToString());
+                        LabelName.Text = clientname;
+                        
+                        LabelNameB.Text = clientname;
+                        LabelEmail.Text = (Pdt.Rows[0]["Email"].ToString());
+                        LabelContact.Text = (Pdt.Rows[0]["ContactNo"].ToString());
+                        LabelUpdateDate.Text = (Pdt.Rows[0]["UpdateDate"].ToString());
 
-                   
-                    if (Pdt.Rows[0]["AttachedFile"] != DBNull.Value) { ImageClient.ImageUrl = "ViewImage.ashx?ClientId=" + Server.UrlEncode(clientid); }
+                        if (Pdt.Rows[0]["AttachedFile"] != DBNull.Value) { ImageClient.ImageUrl = "ViewImage.ashx?ClientId=" + Server.UrlEncode(clientid); }
+                        else
+                        {
+                            ImageClient.ImageUrl = "~/images/user.png";
+                        }
+
+                        Session["ClientId"] = clientid;
+                        Session["Name"] = clientname;
+
+                        //redirect to profile.aspx to update mobile number if mobile number is not submitted yet
+                        if (LabelContact.Text == "")
+                        {
+                            Response.Redirect("profile.aspx");
+                        }
+                    }
                     else
                     {
-                        ImageClient.ImageUrl = "~/images/user.png";
-                    }
-
-                    Session["ClientId"] = clientid;
-                    Session["Name"] = clientname;
-                    if(LabelContact.Text=="")
-                    {
-                        
-                        Response.Redirect("profile.aspx");
+                        Session.Clear();
+                        Session.Abandon();
+                        FormsAuthentication.SignOut();
+                        Response.Write("<script>alert('Something went wrong please contact administartor!');</script>");
                     }
                 }
+                else
+                {
+                    Response.Redirect("~/Admin/Dashboard.aspx");
+                }
             }
-            
         }
-
-        
 
         protected void ButtonViewProfile_Click(object sender, EventArgs e)
         {

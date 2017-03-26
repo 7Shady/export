@@ -15,8 +15,12 @@ namespace export
             Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.Cache.SetNoStore();
-           
+            if(!string.IsNullOrEmpty(Session["UserName"] as string))
+            {
+                Labelhead.Text = Session["UserName"].ToString();
+            }
         }
+
         protected string SetCssClass(string page)
         {
             return Request.Url.AbsolutePath.ToLower().EndsWith(page.ToLower()) ? "active-menu-li" : "";

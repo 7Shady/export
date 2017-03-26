@@ -23,6 +23,7 @@
              <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
             </div>
             <div><br />
+                <asp:CheckBox ID="CheckBoxPersist" runat="server" Text="Remember Me" /><br />
                 <asp:Button ID="submit" runat="server" Text="Log In" value="Login" class="btn btn-default submit" OnClick="submit_Click" />
               
               <a class="reset_pass" href="#">Lost your password?</a>
