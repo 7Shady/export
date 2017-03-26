@@ -7,11 +7,8 @@
         $(document).ready(function () {
             $("#ctl00_ContentPlaceHolder2_txtstartdate").datepicker({
                 minDate: 0,
-
             });
-
             $("#txtenddate").datepicker({});
-
         });
     </script>
 
@@ -19,11 +16,8 @@
         $(document).ready(function () {
             $("#ctl00_ContentPlaceHolder2_txtstartdatee").datepicker({
                 minDate: 0,
-
             });
-
             $("#txtenddate").datepicker({});
-
         });
     </script>
 
