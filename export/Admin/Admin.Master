@@ -75,30 +75,30 @@
                  
                   <li><a><i class="fa fa-table"></i> Buyer Financial Reports <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                     <li><a href="Buyer.aspx">Pending Assignments</a></li>
-                      <li><a href="buyer_completed.html">Completed Assignments</a></li>
-                      <li><a href="buyer_declined.html">Declined Assignments</a></li>
+                     <li><a href="BuyerPending.aspx">Pending Assignments</a></li>
+                      <li><a href="BuyerCompleted.aspx">Completed Assignments</a></li>
+                      <li><a href="BuyerDeclined.aspx">Declined Assignments</a></li>
                     </ul>
                   </li>
 				   <li><a><i class="fa fa-table"></i> Credit Insurance Cover <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="credit_insurance_pending.html">Pending Assignments</a></li>
-                      <li><a href="credit_insurance_completed.html">Completed Assignments</a></li>
-                      <li><a href="credit_insurance_declined.html">Declined Assignments</a></li>
+                      <li><a href="CreditPending.aspx">Pending Assignments</a></li>
+                      <li><a href="CreditCompleted.aspx">Completed Assignments</a></li>
+                      <li><a href="CreditDeclined.aspx">Declined Assignments</a></li>
                     </ul>
                   </li>
 				   <li><a><i class="fa fa-table"></i> Debt Collection <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                     <li><a href="debt_collection_pending.html">Pending Assignments</a></li>
-                      <li><a href="debt_collection_completed.html">Completed Assignments</a></li>
-                      <li><a href="debt_collection_declined.html">Declined Assignments</a></li>
+                     <li><a href="DebtPending.aspx">Pending Assignments</a></li>
+                      <li><a href="DebtCompleted.aspx">Completed Assignments</a></li>
+                      <li><a href="DebtDeclined.aspx">Declined Assignments</a></li>
                     </ul>
                   </li>
 				   <li><a><i class="fa fa-table"></i> Audit & structuring <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="audit_structuring_pending.html">Pending Assignments</a></li>
-                      <li><a href="audit_structuring_completed.html">Completed Assignments</a></li>
-                      <li><a href="audit_structuring_declined.html">Declined Assignments</a></li>
+                      <li><a href="AuditPending.aspx">Pending Assignments</a></li>
+                      <li><a href="AuditCompleted.aspx">Completed Assignments</a></li>
+                      <li><a href="AuditDeclined.aspx">Declined Assignments</a></li>
                     </ul>
                   </li>
                  
