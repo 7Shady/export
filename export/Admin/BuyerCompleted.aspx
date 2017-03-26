@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="BuyerPending.aspx.cs" Inherits="export.Admin.BuyerPending" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="BuyerCompleted.aspx.cs" Inherits="export.Admin.BuyerCompleted" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -12,15 +12,15 @@
                 <div class="x_panel">                  
                   <div class="x_content"> 
                        <div class="x_title">
-                    <h2>Buyer Financial Reports  <small>Pending Assignments</small></h2>
+                    <h2>Buyer Financial Reports  <small>Completed Assignments</small></h2>
                    
                     <div class="clearfix"></div>
                   </div>
 
                       
-<asp:GridView ID="GridViewBFP" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewBFP_SelectedIndexChanged" 
-                     GridLines="None" 
-    AutoGenerateColumns="False" CssClass="table table-striped table-bordered dt-responsive nowrap" EmptyDataText="No Records..">
+                      <asp:GridView ID="GridViewBFA" CellSpacing="0" CellPadding="4" runat="server" Width="100%" OnSelectedIndexChanged="GridViewBFA_SelectedIndexChanged" 
+                     GridLines="None"  
+                      AutoGenerateColumns="False" CssClass="table table-striped table-bordered dt-responsive nowrap" EmptyDataText="No Records..">
                <Columns>
                    <asp:TemplateField HeaderText="#">
                        <ItemTemplate>
@@ -35,7 +35,7 @@
                    <asp:BoundField DataField="AmountofOrder" HeaderText="AmountofOrder" SortExpression="TermsofDelivery" ItemStyle-width="16%"  />
                    <asp:TemplateField HeaderText="Status" SortExpression="Status">
                        <ItemTemplate>
-                           <asp:Label ID="LabelStatus" runat="server" CssClass="btn btn-xs btn-info" Text='<%# Bind("Status") %>'></asp:Label>
+                           <asp:Label ID="LabelStatus" runat="server" CssClass="btn btn-xs btn-success" Text='<%# Bind("Status") %>'></asp:Label>
                        </ItemTemplate>
                        <ItemStyle Width="14%" />
                    </asp:TemplateField>
@@ -56,7 +56,6 @@
 		
 		</div>
         <!-- /page content -->
-
 
 </asp:Content>
 

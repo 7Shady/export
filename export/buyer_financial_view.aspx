@@ -48,9 +48,7 @@
 
 
 <div class="inner_padding legal_table">
-
 <div class="table-responsive">
-
 <table class="table-bordered table-hover table">
 <tbody>
 <tr>
@@ -135,10 +133,6 @@
     <a href="request_status.aspx" class="btn btn-primary back_table"> Back </a>
 <br />
 </div>
-
-
-
- 
 
 </div>
 

@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="BuyerView.aspx.cs" Inherits="export.Admin.BuyerView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="CreditView.aspx.cs" Inherits="export.CreditView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-
+    
     <div class="right_col" role="main">
  
     <div class="">
@@ -59,8 +59,8 @@
 
 </tr>
 <tr>
-<td class="bg-green-light">Buyer Id</td>
-<td><asp:Label ID="LabelBuyerId" runat="server" ></asp:Label>
+<td class="bg-green-light">Credit Id</td>
+<td><asp:Label ID="LabelCreditId" runat="server" ></asp:Label>
 </td>
 
 <td class="bg-green-light">Name of the Buyer</td>
@@ -95,18 +95,25 @@
 <td class="bg-green-light">Description </td>
 <td><asp:Label ID="LabelDescription" runat="server" ></asp:Label>
 </td>
-<td class="bg-green-light">Amount of Order</td>
-<td><asp:Label ID="LabelAmount" runat="server" ></asp:Label>
+<td class="bg-green-light">Value of the Consignment</td>
+<td><asp:Label ID="LabelConsig" runat="server" ></asp:Label>
 </td>
 </tr>
-    
+    <tr>
 
- 
+
+<td class="bg-green-light">Terms of Delivery </td>
+<td><asp:Label ID="LabelDelivery" runat="server" ></asp:Label>
+</td>
+<td class="bg-green-light">Terms of Payment</td>
+<td><asp:Label ID="LabelPayment" runat="server" ></asp:Label>
+</td>
+</tr>
 
 <tr>
 <td class="bg-green-light">Status</td>
-
 <td>
+
     <asp:Label ID="LabelSatus" CssClass="btn btn-info btn-xs" runat="server" ></asp:Label>
     <asp:LinkButton runat="server" ID="edit" Text="<i class='fa fa-pencil'></i> Edit" 
                   CssClass="btn btn-info btn-xs" OnClick="edit_Click" />
@@ -123,7 +130,8 @@
 <td class="bg-green-light">AttachmentPath</td>
 <td>
 <div>
- <asp:Button ID="ButtonDload" runat="server" Text="Download" CssClass="btn btn-info btn-xs" OnClick="ButtonDload_Click" />
+    <asp:Button ID="ButtonDload" runat="server" Text="Download" CssClass="btn btn-info btn-xs" OnClick="ButtonDload_Click" />
+
 <input type="hidden" value="" />
 </div>
 </td>
@@ -143,8 +151,7 @@
 </tr>
 
 </tbody>
-</table>
-    </div>
+</table></div>
 <div style="text-align: center;">    
     <asp:Button ID="Update" CssClass="btn btn-sm btn-primary" runat="server" Text="Update" OnClick="Update_Click" />
     <a href="Dashboard.aspx" class="btn btn-sm btn-primary"> Back </a>
@@ -164,6 +171,7 @@
     </div>
 </div>
    
+
 
 </asp:Content>
 

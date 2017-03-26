@@ -48,7 +48,7 @@ namespace export.Admin
         }
         protected void GridViewBFP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["BuyerId"] = GridViewBFP.SelectedRow.Cells[1].Text;
+            Session["BuyerId"] = GridViewBFP.SelectedRow.Cells[2].Text;
             Response.Redirect("BuyerView.aspx");
         }
     }

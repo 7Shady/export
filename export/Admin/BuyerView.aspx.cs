@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 using System.IO;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
+
 
 namespace export.Admin
 {
@@ -19,8 +20,10 @@ namespace export.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             if (!string.IsNullOrEmpty(Session["ClientId"] as string) && !string.IsNullOrEmpty(Session["BuyerId"] as string))
             {
+                LabelNamee.Text = Session["Name"].ToString();
                 LabelCName.Text = Session["Name"].ToString();
                 LabelClientId.Text = Session["ClientId"].ToString();
                 buyerid = Session["BuyerId"].ToString();
@@ -53,7 +56,7 @@ namespace export.Admin
                     LabelAmount.Text = (Pdt.Rows[0]["AmountofOrder"].ToString());
                     LabelSatus.Text = (Pdt.Rows[0]["Status"].ToString());
 
-                    
+
 
                     switch (LabelSatus.Text)
                     {
@@ -69,6 +72,36 @@ namespace export.Admin
                     }
                 }
             }
+        }
+
+        protected void ButtonDload_Click(object sender, EventArgs e)
+        {
+            if (Pdt.Rows[0]["AttachedFile"] != DBNull.Value)
+            {
+                obj_gt_dal.DocDownload(Pdt, "AttachedFile", "AttachProfileContentType", "AttachProfileName");
+            }
+        }
+
+        protected void edit_Click(object sender, EventArgs e)
+        {
+            DropDownStatus.Visible = true;
+            LabelSatus.Visible = false;
+            edit.Visible = false;
+
+        }
+
+        protected void Update_Click(object sender, EventArgs e)
+        {
+            SqlParameter param1 = obj_gt_dal.SqlParam("@BuyerId", buyerid, SqlDbType.VarChar);
+            SqlParameter param2 = obj_gt_dal.SqlParam("@Status", DropDownStatus.SelectedValue.ToString(), SqlDbType.VarChar);
+
+            int CheckSuc = obj_gt_dal.FunExecuteNonQuerySP("ust_buyerstatus", param1, param2);
+
+            if (CheckSuc > 0)
+            {
+                Response.Write("<script>alert('Profile updated successfully!');</script>");                
+            }
+            else Response.Write("<script>alert('I afaid something went wrong! Please try again.');</script>");
         }
     }
 }
