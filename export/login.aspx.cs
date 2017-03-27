@@ -44,7 +44,7 @@ namespace export
                     Session["UserName"] = loginusername;
                     Session["Name"]= (Pdt.Rows[0]["Name"].ToString());
 
-                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, username, DateTime.Now, DateTime.Now.AddMinutes(2880), CheckBoxPersist.Checked, userrole, FormsAuthentication.FormsCookiePath);
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, username, DateTime.Now, DateTime.Now.AddMinutes(30), CheckBoxPersist.Checked, userrole, FormsAuthentication.FormsCookiePath);
                     string hash = FormsAuthentication.Encrypt(ticket);
                     HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
 
