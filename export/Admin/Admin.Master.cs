@@ -12,7 +12,11 @@ namespace export.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LabelAdminName.Text = HttpContext.Current.User.Identity.Name;
+            if (Page.User.Identity.IsAuthenticated)
+            {
+                LabelAdminName.Text = HttpContext.Current.User.Identity.Name;
+            }
+            else Response.Redirect("~/login.aspx");
         }
 
         protected void btnlogout_Click(object sender, EventArgs e)
@@ -21,8 +25,6 @@ namespace export.Admin
             Session.Abandon();
             FormsAuthentication.SignOut();
             Response.Redirect("~/Login.aspx");
-
-
         }
 
        

@@ -20,12 +20,11 @@ namespace export.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            if (!string.IsNullOrEmpty(Session["ClientId"] as string) && !string.IsNullOrEmpty(Session["BuyerId"] as string))
+            if (!string.IsNullOrEmpty(Session["BuyerId"] as string))
             {
                 LabelNamee.Text = Session["Name"].ToString();
                 LabelCName.Text = Session["Name"].ToString();
-                LabelClientId.Text = Session["ClientId"].ToString();
+                //LabelClientId.Text = Session["ClientId"].ToString();
                 buyerid = Session["BuyerId"].ToString();
 
                 SqlParameter param1 = new SqlParameter();

@@ -17,15 +17,9 @@ namespace export.Admin
     public partial class BuyerPending : System.Web.UI.Page
     {
         gt_dal obj_gt_dal = new gt_dal();
-        string clientid = "";
 
         public void LoadGrid(string spname, string modetype, string parametrname, GridView Grid)
         {
-            clientid = Session["ClientId"].ToString();
-            //LabelClientId.Text = clientid;
-            //LabelName.Text = Session["Name"].ToString();
-
-            SqlParameter param1 = obj_gt_dal.SqlParam("@ClientId", clientid, SqlDbType.VarChar);
             SqlParameter param2 = obj_gt_dal.SqlParam(parametrname, "", SqlDbType.VarChar);
             SqlParameter param3 = obj_gt_dal.SqlParam("@ModeType", modetype, SqlDbType.VarChar);
 
@@ -39,13 +33,9 @@ namespace export.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Session["ClientId"] as string) && !string.IsNullOrEmpty(Session["Name"] as string))
-            {
-
-                LoadGrid("ust_adminbuyer", "ShortPending", "@BuyerId", GridViewBFP);
-
-            }
+            LoadGrid("ust_adminbuyer", "ShortPending", "@BuyerId", GridViewBFP);
         }
+
         protected void GridViewBFP_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["BuyerId"] = GridViewBFP.SelectedRow.Cells[2].Text;

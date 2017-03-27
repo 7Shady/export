@@ -29,7 +29,7 @@ namespace export.Admin
             SqlParameter param2 = obj_gt_dal.SqlParam(parametrname, "", SqlDbType.VarChar);
             SqlParameter param3 = obj_gt_dal.SqlParam("@ModeType", modetype, SqlDbType.VarChar);
 
-            DataTable sdt = obj_gt_dal.FunDataTableSP(spname,  param2, param3);
+            DataTable sdt = obj_gt_dal.FunDataTableSP(spname, param2, param3);
             if (sdt.Rows.Count != 0)
             {
                 Grid.DataSource = sdt;
