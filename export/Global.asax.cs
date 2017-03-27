@@ -25,7 +25,7 @@ namespace export
         {
 
         }
-        
+
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
             if (HttpContext.Current.User != null)
@@ -42,7 +42,6 @@ namespace export
                     }
                 }
             }
-
         }
 
         protected void Application_Error(object sender, EventArgs e)

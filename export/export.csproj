@@ -1828,9 +1828,11 @@
     <Content Include="Admin\BuyerDeclined.aspx" />
     <Content Include="Admin\BuyerPending.aspx" />
     <Content Include="Admin\BuyerView.aspx" />
+    <Content Include="Admin\buyer_pending.html" />
     <Content Include="Admin\CreditCompleted.aspx" />
     <Content Include="Admin\CreditDeclined.aspx" />
     <Content Include="Admin\CreditPending.aspx" />
+    <Content Include="Admin\CreditView.aspx" />
     <Content Include="Admin\css\custom.css" />
     <Content Include="Admin\css\custom.min.css" />
     <Content Include="Admin\css\exporter_admin.css" />
@@ -1858,11 +1860,13 @@
     <Content Include="Admin\images\user.png" />
     <Content Include="Admin\images\visa.png" />
     <Content Include="Admin\index.html" />
+    <Content Include="Admin\indexfv.html" />
     <Content Include="Admin\js\custom.js" />
     <Content Include="Admin\js\custom.min.js" />
     <Content Include="Admin\js\datepicker\daterangepicker.js" />
     <Content Include="Admin\js\moment\moment.min.js" />
     <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\table.aspx" />
     <Content Include="Admin\test.aspx" />
     <Content Include="audit_structuring.aspx" />
     <Content Include="audit_structuring_view.aspx" />
@@ -1871,7 +1875,6 @@
     <Content Include="buyer_financial.html" />
     <Content Include="buyer_financial_view.aspx" />
     <Content Include="ChangePassword.aspx" />
-    <Content Include="Admin\CreditView.aspx" />
     <Content Include="credit_insurance.aspx" />
     <Content Include="credit_insurance_view.aspx" />
     <Content Include="css\bootstrap-theme.css" />
@@ -1891,6 +1894,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="forget.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="images\._adduser.png" />
     <Content Include="images\._downarrow_selectbox.png" />
     <Content Include="images\._IMG_1890.JPG" />
@@ -1960,24 +1964,28 @@
     </Compile>
     <Compile Include="Admin\AuditCompleted.aspx.cs">
       <DependentUpon>AuditCompleted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\AuditCompleted.aspx.designer.cs">
       <DependentUpon>AuditCompleted.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AuditDeclined.aspx.cs">
       <DependentUpon>AuditDeclined.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\AuditDeclined.aspx.designer.cs">
       <DependentUpon>AuditDeclined.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AuditPending.aspx.cs">
       <DependentUpon>AuditPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\AuditPending.aspx.designer.cs">
       <DependentUpon>AuditPending.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\AuditView.aspx.cs">
       <DependentUpon>AuditView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\AuditView.aspx.designer.cs">
       <DependentUpon>AuditView.aspx</DependentUpon>
@@ -1991,12 +1999,14 @@
     </Compile>
     <Compile Include="Admin\BuyerCompleted.aspx.cs">
       <DependentUpon>BuyerCompleted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\BuyerCompleted.aspx.designer.cs">
       <DependentUpon>BuyerCompleted.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\BuyerDeclined.aspx.cs">
       <DependentUpon>BuyerDeclined.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\BuyerDeclined.aspx.designer.cs">
       <DependentUpon>BuyerDeclined.aspx</DependentUpon>
@@ -2017,21 +2027,31 @@
     </Compile>
     <Compile Include="Admin\CreditCompleted.aspx.cs">
       <DependentUpon>CreditCompleted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\CreditCompleted.aspx.designer.cs">
       <DependentUpon>CreditCompleted.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\CreditDeclined.aspx.cs">
       <DependentUpon>CreditDeclined.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\CreditDeclined.aspx.designer.cs">
       <DependentUpon>CreditDeclined.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\CreditPending.aspx.cs">
       <DependentUpon>CreditPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\CreditPending.aspx.designer.cs">
       <DependentUpon>CreditPending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CreditView.aspx.cs">
+      <DependentUpon>CreditView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CreditView.aspx.designer.cs">
+      <DependentUpon>CreditView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
@@ -2042,18 +2062,21 @@
     </Compile>
     <Compile Include="Admin\DebtCompleted.aspx.cs">
       <DependentUpon>DebtCompleted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\DebtCompleted.aspx.designer.cs">
       <DependentUpon>DebtCompleted.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\DebtDeclined.aspx.cs">
       <DependentUpon>DebtDeclined.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\DebtDeclined.aspx.designer.cs">
       <DependentUpon>DebtDeclined.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\DebtPending.aspx.cs">
       <DependentUpon>DebtPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\DebtPending.aspx.designer.cs">
       <DependentUpon>DebtPending.aspx</DependentUpon>
@@ -2064,6 +2087,13 @@
     </Compile>
     <Compile Include="Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\table.aspx.cs">
+      <DependentUpon>table.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\table.aspx.designer.cs">
+      <DependentUpon>table.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
@@ -2106,12 +2136,6 @@
     </Compile>
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\CreditView.aspx.cs">
-      <DependentUpon>CreditView.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\CreditView.aspx.designer.cs">
-      <DependentUpon>CreditView.aspx</DependentUpon>
     </Compile>
     <Compile Include="credit_insurance.aspx.cs">
       <DependentUpon>credit_insurance.aspx</DependentUpon>
@@ -2175,6 +2199,9 @@
     </Compile>
     <Compile Include="forget.aspx.designer.cs">
       <DependentUpon>forget.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="gt_dal.cs" />
     <Compile Include="InIm.aspx.cs">
@@ -2551,6 +2578,8 @@
     <Content Include="Admin\assets\skycons\.bower.json" />
     <Content Include="Admin\assets\skycons\README.md" />
     <Content Include="Admin\Admin.Master" />
+    <Content Include="Admin\debug.log" />
+    <Content Include="Admin\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

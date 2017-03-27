@@ -29,10 +29,11 @@ namespace export
             {
                 string Email = "'" + TextBoxEmail.Text + "'";
                 SqlParameter param1 = new SqlParameter();
-                param1.ParameterName = "@Email";
+                param1.ParameterName = "@UserName";
                 param1.Value = TextBoxEmail.Text;
                 param1.SqlDbType = SqlDbType.VarChar;
 
+                //Duplicate username check
                 int a = int.Parse(obj_gt_dal.FunExecuteScalarSP("ust_emailcheck", param1).ToString());
                 if (a > 0) { TextBoxEmail.Text = ""; TextBoxEmail.Attributes.Add("placeholder", Email + " already exist"); }
             }
