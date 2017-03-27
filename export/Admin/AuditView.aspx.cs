@@ -18,10 +18,9 @@ namespace export.Admin
         DataTable Pdt = new DataTable();
         string auditid = "";
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Session["ClientId"] as string) && !string.IsNullOrEmpty(Session["AuditId"] as string))
+            if (!string.IsNullOrEmpty(Session["AuditId"] as string))
             {
                 LabelNamee.Text = Session["Name"].ToString();
                 LabelCName.Text = Session["Name"].ToString();

@@ -1,15 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AuditDeclined.aspx.cs" Inherits="export.Admin.AuditDeclined" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admino.Master" AutoEventWireup="true" CodeBehind="AuditDeclined.aspx.cs" Inherits="export.Admin.AuditDeclined" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-     <!-- page content -->
-        <div class="right_col" role="main">
-        
-        <div class="row">
- <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">                  
-                  <div class="x_content"> 
-                       <div class="x_title">
+<asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolderMiddle">
+ <div class="">
+<div class="clearfix"></div>
+<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<div class="x_panel">
+<div class="x_title" >
                     <h2>Audit & structuring  <small>Declined Assignments</small></h2>
                    
                     <div class="clearfix"></div>

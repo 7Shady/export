@@ -1833,6 +1833,7 @@
     <Content Include="Admin\CreditDeclined.aspx" />
     <Content Include="Admin\CreditPending.aspx" />
     <Content Include="Admin\CreditView.aspx" />
+    <Content Include="Admin\css\bootstrap.min.css" />
     <Content Include="Admin\css\custom.css" />
     <Content Include="Admin\css\custom.min.css" />
     <Content Include="Admin\css\exporter_admin.css" />
@@ -1861,10 +1862,13 @@
     <Content Include="Admin\images\visa.png" />
     <Content Include="Admin\index.html" />
     <Content Include="Admin\indexfv.html" />
+    <Content Include="Admin\js\bootstrap.min.js" />
     <Content Include="Admin\js\custom.js" />
     <Content Include="Admin\js\custom.min.js" />
     <Content Include="Admin\js\datepicker\daterangepicker.js" />
+    <Content Include="Admin\js\jquery.min.js" />
     <Content Include="Admin\js\moment\moment.min.js" />
+    <Content Include="Admin\less\custom.css" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\table.aspx" />
     <Content Include="Admin\test.aspx" />
@@ -1954,6 +1958,13 @@
     </Compile>
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admino.Master.cs">
+      <DependentUpon>Admino.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admino.Master.designer.cs">
+      <DependentUpon>Admino.Master</DependentUpon>
     </Compile>
     <Compile Include="Admin\AdminTest.aspx.cs">
       <DependentUpon>AdminTest.aspx</DependentUpon>
@@ -2081,6 +2092,7 @@
     <Compile Include="Admin\DebtPending.aspx.designer.cs">
       <DependentUpon>DebtPending.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\GridLoadAdmin.cs" />
     <Compile Include="Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2578,8 +2590,8 @@
     <Content Include="Admin\assets\skycons\.bower.json" />
     <Content Include="Admin\assets\skycons\README.md" />
     <Content Include="Admin\Admin.Master" />
-    <Content Include="Admin\debug.log" />
     <Content Include="Admin\Web.config" />
+    <Content Include="Admin\Admino.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2634,6 +2646,11 @@
     <Folder Include="Admin\assets\switchery\" />
     <Folder Include="Admin\assets\transitionize\" />
     <Folder Include="Admin\assets\validator\" />
+    <Folder Include="Admin\fonts\" />
+    <Folder Include="Admin\js\echart\" />
+    <Folder Include="Admin\js\input_mask\" />
+    <Folder Include="Admin\js\tags\" />
+    <Folder Include="Admin\js\textarea\" />
     <Folder Include="assets\" />
     <Folder Include="js\datepicker\" />
     <Folder Include="js\moment\" />
