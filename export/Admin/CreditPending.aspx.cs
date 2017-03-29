@@ -24,7 +24,7 @@ namespace export.Admin
         }
         protected void GridViewCICP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["CreditId"] = GridViewCICP.SelectedRow.Cells[2].Text;
+            Session["CreditId"] = GridViewCICP.SelectedRow.Cells[1].Text;
             Response.Redirect("CreditView.aspx");
         }
     }

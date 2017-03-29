@@ -15,7 +15,7 @@ namespace export
             Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.Cache.SetNoStore();
-            if(!string.IsNullOrEmpty(Session["Name"] as string))
+            if(Page.User.IsInRole("User") && !string.IsNullOrEmpty(Session["Name"] as string))
             {
                 Labelhead.Text = Session["Name"].ToString();
             }

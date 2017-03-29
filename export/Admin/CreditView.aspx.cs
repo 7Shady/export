@@ -19,13 +19,15 @@ namespace export
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Session["ClientId"] as string) && !string.IsNullOrEmpty(Session["CreditId"] as string))
+           
+            if (!string.IsNullOrEmpty(Session["CreditId"] as string))
             {
-                LabelCName.Text = Session["Name"].ToString();
-                LabelClientId.Text = Session["ClientId"].ToString();
+                //LabelCName.Text = Session["Name"].ToString();
+                //LabelClientId.Text = Session["ClientId"].ToString();
                 creditid = Session["CreditId"].ToString();
+                Response.Write(creditid);
 
-                SqlParameter param1 = new SqlParameter();
+               SqlParameter param1 = new SqlParameter();
                 param1.ParameterName = "@ClientId";
                 param1.Value = "";
                 param1.SqlDbType = SqlDbType.VarChar;
@@ -43,6 +45,8 @@ namespace export
                 Pdt = obj_gt_dal.FunDataTableSP("ust_rscredit", param1, param1a, param2);
                 if (Pdt.Rows.Count != 0)
                 {
+                    LabelClientId.Text = (Pdt.Rows[0]["ClientId"].ToString());
+                    LabelCName.Text= (Pdt.Rows[0]["ClientNameReg"].ToString());
                     LabelCreditId.Text = (Pdt.Rows[0]["CreditId"].ToString());
                     LabelBName.Text = (Pdt.Rows[0]["Name"].ToString());
                     LabelCountry.Text = (Pdt.Rows[0]["Country"].ToString());

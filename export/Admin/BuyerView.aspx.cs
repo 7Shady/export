@@ -47,6 +47,7 @@ namespace export.Admin
                 {
 
                     LabelClientId.Text = (Pdt.Rows[0]["ClientId"].ToString());
+                    LabelCName.Text= (Pdt.Rows[0]["ClientNameReg"].ToString());
                     LabelBuyerId.Text = (Pdt.Rows[0]["BuyerId"].ToString());
                     LabelBName.Text = (Pdt.Rows[0]["Name"].ToString());
                     LabelCountry.Text = (Pdt.Rows[0]["Country"].ToString());
