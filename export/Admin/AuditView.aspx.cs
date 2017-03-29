@@ -22,9 +22,9 @@ namespace export.Admin
         {
             if (!string.IsNullOrEmpty(Session["AuditId"] as string))
             {
-                LabelNamee.Text = Session["Name"].ToString();
-                LabelCName.Text = Session["Name"].ToString();
-                LabelClientId.Text = Session["ClientId"].ToString();
+                //LabelNamee.Text = Session["Name"].ToString();
+                //LabelCName.Text = Session["Name"].ToString();
+                /*LabelClientId.Text = Session["ClientId"].ToString()*/;
                 auditid = Session["AuditId"].ToString();
 
                 SqlParameter param1 = new SqlParameter();

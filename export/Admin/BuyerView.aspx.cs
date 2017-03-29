@@ -22,8 +22,8 @@ namespace export.Admin
         {
             if (!string.IsNullOrEmpty(Session["BuyerId"] as string))
             {
-                LabelNamee.Text = Session["Name"].ToString();
-                LabelCName.Text = Session["Name"].ToString();
+                //LabelNamee.Text = Session["Name"].ToString();
+                //LabelCName.Text = Session["Name"].ToString();
                 //LabelClientId.Text = Session["ClientId"].ToString();
                 buyerid = Session["BuyerId"].ToString();
 
@@ -45,6 +45,8 @@ namespace export.Admin
                 Pdt = obj_gt_dal.FunDataTableSP("ust_rsbuyer", param1, param1a, param2);
                 if (Pdt.Rows.Count != 0)
                 {
+
+                    LabelClientId.Text = (Pdt.Rows[0]["ClientId"].ToString());
                     LabelBuyerId.Text = (Pdt.Rows[0]["BuyerId"].ToString());
                     LabelBName.Text = (Pdt.Rows[0]["Name"].ToString());
                     LabelCountry.Text = (Pdt.Rows[0]["Country"].ToString());
@@ -54,8 +56,6 @@ namespace export.Admin
                     LabelDescription.Text = (Pdt.Rows[0]["Description"].ToString());
                     LabelAmount.Text = (Pdt.Rows[0]["AmountofOrder"].ToString());
                     LabelSatus.Text = (Pdt.Rows[0]["Status"].ToString());
-
-
 
                     switch (LabelSatus.Text)
                     {
@@ -84,6 +84,7 @@ namespace export.Admin
         protected void edit_Click(object sender, EventArgs e)
         {
             DropDownStatus.Visible = true;
+            DropDownStatus.SelectedValue = DropDownStatus.Items.FindByText(LabelSatus.Text).Value;
             LabelSatus.Visible = false;
             edit.Visible = false;
 

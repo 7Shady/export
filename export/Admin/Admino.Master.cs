@@ -12,12 +12,18 @@ namespace export.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.User.Identity.IsAuthenticated)
+            if (Page.User.Identity.IsAuthenticated && Page.User.IsInRole("Administrator"))
             {
                 LabelAdminName.Text = HttpContext.Current.User.Identity.Name;
             }
-            else Response.Redirect("~/login.aspx");
-        }
+            else
+            {
+                Session.Clear();
+                Session.Abandon();
+                FormsAuthentication.SignOut();
+                Response.Redirect("~/login.aspx");
+            }
+        } 
 
         protected void btnlogout_Click(object sender, EventArgs e)
         {

@@ -53,7 +53,7 @@ namespace export
                     LabelConsig.Text = (Pdt.Rows[0]["ValueofConsignment"].ToString());
                     LabelDelivery.Text = (Pdt.Rows[0]["TermsofDelivery"].ToString());
                     LabelPayment.Text = (Pdt.Rows[0]["TermsofPayment"].ToString());
-                    LabelDeliveryDone.Text = (Pdt.Rows[0]["DeliveryDone"].ToString());
+                    //LabelDeliveryDone.Text = (Pdt.Rows[0]["DeliveryDone"].ToString());
                     LabelPaymentDue.Text = (Pdt.Rows[0]["PaymentDate"].ToString());
                     LabelRemarks.Text = (Pdt.Rows[0]["Remarks"].ToString());
                     LabelSatus.Text = (Pdt.Rows[0]["Status"].ToString());
