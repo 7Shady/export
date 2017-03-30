@@ -125,10 +125,9 @@
                                 <tr>
                                     <td class="bg-green-light">Status</td>
                                     <td>
-
                                         <asp:Label ID="LabelSatus" CssClass="btn btn-info btn-xs" runat="server"></asp:Label>
-                                        <asp:LinkButton runat="server" ID="edit" Text="<i class='fa fa-pencil'></i> Edit"
-                                            CssClass="btn btn-info btn-xs" OnClick="edit_Click" />
+                                        <asp:LinkButton runat="server" ID="edit" Text="<i class='fa fa-pencil'></i> Edit" 
+                                            CssClass="btn btn-dark btn-xs" OnClick="edit_Click" />
                                         <asp:DropDownList ID="DropDownStatus" runat="server" Visible="false" class="form-control register-input">
                                             <asp:ListItem>Pending</asp:ListItem>
                                             <asp:ListItem>Approved</asp:ListItem>

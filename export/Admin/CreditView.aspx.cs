@@ -24,10 +24,9 @@ namespace export
             {
                 //LabelCName.Text = Session["Name"].ToString();
                 //LabelClientId.Text = Session["ClientId"].ToString();
-                creditid = Session["CreditId"].ToString();
-                Response.Write(creditid);
+                creditid = Session["CreditId"].ToString();                
 
-               SqlParameter param1 = new SqlParameter();
+                SqlParameter param1 = new SqlParameter();
                 param1.ParameterName = "@ClientId";
                 param1.Value = "";
                 param1.SqlDbType = SqlDbType.VarChar;
@@ -59,19 +58,6 @@ namespace export
                     LabelPayment.Text = (Pdt.Rows[0]["TermsofPayment"].ToString());
                     LabelSatus.Text = (Pdt.Rows[0]["Status"].ToString());
 
-                    string attachprofilename = Pdt.Rows[0]["AttachProfileName"].ToString();
-                    if (attachprofilename != "")
-                    {
-                        ButtonDload.CssClass = "btn btn-xs btn-success";
-                        ButtonDload.Text = Pdt.Rows[0]["AttachProfileName"].ToString();
-                        ButtonDload.ToolTip = "Download " + Pdt.Rows[0]["AttachProfileName"].ToString();
-                    }
-                    else
-                    {
-                        ButtonDload.CssClass = "btn btn-xs btn-link";
-                        ButtonDload.Text = "Not uploded yet!";
-                    }
-
                     switch (LabelSatus.Text)
                     {
                         case "Pending":
@@ -96,9 +82,17 @@ namespace export
             }
         }
 
+        protected void edit_Click(object sender, EventArgs e)
+        {
+            DropDownStatus.Visible = true;
+            DropDownStatus.SelectedValue = DropDownStatus.Items.FindByText(LabelSatus.Text).Value;
+            LabelSatus.Visible = false;
+            edit.Visible = false;
+        }
+
         protected void Update_Click(object sender, EventArgs e)
         {
-            SqlParameter param1 = obj_gt_dal.SqlParam("@BuyerId", creditid, SqlDbType.VarChar);
+            SqlParameter param1 = obj_gt_dal.SqlParam("@CreditId", creditid, SqlDbType.VarChar);
             SqlParameter param2 = obj_gt_dal.SqlParam("@Status", DropDownStatus.SelectedValue.ToString(), SqlDbType.VarChar);
 
             int CheckSuc = obj_gt_dal.FunExecuteNonQuerySP("ust_creditstatus", param1, param2);
@@ -110,11 +104,6 @@ namespace export
             else Response.Write("<script>alert('I afaid something went wrong! Please try again.');</script>");
         }
 
-        protected void edit_Click(object sender, EventArgs e)
-        {
-            DropDownStatus.Visible = true;
-            LabelSatus.Visible = false;
-            edit.Visible = false;
-        }
+       
     }
 }
