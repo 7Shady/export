@@ -18,7 +18,7 @@ namespace export.Admin
         DataTable Pdt = new DataTable();
         string buyerid = string.Empty;
 
-        protected void Page_Load(object sender, EventArgs e)
+        public void ExeOnPageLoad()
         {
             if (!string.IsNullOrEmpty(Session["BuyerId"] as string))
             {
@@ -32,7 +32,7 @@ namespace export.Admin
                 if (Pdt.Rows.Count != 0)
                 {
                     LabelClientId.Text = (Pdt.Rows[0]["ClientId"].ToString());
-                    LabelCName.Text= (Pdt.Rows[0]["ClientNameReg"].ToString());
+                    LabelCName.Text = (Pdt.Rows[0]["ClientNameReg"].ToString());
                     LabelBuyerId.Text = (Pdt.Rows[0]["BuyerId"].ToString());
                     LabelBName.Text = (Pdt.Rows[0]["Name"].ToString());
                     LabelCountry.Text = (Pdt.Rows[0]["Country"].ToString());
@@ -59,6 +59,11 @@ namespace export.Admin
             }
         }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            ExeOnPageLoad();
+        }
+
         protected void ButtonDload_Click(object sender, EventArgs e)
         {
             if (Pdt.Rows[0]["AttachedFile"] != DBNull.Value)
@@ -70,24 +75,31 @@ namespace export.Admin
         protected void edit_Click(object sender, EventArgs e)
         {
             DropDownStatus.Visible = true;
-            if (LabelSatus.Text == "Declined")
-                LabelSatus.Text = "Rejected";
+            if (LabelSatus.Text == "Declined") LabelSatus.Text = "Rejected";
             DropDownStatus.SelectedValue = DropDownStatus.Items.FindByText(LabelSatus.Text).Value;
             LabelSatus.Visible = false;
             edit.Visible = false;
+            Update.Enabled = true;
 
         }
 
         protected void Update_Click(object sender, EventArgs e)
         {
             SqlParameter param1 = obj_gt_dal.SqlParam("@BuyerId", buyerid, SqlDbType.VarChar);
-            SqlParameter param2 = obj_gt_dal.SqlParam("@Status", DropDownStatus.SelectedValue.ToString(), SqlDbType.VarChar);
+            string status = DropDownStatus.SelectedValue.ToString();
+            if (DropDownStatus.SelectedValue.ToString() == "Rejected") status = "Declined";
+            SqlParameter param2 = obj_gt_dal.SqlParam("@Status", status, SqlDbType.VarChar);
 
             int CheckSuc = obj_gt_dal.FunExecuteNonQuerySP("ust_buyerstatus", param1, param2);
 
             if (CheckSuc > 0)
             {
-                Response.Write("<script>alert('Profile updated successfully!');</script>");                
+                ExeOnPageLoad();
+                DropDownStatus.Visible = false;
+                LabelSatus.Visible = true;
+                edit.Visible = true;
+                Update.Enabled = false;
+                Response.Write("<script>alert('Profile updated successfully!');</script>");
             }
             else Response.Write("<script>alert('I afaid something went wrong! Please try again.');</script>");
         }

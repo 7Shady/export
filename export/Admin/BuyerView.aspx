@@ -4,6 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMiddle" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 <div class="">
 <div class="page-title">
     <div class="title_left">
@@ -99,8 +100,6 @@
                                 </tr>
 
                                 <tr>
-
-
                                     <td class="bg-green-light">Description </td>
                                     <td>
                                         <asp:Label ID="LabelDescription" runat="server"></asp:Label>
@@ -110,9 +109,6 @@
                                         <asp:Label ID="LabelAmount" runat="server"></asp:Label>
                                     </td>
                                 </tr>
-
-
-
 
                                 <tr>
                                     <td class="bg-green-light">Status</td>
@@ -125,10 +121,7 @@
                                             <asp:ListItem>Approved</asp:ListItem>
                                             <asp:ListItem>Rejected</asp:ListItem>
                                         </asp:DropDownList>
-
-
                                     </td>
-
 
                                     <td class="bg-green-light">AttachmentPath</td>
                                     <td>
@@ -154,7 +147,7 @@
                         </table>
                     </div>
                     <div style="text-align: center;">
-                        <asp:Button ID="Update" CssClass="btn btn-sm btn-primary" runat="server" Text="Update" OnClick="Update_Click" />
+                        <asp:Button ID="Update" CssClass="btn btn-sm btn-primary" runat="server" Text="Update" OnClick="Update_Click" Enabled="False" />
                         <a href="Dashboard.aspx" class="btn btn-sm btn-primary">Back </a>
                         <br />
                     </div>
