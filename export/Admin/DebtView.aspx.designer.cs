@@ -10,7 +10,16 @@
 namespace export.Admin {
     
     
-    public partial class CreditView {
+    public partial class DebtView {
+        
+        /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
         /// LabelNamee control.
@@ -40,13 +49,13 @@ namespace export.Admin {
         protected global::System.Web.UI.WebControls.Label LabelCName;
         
         /// <summary>
-        /// LabelCreditId control.
+        /// LabelDebtId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelCreditId;
+        protected global::System.Web.UI.WebControls.Label LabelDebtId;
         
         /// <summary>
         /// LabelBName control.
@@ -128,6 +137,33 @@ namespace export.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelPayment;
+        
+        /// <summary>
+        /// LabelDeliveryDone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelDeliveryDone;
+        
+        /// <summary>
+        /// LabelPaymentDue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelPaymentDue;
+        
+        /// <summary>
+        /// LabelRemarks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelRemarks;
         
         /// <summary>
         /// LabelSatus control.

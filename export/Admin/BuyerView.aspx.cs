@@ -9,7 +9,6 @@ using System.IO;
 using System.Data;
 using System.Data.SqlClient;
 
-
 namespace export.Admin
 {
     public partial class BuyerView : System.Web.UI.Page
@@ -80,7 +79,6 @@ namespace export.Admin
             LabelSatus.Visible = false;
             edit.Visible = false;
             Update.Enabled = true;
-
         }
 
         protected void Update_Click(object sender, EventArgs e)

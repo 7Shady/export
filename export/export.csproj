@@ -1842,6 +1842,7 @@
     <Content Include="Admin\DebtCompleted.aspx" />
     <Content Include="Admin\DebtDeclined.aspx" />
     <Content Include="Admin\DebtPending.aspx" />
+    <Content Include="Admin\DebtView.aspx" />
     <Content Include="Admin\images\american-express.png" />
     <Content Include="Admin\images\cropper.jpg" />
     <Content Include="Admin\images\icons\taxation.png" />
@@ -2091,6 +2092,13 @@
     </Compile>
     <Compile Include="Admin\DebtPending.aspx.designer.cs">
       <DependentUpon>DebtPending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DebtView.aspx.cs">
+      <DependentUpon>DebtView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DebtView.aspx.designer.cs">
+      <DependentUpon>DebtView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\GridLoadAdmin.cs" />
     <Compile Include="Admin\Login.aspx.cs">

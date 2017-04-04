@@ -22,9 +22,11 @@ namespace export.Admin
         {
             gridloadadmin_obj.LoadGrid("ust_admindebt", "ShortPending", "@DebtId", GridViewDCP);
         }
+
         protected void GridViewDCP_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["DebtId"] = GridViewDCP.SelectedRow.Cells[2].Text;
+            Response.Write(GridViewDCP.SelectedRow.Cells[2].Text);
             Response.Redirect("DebtView.aspx");
         }
     }

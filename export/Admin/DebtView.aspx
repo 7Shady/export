@@ -1,20 +1,21 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admino.Master" AutoEventWireup="true" CodeBehind="CreditView.aspx.cs" Inherits="export.Admin.CreditView" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admino.Master" AutoEventWireup="true" CodeBehind="DebtView.aspx.cs" Inherits="export.Admin.DebtView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMiddle" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderMiddle" runat="server">
+
+      <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 <div class="">
 <div class="page-title">
     <div class="title_left">
-        <h3>Credit Insurance Cover <small></small>
+        <h3>Buyer Financial Reports <small></small>
         </h3>
     </div>
 
-    <div class="title_right">s
+    <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span clas="input-group-btn">
+                <input type="text" class="form-control" placeholder="Search for..." />
+                <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Go!</button>
                 </span>
             </div>
@@ -60,9 +61,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td class="bg-green-light">Credit Id</td>
+                                    <td class="bg-green-light">Debt Id</td>
                                     <td>
-                                        <asp:Label ID="LabelCreditId" runat="server"></asp:Label>
+                                        <asp:Label ID="LabelDebtId" runat="server"></asp:Label>
                                     </td>
 
                                     <td class="bg-green-light">Name of the Buyer</td>
@@ -98,13 +99,11 @@
                                 </tr>
 
                                 <tr>
-
-
                                     <td class="bg-green-light">Description </td>
                                     <td>
                                         <asp:Label ID="LabelDescription" runat="server"></asp:Label>
                                     </td>
-                                    <td class="bg-green-light">Value of the Consignment</td>
+                                    <td class="bg-green-light">Value of the Consignment<</td>
                                     <td>
                                         <asp:Label ID="LabelConsig" runat="server"></asp:Label>
                                     </td>
@@ -112,15 +111,34 @@
                                 <tr>
 
 
-                                    <td class="bg-green-light">Terms of Delivery </td>
-                                    <td>
-                                        <asp:Label ID="LabelDelivery" runat="server"></asp:Label>
-                                    </td>
-                                    <td class="bg-green-light">Terms of Payment</td>
-                                    <td>
-                                        <asp:Label ID="LabelPayment" runat="server"></asp:Label>
-                                    </td>
-                                </tr>
+<td class="bg-green-light">Terms of Delivery </td>
+<td><asp:Label ID="LabelDelivery" runat="server" ></asp:Label>
+</td>
+<td class="bg-green-light">Terms of Payment</td>
+<td><asp:Label ID="LabelPayment" runat="server" ></asp:Label>
+</td>
+</tr>
+
+  <tr>
+
+
+<td class="bg-green-light">Delivery Done On</td>
+<td><asp:Label ID="LabelDeliveryDone" runat="server" ></asp:Label>
+</td>
+<td class="bg-green-light">Payment Due Date</td>
+<td><asp:Label ID="LabelPaymentDue" runat="server" ></asp:Label>
+</td>
+</tr>
+
+     <tr>
+<td class="bg-green-light">Remarks</td>
+<td><asp:Label ID="LabelRemarks" runat="server" ></asp:Label>
+</td>
+<td class="bg-green-light"></td>
+<td>
+</td>
+</tr>
+
 
                                 <tr>
                                     <td class="bg-green-light">Status</td>
@@ -133,16 +151,12 @@
                                             <asp:ListItem>Approved</asp:ListItem>
                                             <asp:ListItem>Rejected</asp:ListItem>
                                         </asp:DropDownList>
-
-
                                     </td>
-
 
                                     <td class="bg-green-light">AttachmentPath</td>
                                     <td>
                                         <div>
                                             <asp:Button ID="ButtonDload" runat="server" Text="Download" CssClass="btn btn-info btn-xs" OnClick="ButtonDload_Click" />
-
                                             <input type="hidden" value="" />
                                         </div>
                                     </td>
@@ -163,7 +177,7 @@
                         </table>
                     </div>
                     <div style="text-align: center;">
-                        <asp:Button ID="Update" CssClass="btn btn-sm btn-primary" runat="server" Text="Update" OnClick="Update_Click" />
+                        <asp:Button ID="Update" CssClass="btn btn-sm btn-primary" runat="server" Text="Update" OnClick="Update_Click" Enabled="False" />
                         <a href="Dashboard.aspx" class="btn btn-sm btn-primary">Back </a>
                         <br />
                     </div>
@@ -177,6 +191,8 @@
 </div>
 
 </div>
+
+
 
 </asp:Content>
 

@@ -23,7 +23,7 @@
                             </ItemTemplate>
                             <ItemStyle Width="4%" />
                         </asp:TemplateField>
-                        <%--<asp:BoundField DataField="ClientId" HeaderText="Client ID" SortExpression="AuditId" ItemStyle-Width="20%" />--%>
+                        <asp:BoundField DataField="ClientId" HeaderText="Client ID" SortExpression="AuditId" ItemStyle-Width="20%" />
                         <asp:BoundField DataField="AuditId" HeaderText="ID" SortExpression="AuditId" ItemStyle-Width="20%" />
                         <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-Width="20%" />
                         <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" ItemStyle-Width="16%" />

@@ -23,6 +23,7 @@
                         </ItemTemplate>
                         <ItemStyle Width="4%" />
                     </asp:TemplateField>
+                    <asp:BoundField DataField="ClientId" HeaderText="Client ID" SortExpression="BuyerId" ItemStyle-Width="20%" />
                     <asp:BoundField DataField="CreditId" HeaderText="ID" SortExpression="CreditId" ItemStyle-Width="20%" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-Width="20%" />
                     <asp:BoundField DataField="ValueofConsignment" HeaderText="ValueofConsignment" SortExpression="ValueofConsignment" ItemStyle-Width="16%" />
@@ -38,7 +39,6 @@
                 <HeaderStyle CssClass="industryid" />
                 <RowStyle HorizontalAlign="Center" CssClass="gd-border" />
                 <EmptyDataRowStyle Font-Size="18" />
-
             </asp:GridView>
 
 

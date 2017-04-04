@@ -11,28 +11,28 @@ using System.Data.SqlClient;
 
 namespace export.Admin
 {
-    public partial class CreditView : System.Web.UI.Page
+    public partial class DebtView : System.Web.UI.Page
     {
         gt_dal obj_gt_dal = new gt_dal();
         DataTable Pdt = new DataTable();
-        string creditid = string.Empty;
+        string debtid = string.Empty;
 
         public void ExeOnPageLoad()
-        {           
-            if (!string.IsNullOrEmpty(Session["CreditId"] as string))
+        {
+            if (!string.IsNullOrEmpty(Session["DebtId"] as string))
             {
-                creditid = Session["CreditId"].ToString();
+                debtid = Session["DebtId"].ToString();
 
                 SqlParameter param1 = obj_gt_dal.SqlParam("@ClientId", "", SqlDbType.VarChar);
-                SqlParameter param2 = obj_gt_dal.SqlParam("@CreditId", creditid, SqlDbType.VarChar);
+                SqlParameter param2 = obj_gt_dal.SqlParam("@DebtId", debtid, SqlDbType.VarChar);
                 SqlParameter param3 = obj_gt_dal.SqlParam("@ModeType", "Full", SqlDbType.VarChar);
 
-                Pdt = obj_gt_dal.FunDataTableSP("ust_rscredit", param1, param2, param3);
+                Pdt = obj_gt_dal.FunDataTableSP("ust_rsdebt", param1, param2, param3);
                 if (Pdt.Rows.Count != 0)
                 {
                     LabelClientId.Text = (Pdt.Rows[0]["ClientId"].ToString());
-                    LabelCName.Text= (Pdt.Rows[0]["ClientNameReg"].ToString());
-                    LabelCreditId.Text = (Pdt.Rows[0]["CreditId"].ToString());
+                    LabelCName.Text = (Pdt.Rows[0]["ClientNameReg"].ToString());
+                    LabelDebtId.Text = (Pdt.Rows[0]["DebtId"].ToString());
                     LabelBName.Text = (Pdt.Rows[0]["Name"].ToString());
                     LabelCountry.Text = (Pdt.Rows[0]["Country"].ToString());
                     LabelState.Text = (Pdt.Rows[0]["State"].ToString());
@@ -42,6 +42,9 @@ namespace export.Admin
                     LabelConsig.Text = (Pdt.Rows[0]["ValueofConsignment"].ToString());
                     LabelDelivery.Text = (Pdt.Rows[0]["TermsofDelivery"].ToString());
                     LabelPayment.Text = (Pdt.Rows[0]["TermsofPayment"].ToString());
+                    LabelDeliveryDone.Text = (Pdt.Rows[0]["DeliveryDone"].ToString());
+                    LabelPaymentDue.Text = (Pdt.Rows[0]["PaymentDate"].ToString());
+                    LabelRemarks.Text = (Pdt.Rows[0]["Remarks"].ToString());
                     LabelSatus.Text = (Pdt.Rows[0]["Status"].ToString());
 
                     switch (LabelSatus.Text)
@@ -85,12 +88,12 @@ namespace export.Admin
 
         protected void Update_Click(object sender, EventArgs e)
         {
-            SqlParameter param1 = obj_gt_dal.SqlParam("@CreditId", creditid, SqlDbType.VarChar);
+            SqlParameter param1 = obj_gt_dal.SqlParam("@DebtId", debtid, SqlDbType.VarChar);
             string status = DropDownStatus.SelectedValue.ToString();
             if (DropDownStatus.SelectedValue.ToString() == "Rejected") status = "Declined";
             SqlParameter param2 = obj_gt_dal.SqlParam("@Status", status, SqlDbType.VarChar);
 
-            int CheckSuc = obj_gt_dal.FunExecuteNonQuerySP("ust_creditstatus", param1, param2);
+            int CheckSuc = obj_gt_dal.FunExecuteNonQuerySP("ust_debtstatus", param1, param2);
 
             if (CheckSuc > 0)
             {
@@ -104,6 +107,5 @@ namespace export.Admin
             else Response.Write("<script>alert('I afaid something went wrong! Please try again.');</script>");
         }
 
-       
     }
 }

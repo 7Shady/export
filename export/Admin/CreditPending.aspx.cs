@@ -22,9 +22,11 @@ namespace export.Admin
         {
             gridloadadmin_obj.LoadGrid("ust_admincredit", "ShortPending", "@CreditId", GridViewCICP);
         }
+
         protected void GridViewCICP_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Session["CreditId"] = GridViewCICP.SelectedRow.Cells[1].Text;
+            Session["CreditId"] = GridViewCICP.SelectedRow.Cells[2].Text;
+            Response.Write(GridViewCICP.SelectedRow.Cells[2].Text);
             Response.Redirect("CreditView.aspx");
         }
     }

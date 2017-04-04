@@ -9,7 +9,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Debt Collection  <small>Completed Assignments</small></h2>
+                <h2>Debt Collection  <small>Pending Assignments</small></h2>
 
                 <div class="clearfix"></div>
             </div>
@@ -23,6 +23,7 @@
                         </ItemTemplate>
                         <ItemStyle Width="4%" />
                     </asp:TemplateField>
+                    <asp:BoundField DataField="ClientId" HeaderText="Client ID" SortExpression="DebtId" ItemStyle-Width="20%" />
                     <asp:BoundField DataField="DebtId" HeaderText="ID" SortExpression="DebtId" ItemStyle-Width="20%" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-Width="20%" />
                     <asp:BoundField DataField="ValueofConsignment" HeaderText="ValueofConsignment" SortExpression="ValueofConsignment" ItemStyle-Width="16%" />
