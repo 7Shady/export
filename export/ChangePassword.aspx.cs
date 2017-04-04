@@ -17,7 +17,7 @@ namespace export
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
-                PanelCP.GroupingText = "Email: "+ HttpContext.Current.User.Identity.Name;
+                PanelCP.GroupingText = "Username: "+ HttpContext.Current.User.Identity.Name;
             else
                 Response.Redirect("login.aspx");
         }

@@ -101,7 +101,7 @@ namespace export.Admin
                 Update.Enabled = false;
                 Response.Write("<script>alert('Profile updated successfully!');</script>");
             }
-            else Response.Write("<script>alert('I afaid something went wrong! Please try again.');</script>");
+            else Response.Write("<script>alert('Something went wrong! Please try again.');</script>");
         }
     }
 }

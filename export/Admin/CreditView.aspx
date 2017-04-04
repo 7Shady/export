@@ -10,11 +10,11 @@
         </h3>
     </div>
 
-    <div class="title_right">s
+    <div class="title_right">
         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for...">
-                <span clas="input-group-btn">
+                <input type="text" class="form-control" placeholder="Search for..." />
+                <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Go!</button>
                 </span>
             </div>
@@ -163,7 +163,7 @@
                         </table>
                     </div>
                     <div style="text-align: center;">
-                        <asp:Button ID="Update" CssClass="btn btn-sm btn-primary" runat="server" Text="Update" OnClick="Update_Click" />
+                        <asp:Button ID="Update" Enabled="false" CssClass="btn btn-sm btn-primary" runat="server" Text="Update" OnClick="Update_Click" />
                         <a href="Dashboard.aspx" class="btn btn-sm btn-primary">Back </a>
                         <br />
                     </div>

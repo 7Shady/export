@@ -174,7 +174,7 @@ namespace export
                     Response.Write("<script>alert('Profile updated successfully!');</script>");
                     BindOnPageLoad();
                 }
-                else Response.Write("<script>alert('I afaid something went wrong! Please try again.');</script>");
+                else Response.Write("<script>alert('Something went wrong! Please try again.');</script>");
             }
         }      
 
