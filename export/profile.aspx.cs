@@ -185,10 +185,10 @@ namespace export
         
         protected void ButtonDownload_Click(object sender, EventArgs e)
         {
-            SqlParameter Uid = gt_dal_obj.SqlParam("@ClientId", clientid, SqlDbType.VarChar);
-            SqlParameter Uemail = gt_dal_obj.SqlParam("@Email", "", SqlDbType.VarChar);
+            SqlParameter Uname = gt_dal_obj.SqlParam("@UserName", "", SqlDbType.VarChar);
+            SqlParameter Cid = gt_dal_obj.SqlParam("@ClientId", clientid, SqlDbType.VarChar);
             SqlParameter Qmode = gt_dal_obj.SqlParam("@ModeType", "Doc", SqlDbType.VarChar);
-            DataTable Ddt = gt_dal_obj.FunDataTableSP("ust_selectprofile ", Uid, Uemail, Qmode);
+            DataTable Ddt = gt_dal_obj.FunDataTableSP("ust_selectprofile ", Cid, Uname, Qmode);
 
             if (Ddt.Rows[0]["AttachProfile"] != DBNull.Value)
                 gt_dal_obj.DocDownload(Ddt, "AttachProfile", "AttachProfileContentType", "AttachProfileName");

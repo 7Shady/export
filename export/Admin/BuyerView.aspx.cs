@@ -69,6 +69,9 @@ namespace export.Admin
             {
                 obj_gt_dal.DocDownload(Pdt, "AttachedFile", "AttachProfileContentType", "AttachProfileName");
             }
+            else
+                Response.Write("<script>alert('Not uploaded yet!');</script>");
+                          
         }
 
         protected void edit_Click(object sender, EventArgs e)
